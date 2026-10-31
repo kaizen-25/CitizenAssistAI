@@ -1040,5 +1040,534 @@
       "verified_by": "claude",
       "verified_on": "2026-10-31"
     }
+  },
+  {
+    "scheme_id": "edu_007",
+    "name": {
+      "en": "Pre-Matric Scholarship for Scheduled Tribe Students in Classes IX and X"
+    },
+    "level": "central",
+    "state": null,
+    "category": "education",
+    "department": "Ministry of Tribal Affairs",
+    "summary": "A Centrally Sponsored Scheme granting scholarship to ST students studying in classes IX and X.",
+    "benefits": "Day scholars get Rs. 225 per month for 10 months and Rs. 750 for books and ad hoc grant. Hostellers get Rs. 525 per month for 10 months and Rs. 1000. An extra disability allowance applies.",
+    "rules": [
+      {
+        "rule_id": "edu_007_r1",
+        "field": "social_category",
+        "operator": "eq",
+        "value": "ST",
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "Applicant student should belong to the Scheduled Tribe, so specified in relation to the State/Union Territory to which he/she actually belongs (Domicile State)."
+      },
+      {
+        "rule_id": "edu_007_r2",
+        "field": "annual_family_income",
+        "operator": "lte",
+        "value": 250000,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "The family income of student from all sources should not exceed Rs. 2.5 lakh per annum."
+      },
+      {
+        "rule_id": "edu_007_r3",
+        "field": "currently_enrolled",
+        "operator": "eq",
+        "value": true,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "The student should be studying in a Government School or in a School recognized by Government or a Central/State Board of Secondary Education."
+      },
+      {
+        "rule_id": "edu_007_r4",
+        "field": "course_level",
+        "operator": "eq",
+        "value": "pre_matric",
+        "applies_if": {
+          "field": "currently_enrolled",
+          "operator": "eq",
+          "value": true
+        },
+        "kind": "hard",
+        "source_excerpt": "It is a Centrally Sponsored Scheme implemented by Ministry of Tribal Affairs to grant scholarship to eligible ST students for pursuing education in Classes IX and X."
+      },
+      {
+        "rule_id": "edu_007_r5",
+        "kind": "manual_check",
+        "source_excerpt": "It is a Centrally Sponsored Scheme implemented by Ministry of Tribal Affairs to grant scholarship to eligible ST students for pursuing education in Classes IX and X."
+      },
+      {
+        "rule_id": "edu_007_r6",
+        "kind": "manual_check",
+        "source_excerpt": "The student should not be getting any other scholarship."
+      },
+      {
+        "rule_id": "edu_007_r7",
+        "kind": "manual_check",
+        "source_excerpt": "The student should have a valid account in a Scheduled Bank, linked with Aadhaar and mobile number."
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "aadhaar_card",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "residence_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "caste_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "income_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "disability_certificate",
+        "requirement": "mandatory",
+        "applies_if": {
+          "field": "has_disability",
+          "operator": "eq",
+          "value": true
+        }
+      },
+      {
+        "document_id": "passport_photo",
+        "requirement": "mandatory",
+        "applies_if": null
+      }
+    ],
+    "unmapped_conditions": [
+      "In case of an orphan, supported by a guardian, income criteria shall not apply.",
+      "The States/UTs can opt for National Scholarship Portal for inviting such applications.",
+      "These guidelines cover 2021-22 to 2025-26."
+    ],
+    "application_url": "https://www.scholarships.gov.in",
+    "application_mode": [
+      "online"
+    ],
+    "source": {
+      "url": "https://twd.tripura.gov.in/sites/default/files/Revised_Guidelines_0.pdf",
+      "title": "Pre-Matric Scholarship for ST students in classes IX and X, Ministry of Tribal Affairs",
+      "published": null,
+      "retrieved_on": "2026-10-31",
+      "file": "sources/pre_matric_st.pdf"
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "claude",
+      "verified_on": "2026-10-31"
+    }
+  },
+  {
+    "scheme_id": "edu_008",
+    "name": {
+      "en": "Post Matric Scholarship for Scheduled Caste Students (PMS-SC)"
+    },
+    "level": "central",
+    "state": null,
+    "category": "education",
+    "department": "Department of Social Justice and Empowerment",
+    "summary": "Financial assistance for Scheduled Caste students at the post-matriculation or post-secondary stage.",
+    "benefits": "Non-refundable fees and a yearly academic allowance of Rs. 2500 to Rs. 13500, depending on the course group and on being a hosteller or day scholar. Ten percent extra allowance for Divyang students.",
+    "rules": [
+      {
+        "rule_id": "edu_008_r1",
+        "field": "social_category",
+        "operator": "eq",
+        "value": "SC",
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "Only those candidates who belong to Scheduled Castes so specified in relation to the State/Union Territory to which the applicant actually belongs /domiciled as determined by the State/UT"
+      },
+      {
+        "rule_id": "edu_008_r2",
+        "field": "annual_family_income",
+        "operator": "lte",
+        "value": 250000,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "Scholarships will be paid to the students whose parents’/guardians' income from all sources does not exceed Rs. 2,50,000/- (Rupees Two lakh Fifty thousand only) during the last Financial Year."
+      },
+      {
+        "rule_id": "edu_008_r3",
+        "field": "currently_enrolled",
+        "operator": "eq",
+        "value": true,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "providing financial assistance at post-matriculation"
+      },
+      {
+        "rule_id": "edu_008_r4",
+        "field": "course_level",
+        "operator": "in",
+        "value": [
+          "post_matric",
+          "undergraduate",
+          "postgraduate"
+        ],
+        "applies_if": {
+          "field": "currently_enrolled",
+          "operator": "eq",
+          "value": true
+        },
+        "kind": "hard",
+        "source_excerpt": "providing financial assistance at post-matriculation"
+      },
+      {
+        "rule_id": "edu_008_r5",
+        "kind": "manual_check",
+        "source_excerpt": "have passed the Matriculation or Higher Secondary or any higher examination of a recognized University or Board of Secondary Education will be eligible."
+      },
+      {
+        "rule_id": "edu_008_r6",
+        "kind": "manual_check",
+        "source_excerpt": "A scholarship holder under this scheme will not hold any other scholarship/stipend."
+      },
+      {
+        "rule_id": "edu_008_r7",
+        "kind": "manual_check",
+        "source_excerpt": "Candidates who, after passing one stage of education are studying in the same stage of education in a different subject"
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "income_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "caste_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "marksheet_previous",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "passport_photo",
+        "requirement": "mandatory",
+        "applies_if": null
+      }
+    ],
+    "unmapped_conditions": [
+      "The scholarship is awarded by the State/UT of domicile through its scholarship portal, so the portal may differ from the National Scholarship Portal linked here.",
+      "These guidelines cover 2020-2021 to 2025-26."
+    ],
+    "application_url": "https://www.scholarships.gov.in",
+    "application_mode": [
+      "online"
+    ],
+    "source": {
+      "url": "https://scholarships.gov.in/public/schemeGuidelines/Manipur_state_scheme/manipur_3032_G.pdf",
+      "title": "Post Matric Scholarship for SC students guidelines, Department of Social Justice and Empowerment",
+      "published": null,
+      "retrieved_on": "2026-10-31",
+      "file": "sources/post_matric_sc.pdf"
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "claude",
+      "verified_on": "2026-10-31"
+    }
+  },
+  {
+    "scheme_id": "soc_007",
+    "name": {
+      "en": "Punjab Financial Assistance to Persons with Disabilities"
+    },
+    "level": "state",
+    "state": "Punjab",
+    "category": "social_welfare",
+    "department": "Department of Social Security and Women & Child Development, Punjab",
+    "summary": "A monthly pension in Punjab for persons with disabilities who are unable to earn their livelihood.",
+    "benefits": "Rs. 1500 per month.",
+    "rules": [
+      {
+        "rule_id": "soc_007_r1",
+        "field": "state",
+        "operator": "eq",
+        "value": "Punjab",
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "Department of Social Security And Women & Child Development, Government of Punjab, India"
+      },
+      {
+        "rule_id": "soc_007_r2",
+        "field": "has_disability",
+        "operator": "eq",
+        "value": true,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "financial assistance is granted to blinds, handicapped, deaf and dumb and mentally retarded persons who are unable to earn their livelihood."
+      },
+      {
+        "rule_id": "soc_007_r3",
+        "field": "annual_family_income",
+        "operator": "lte",
+        "value": 60000,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "Total annual income should not be more than Rs. 60,000/- including business or rental or interest income."
+      },
+      {
+        "rule_id": "soc_007_r4",
+        "kind": "manual_check",
+        "source_excerpt": "Handicapped persons who have less than 50% disability will not be eligible for financial assistance."
+      },
+      {
+        "rule_id": "soc_007_r5",
+        "kind": "manual_check",
+        "source_excerpt": "financial assistance is granted to blinds, handicapped, deaf and dumb and mentally retarded persons who are unable to earn their livelihood."
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "disability_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      }
+    ],
+    "unmapped_conditions": [
+      "Mentally disabled persons are, however, eligible irrespective of disability.",
+      "Aadhaar card or voter card or voter list or matriculation certificate or birth certificate issued by Registrar of Birth and Death Department as the proof regarding age."
+    ],
+    "application_url": null,
+    "application_mode": [
+      "offline"
+    ],
+    "source": {
+      "url": "https://sswcd.punjab.gov.in/en/node/5650",
+      "title": "Punjab Financial Assistance to Persons with Disabilities",
+      "published": null,
+      "retrieved_on": "2026-10-31",
+      "file": "sources/pb_disability_assistance.html"
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "claude",
+      "verified_on": "2026-10-31"
+    }
+  },
+  {
+    "scheme_id": "soc_008",
+    "name": {
+      "en": "Punjab Financial Assistance to Dependent Children"
+    },
+    "level": "state",
+    "state": "Punjab",
+    "category": "social_welfare",
+    "department": "Department of Social Security and Women & Child Development, Punjab",
+    "summary": "A monthly pension in Punjab for children below 21 whose parents have died, are regularly absent or cannot look after the family. Answer the age question with the child's age.",
+    "benefits": "Rs. 1500 per month.",
+    "rules": [
+      {
+        "rule_id": "soc_008_r1",
+        "field": "state",
+        "operator": "eq",
+        "value": "Punjab",
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "Department of Social Security And Women & Child Development, Government of Punjab, India"
+      },
+      {
+        "rule_id": "soc_008_r2",
+        "field": "age",
+        "operator": "lt",
+        "value": 21,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "children below the age of 21 years, whose mother/father or both have passed away or parents regularly absent from home"
+      },
+      {
+        "rule_id": "soc_008_r3",
+        "field": "annual_family_income",
+        "operator": "lte",
+        "value": 60000,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "Total annual income should not be more than Rs. 60,000/- including business or rental or interest income."
+      },
+      {
+        "rule_id": "soc_008_r4",
+        "kind": "manual_check",
+        "source_excerpt": "children below the age of 21 years, whose mother/father or both have passed away or parents regularly absent from home"
+      }
+    ],
+    "documents": [],
+    "unmapped_conditions": [
+      "Aadhaar card or voter card or voter list or matriculation certificate or birth certificate issued by Registrar of Birth and Death Department as the proof regarding age.",
+      "Age proof of children"
+    ],
+    "application_url": null,
+    "application_mode": [
+      "offline"
+    ],
+    "source": {
+      "url": "https://sswcd.punjab.gov.in/en/financial-assistance-to-dependent-children-0",
+      "title": "Punjab Financial Assistance to Dependent Children",
+      "published": null,
+      "retrieved_on": "2026-10-31",
+      "file": "sources/pb_dependent_children.html"
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "claude",
+      "verified_on": "2026-10-31"
+    }
+  },
+  {
+    "scheme_id": "soc_009",
+    "name": {
+      "en": "Pradhan Mantri Matru Vandana Yojana (PMMVY)"
+    },
+    "level": "central",
+    "state": null,
+    "category": "social_welfare",
+    "department": "Ministry of Women and Child Development",
+    "summary": "Maternity benefit for pregnant women and lactating mothers from socially and economically disadvantaged sections.",
+    "benefits": "Rs. 5000 in two instalments for the first child. Rs. 6000 for the second child if she is a girl.",
+    "rules": [
+      {
+        "rule_id": "soc_009_r1",
+        "field": "gender",
+        "operator": "eq",
+        "value": "female",
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "financial support for pregnant and lactating mothers"
+      },
+      {
+        "rule_id": "soc_009_r5",
+        "field": "pregnant_or_lactating",
+        "operator": "eq",
+        "value": true,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "financial support for pregnant and lactating mothers"
+      },
+      {
+        "rule_id": "soc_009_r2",
+        "kind": "manual_check",
+        "source_excerpt": "The benefit is available to a woman for the first two living children provided the second child is a girl."
+      },
+      {
+        "rule_id": "soc_009_r3",
+        "kind": "manual_check",
+        "source_excerpt": "The criteria for determining socially and economically disadvantaged sections of society will be the following:"
+      },
+      {
+        "rule_id": "soc_009_r4",
+        "kind": "manual_check",
+        "source_excerpt": "all pregnant women and lactating mothers in regular employment with the central Government or State Government or public Sector Undertaking"
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "mcp_card",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "aadhaar_card",
+        "requirement": "optional",
+        "applies_if": null
+      },
+      {
+        "document_id": "bank_passbook",
+        "requirement": "mandatory",
+        "applies_if": null
+      }
+    ],
+    "unmapped_conditions": [
+      "Women belonging to scheduled castes and scheduled tribes",
+      "Women who are partially (40%) or fully disabled (Divyang Jan)",
+      "Women holder of BPL ration Card",
+      "Women Beneficiaries under PradhanMantri Jan AarogyaYojana (PMJAY) under Ayushman Bharat.",
+      "Women holding E-shram card",
+      "Women farmers who are beneficiaries under KishanSammanNidhi",
+      "Women holding MGNREGA Job Card",
+      "Women whose net family income is less than Rs. 8 Lakh per annum",
+      "Pregnant and Lactating AWWs/ AWHs/ ASHAs",
+      "Proof of Identity of Beneficiary (Aadhaar Card or permitted Alternate ID Proof)",
+      "Register at the Anganwadi Centre or approved Health facility, or on the PMMVY portal named in the PIB note of August 24, 2025."
+    ],
+    "application_url": "https://pmmvy.wcd.gov.in/",
+    "application_mode": [
+      "online",
+      "offline"
+    ],
+    "source": {
+      "url": "https://missionshakti.wcd.gov.in/public/documents/whatsnew/Mission_Shakti_Guidelines.pdf",
+      "title": "Mission Shakti guidelines, Ministry of Women and Child Development",
+      "published": null,
+      "retrieved_on": "2026-10-31",
+      "file": "sources/mission_shakti_guidelines.pdf"
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "claude",
+      "verified_on": "2026-10-31"
+    }
+  },
+  {
+    "scheme_id": "soc_010",
+    "name": {
+      "en": "Ayushman Bharat PM-JAY for Senior Citizens Aged 70 and Above"
+    },
+    "level": "central",
+    "state": null,
+    "category": "social_welfare",
+    "department": "Ministry of Health and Family Welfare",
+    "summary": "Free health insurance cover for all senior citizens aged 70 and above, regardless of income.",
+    "benefits": "Cover of up to Rs 5 lakh per year. Seniors in families already covered get a separate top-up of up to Rs 5 lakh per year.",
+    "rules": [
+      {
+        "rule_id": "soc_010_r1",
+        "field": "age",
+        "operator": "gte",
+        "value": 70,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "all senior citizens aged 70 and above will receive health coverage, regardless of their income."
+      },
+      {
+        "rule_id": "soc_010_r2",
+        "kind": "manual_check",
+        "source_excerpt": "will receive a new, distinct card"
+      }
+    ],
+    "documents": [],
+    "unmapped_conditions": [
+      "Senior citizens who are covered by private health insurance policies or the Employees’ State Insurance scheme are also eligible to benefit from AB PM-JAY",
+      "The enrolment link is the National Health Authority beneficiary portal, which this source does not name."
+    ],
+    "application_url": "https://beneficiary.nha.gov.in/",
+    "application_mode": [
+      "online"
+    ],
+    "source": {
+      "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2024/sep/doc2024912393201.pdf",
+      "title": "Ayushman Bharat Becomes Bigger, Press Information Bureau",
+      "published": null,
+      "retrieved_on": "2026-10-31",
+      "file": "sources/ayushman_70_plus.pdf"
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "claude",
+      "verified_on": "2026-10-31"
+    }
   }
 ]

@@ -79,7 +79,7 @@ def test_seed_files_match_models():
         DocumentDef.model_validate(definition)
 
     assert len({field.field_id for field in parsed}) == len(parsed)
-    assert {f.field_id for f in parsed if f.sensitive} == {"gender", "social_category", "has_disability"}
+    assert {f.field_id for f in parsed if f.sensitive} == {"gender", "social_category", "has_disability", "pregnant_or_lactating"}
     assert all(f.allow_prefer_not_to_say for f in parsed if f.sensitive)
     assert len({f.ask_priority for f in parsed}) == len(parsed)
 

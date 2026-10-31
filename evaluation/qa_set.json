@@ -18,5 +18,15 @@
   {"id": "q17", "language": "hi", "type": "out_of_scope", "question": "आज मौसम कैसा रहेगा?"},
   {"id": "q18", "language": "en", "type": "not_in_sources", "question": "What is the last date to apply for the PM-USP scholarship this year?"},
   {"id": "q19", "language": "en", "type": "not_in_sources", "question": "What is the phone number of the Ludhiana scholarship officer?"},
-  {"id": "q20", "language": "en", "type": "not_in_sources", "question": "How many students received the PM-USP scholarship in Punjab last year?"}
+  {"id": "q20", "language": "en", "type": "not_in_sources", "question": "How many students received the PM-USP scholarship in Punjab last year?"},
+  {"id": "q21", "language": "en", "type": "answerable", "question": "How much is the Punjab pension for persons with disabilities per month?"},
+  {"id": "q22", "language": "en", "type": "answerable", "question": "What is the income limit for the Post Matric Scholarship for Scheduled Caste students?"},
+  {"id": "q23", "language": "en", "type": "answerable", "question": "How much money does PMMVY give for the first child?"},
+  {"id": "q24", "language": "en", "type": "answerable", "question": "What age makes a senior citizen eligible for Ayushman Bharat PM-JAY regardless of income?"},
+  {"id": "q25", "language": "hi", "type": "answerable", "question": "पंजाब में आश्रित बच्चों की सहायता के लिए आयु सीमा क्या है?"},
+  {"id": "q26", "language": "hi", "type": "answerable", "question": "मातृ वंदना योजना में पहले बच्चे के लिए कितनी राशि मिलती है?"},
+  {"id": "q27", "language": "hi", "type": "answerable", "question": "अनुसूचित जनजाति के छात्रों की प्री-मैट्रिक छात्रवृत्ति के लिए आय सीमा क्या है?"},
+  {"id": "q28", "language": "hi", "type": "answerable", "question": "आयुष्मान भारत में वरिष्ठ नागरिकों को कितना स्वास्थ्य बीमा मिलता है?"},
+  {"id": "q29", "language": "hi", "type": "out_of_scope", "question": "भारत का प्रधानमंत्री कौन है?"},
+  {"id": "q30", "language": "en", "type": "not_in_sources", "question": "How many women in Ludhiana received PMMVY last year?"}
 ]

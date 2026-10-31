@@ -439,7 +439,8 @@
       "marital_status": "Marital status",
       "gender": "Gender",
       "social_category": "Social category",
-      "has_disability": "Has a disability"
+      "has_disability": "Has a disability",
+      "pregnant_or_lactating": "Pregnant or breastfeeding"
     },
     "documents": {
       "aadhaar_card": "Aadhaar Card",
@@ -453,7 +454,8 @@
       "ration_card": "Ration Card",
       "self_declaration": "Self Declaration",
       "passport_photo": "Passport-size Photo",
-      "fee_receipt": "Fee Receipt"
+      "fee_receipt": "Fee Receipt",
+      "mcp_card": "Mother and Child Protection Card"
     }
   },
   "disclaimer": "CitizenAssist is an independent informational tool. It is not affiliated with any government body and cannot approve applications. Always confirm with the official source."

@@ -567,5 +567,26 @@
       "hi": "क्या आप दिव्यांग हैं?",
       "pa": ""
     }
+  },
+  {
+    "field_id": "pregnant_or_lactating",
+    "type": "boolean",
+    "options": null,
+    "unit": null,
+    "min": null,
+    "max": null,
+    "sensitive": true,
+    "allow_prefer_not_to_say": true,
+    "ask_priority": 14,
+    "label": {
+      "en": "Pregnant or breastfeeding",
+      "hi": "गर्भवती या स्तनपान कराने वाली",
+      "pa": ""
+    },
+    "question": {
+      "en": "Are you pregnant or breastfeeding a child?",
+      "hi": "क्या आप गर्भवती हैं या शिशु को स्तनपान कराती हैं?",
+      "pa": ""
+    }
   }
 ]

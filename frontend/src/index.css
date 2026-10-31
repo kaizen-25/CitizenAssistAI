@@ -121,6 +121,8 @@
   .route { grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
 }
 
+@page { margin: 14mm; }
+
 @media print {
   .no-print { display: none !important; }
   body { background: var(--color-paper-3); }

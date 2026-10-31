@@ -124,5 +124,17 @@
     "aliases": [],
     "group": "education",
     "issued_by_hint": null
+  },
+  "mcp_card": {
+    "label": {
+      "en": "Mother and Child Protection Card",
+      "hi": "मातृ एवं शिशु सुरक्षा कार्ड",
+      "pa": ""
+    },
+    "aliases": [
+      "mcp card"
+    ],
+    "group": "other",
+    "issued_by_hint": null
   }
 }

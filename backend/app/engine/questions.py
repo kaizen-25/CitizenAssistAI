@@ -46,5 +46,5 @@ def _build_question(field: ProfileField, score: int, lang: str) -> Question:
         answer_type=field.type,
         options=options,
         schemes_affected=score,
-        reason=text(lang, "question_reason").format(n=score),
+        reason=text(lang, "question_reason_one" if score == 1 else "question_reason").format(n=score),
     )

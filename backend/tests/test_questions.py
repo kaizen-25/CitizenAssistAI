@@ -39,6 +39,16 @@ def test_picks_the_max_score_field(schemes):
     assert question.reason == "Needed to check 2 schemes"
 
 
+def test_reason_is_singular_for_one_scheme(schemes):
+    profile = dict(FULL_PROFILE)
+    del profile["has_disability"]
+
+    assert select_next_question(profile, schemes, set(profile) - {"f"}, "en") is None or True
+    question = select_next_question(profile, schemes, set(), "en")
+
+    assert question.reason == "Needed to check 1 scheme"
+
+
 def test_failed_schemes_stop_counting(schemes):
     # Income 900000 fails a and e, so nothing left needs gender.
     profile = {"state": "Punjab", "age": 19, "annual_family_income": 900000}

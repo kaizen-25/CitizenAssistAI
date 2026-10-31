@@ -41,7 +41,7 @@ Set `VITE_USE_FIXTURES=true` in `.env` to run the frontend without the API.
 | --- | --- |
 | `LLM_PROVIDER` | `gemini` (Gemini, then Ollama, then none), `ollama` or `none` |
 | `GEMINI_API_KEY`, `GEMINI_MODEL` | Gemini credentials and model |
-| `OLLAMA_MODEL` | Ollama model, default `qwen3:4b` |
+| `OLLAMA_MODEL` | Ollama model, default `qwen3:8b` |
 | `DEMO_MODE` | `true` serves LLM responses only from the disk cache |
 | `SHOW_UNVERIFIED` | `true` loads unverified records and shows a banner. Dev only |
 | `VITE_API_BASE_URL` | API origin for the frontend |

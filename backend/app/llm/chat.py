@@ -15,6 +15,7 @@ DEADLINE_QUESTION = re.compile(
     re.IGNORECASE,
 )
 REASONING = re.compile(r"\b(?:the question asks|let me|looking at the|the user (?:asks|wants))\b", re.IGNORECASE)
+NOT_IN_EXCERPTS = re.compile(r"\b(?:the|provided|given|these) excerpts?\b.*\b(?:not|no)\b|(?:उद्धरण|अंश).*नहीं", re.IGNORECASE)
 URL = re.compile(r"https?://[^\s)\]>\"']+|www\.[^\s)\]>\"']+")
 
 ANSWER_SYSTEM = """Answer the citizen's question using ONLY the numbered excerpts.
@@ -68,9 +69,9 @@ def answer_is_grounded(answer: str, chunks: list[dict], urls: set[str]) -> bool:
 
 
 def is_real_answer(answer: str, question: str) -> bool:
-    """Reject a model that repeats the question or narrates its reasoning instead of answering."""
+    """Reject a model that repeats the question, narrates its reasoning or says the excerpts lack the answer."""
     words = lambda text: re.findall(r"\w+", CITATION.sub(" ", text).casefold())
-    return words(answer) != words(question) and not REASONING.search(answer)
+    return words(answer) != words(question) and not REASONING.search(answer) and not NOT_IN_EXCERPTS.search(answer)
 
 
 def _citations(chunks: list[dict]) -> list[Citation]:

@@ -53,3 +53,4 @@ It is not a chatbot, and it never approves an application.
 | Validate scheme data | `python scripts/validate_data.py` |
 | Build RAG chunks | `python scripts/build_chunks.py` |
 | Run evaluation | `python scripts/run_evaluation.py` |
+| Warm and replay the demo | `python scripts/warm_demo.py`, then `python scripts/warm_demo.py --replay` |

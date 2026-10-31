@@ -122,6 +122,23 @@ def test_answer_that_narrates_its_reasoning_is_refused(wired, monkeypatch):
     assert answer_question("income limit?", "en").grounded is False
 
 
+@pytest.mark.parametrize("answer", [
+    "The provided excerpts do not specify the number of students. [edu_001_c0]",
+    "The excerpts contain no such figure. [edu_001_c0]",
+    "दिए गए उद्धरणों में यह जानकारी नहीं है। [edu_001_c0]",
+])
+def test_answer_saying_the_excerpts_lack_it_is_refused(wired, monkeypatch, answer):
+    llm(monkeypatch, {"answer": answer})
+
+    assert answer_question("How many students received it?", "en").grounded is False
+
+
+def test_answer_with_not_in_it_is_still_an_answer(wired, monkeypatch):
+    llm(monkeypatch, {"answer": "Income must not exceed 4.5 lakh [edu_001_c0]."})
+
+    assert answer_question("income limit?", "en").grounded is True
+
+
 def test_failed_validation_refuses_with_top_sources(wired, monkeypatch):
     llm(monkeypatch, {"answer": "Up to 9 lakh [edu_001_c0]."})
 

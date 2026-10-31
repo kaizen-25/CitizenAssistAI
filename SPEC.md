@@ -58,7 +58,7 @@ citizenassist/
 | Frontend | React + Vite + TypeScript, Tailwind, lucide-react, react-router-dom, openapi-typescript | No UI kit needed |
 | Fonts | Noto Sans, Noto Sans Devanagari, Noto Sans Gurmukhi (Google Fonts) | Required so Hindi and Punjabi render correctly |
 | Backend | Python 3.11, FastAPI, Pydantic v2, uvicorn, pytest | |
-| LLM | Gemini (`google-genai`, model taken from `GEMINI_MODEL` env) → Ollama (`OLLAMA_MODEL`, default `qwen3:4b`) → none | One interface; automatic fallback |
+| LLM | Gemini (`google-genai`, model taken from `GEMINI_MODEL` env) → Ollama (`OLLAMA_MODEL`, default `qwen3:8b`) → none | One interface; automatic fallback |
 | Retrieval | `rank_bm25` over chunks; LLM translates non-English queries to English first | P1 |
 | Retrieval (P2) | Multilingual embeddings (BGE-M3 or multilingual-e5-small, pre-downloaded), numpy in memory, reciprocal-rank fusion with BM25 | No vector DB at this scale |
 | PDF text | `pypdf` | |
@@ -467,7 +467,7 @@ Only claim the languages that `qa_set.json` and `profiles.json` actually tested.
 | 3 | Verification | Claude verifies each record against its source, with `verified_by: "claude"`. Never call the data human-verified. |
 | 4 | Evaluation labels | Claude labels `profiles.json` and `qa_set.json` from the rules before the engine runs on them. The report and pitch must say the labels are AI-made and not independent. |
 | 5 | Languages | English and Hindi only; Punjabi is cut. Hindi is machine-translated, stays `_reviewed: false`, and the app and pitch say so. |
-| 6 | LLM | Gemini, then Ollama `qwen3:4b`, then none. |
+| 6 | LLM | Default `LLM_PROVIDER=ollama` with `qwen3:8b`, then none. Gemini stays optional because it returned 429 and 503 errors under load. `qwen3:8b` was chosen by benchmark on an 8 GB GPU. |
 | 7 | `manual_check` rules | `field`, `operator` and `value` are optional. `source_excerpt` is required and is the text shown. |
 | 8 | State schemes | Each one carries an explicit hard rule on `state` with a source excerpt. The engine does not read `scheme.state`. |
 | 9 | Unanswered documents | Classified as `unsure`. |

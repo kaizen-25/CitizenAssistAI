@@ -1,51 +1,73 @@
 {
   "date": "2026-10-31",
-  "verified_schemes": 12,
+  "verified_schemes": 18,
   "by_category": {
-    "education": 6,
-    "social_welfare": 6
+    "education": 8,
+    "social_welfare": 10
   },
   "llm_provider": "ollama",
-  "profile_count": 18,
-  "uncovered_cases": [
-    "a missing optional-only doc"
-  ],
+  "profile_count": 28,
+  "uncovered_cases": [],
   "status": {
-    "labels": 91,
+    "labels": 117,
     "accuracy": 1.0,
     "precision_potentially_eligible": 1.0,
     "recall_potentially_eligible": 1.0,
     "confusion": {
       "potentially_eligible": {
-        "potentially_eligible": 34,
+        "potentially_eligible": 44,
         "cannot_determine": 0,
         "not_eligible": 0
       },
       "cannot_determine": {
         "potentially_eligible": 0,
-        "cannot_determine": 10,
+        "cannot_determine": 11,
         "not_eligible": 0
       },
       "not_eligible": {
         "potentially_eligible": 0,
         "cannot_determine": 0,
-        "not_eligible": 47
+        "not_eligible": 62
       }
     },
     "mismatches": []
   },
   "unlock": {
-    "checked": 6,
+    "checked": 8,
     "top1_rate": 1.0,
     "misses": []
   },
   "adaptive": {
-    "mean_questions": 7.055555555555555,
+    "mean_questions": 7.607142857142857,
     "max_questions": 8,
-    "static_form_size": 10,
-    "profiles_with_a_status_difference": 3,
+    "static_form_size": 11,
+    "profiles_with_a_status_difference": 8,
     "status_differences": [
       {
+        "profile": "p01",
+        "scheme": "soc_003",
+        "adaptive": "cannot_determine",
+        "full": "not_eligible"
+      },
+      {
+        "profile": "p03",
+        "scheme": "soc_003",
+        "adaptive": "cannot_determine",
+        "full": "not_eligible"
+      },
+      {
+        "profile": "p04",
+        "scheme": "soc_003",
+        "adaptive": "cannot_determine",
+        "full": "not_eligible"
+      },
+      {
+        "profile": "p06",
+        "scheme": "soc_003",
+        "adaptive": "cannot_determine",
+        "full": "not_eligible"
+      },
+      {
         "profile": "p08",
         "scheme": "soc_003",
         "adaptive": "cannot_determine",
@@ -54,6 +76,12 @@
       {
         "profile": "p08",
         "scheme": "soc_006",
+        "adaptive": "cannot_determine",
+        "full": "not_eligible"
+      },
+      {
+        "profile": "p08",
+        "scheme": "soc_007",
         "adaptive": "cannot_determine",
         "full": "not_eligible"
       },
@@ -70,6 +98,12 @@
         "full": "not_eligible"
       },
       {
+        "profile": "p09",
+        "scheme": "soc_007",
+        "adaptive": "cannot_determine",
+        "full": "not_eligible"
+      },
+      {
         "profile": "p19",
         "scheme": "soc_003",
         "adaptive": "cannot_determine",
@@ -78,6 +112,30 @@
       {
         "profile": "p19",
         "scheme": "soc_006",
+        "adaptive": "cannot_determine",
+        "full": "not_eligible"
+      },
+      {
+        "profile": "p19",
+        "scheme": "soc_007",
+        "adaptive": "cannot_determine",
+        "full": "not_eligible"
+      },
+      {
+        "profile": "p27",
+        "scheme": "soc_006",
+        "adaptive": "cannot_determine",
+        "full": "not_eligible"
+      },
+      {
+        "profile": "p27",
+        "scheme": "soc_007",
+        "adaptive": "cannot_determine",
+        "full": "not_eligible"
+      },
+      {
+        "profile": "p27",
+        "scheme": "soc_009",
         "adaptive": "cannot_determine",
         "full": "not_eligible"
       }
@@ -106,9 +164,11 @@
     "pass_rate": 1.0
   },
   "qa": {
-    "questions": 20,
-    "answerable_answered_rate": 0.6666666666666666,
-    "correct_refusal_rate": 1.0,
+    "questions": 30,
+    "answerable_answered_rate": 1.0,
+    "hindi_answered_rate": 1.0,
+    "extractive_fallbacks": 0,
+    "correct_refusal_rate": 0.9,
     "citation_validity_rate": 1.0,
     "languages": [
       "en",
@@ -120,9 +180,11 @@
         "language": "en",
         "type": "answerable",
         "grounded": true,
-        "answer": "Students with gross parental/family income upto Rs. 4.5 lakh per annum are eligible for scholarship under the scheme. [edu_001_c0]",
+        "answer": "Students with gross parental/family income upto Rs. 4.5 lakh per annum are eligible for scholarship under the scheme. [edu_001_c0] [edu_001_c1]",
+        "extractive": false,
         "citations_valid": true,
         "citations": [
+          "edu_001_c1",
           "edu_001_c0"
         ],
         "retrieved": 50
@@ -132,7 +194,8 @@
         "language": "en",
         "type": "answerable",
         "grounded": true,
-        "answer": "The Punjab old age pension is Rs. 1500 per month. [soc_005_c0]",
+        "answer": "The Punjab old age pension is Rs. 1500 per month [soc_005_c0].",
+        "extractive": false,
         "citations_valid": true,
         "citations": [
           "soc_005_c0"
@@ -143,29 +206,26 @@
         "id": "q03",
         "language": "en",
         "type": "answerable",
-        "grounded": false,
-        "answer": "I cannot verify this from the available official sources.",
+        "grounded": true,
+        "answer": "A woman can get the Punjab old age pension at the age of 58 years and above. [soc_005_c0]",
+        "extractive": false,
         "citations_valid": true,
         "citations": [
-          "soc_005_c0",
-          "soc_001_c4",
-          "soc_001_c5"
+          "soc_005_c0"
         ],
-        "retrieved": 22
+        "retrieved": 50
       },
       {
         "id": "q04",
         "language": "en",
         "type": "answerable",
         "grounded": true,
-        "answer": "The family income of student from all sources should not exceed Rs.2.50 lakh per annum. [edu_003_c0] [edu_003_c1] [edu_003_c2] [edu_003_c4] [edu_004_c15]",
+        "answer": "The family income of the student from all sources should not exceed Rs.2.50 lakh per annum. [edu_003_c0] [edu_003_c1]",
+        "extractive": false,
         "citations_valid": true,
         "citations": [
           "edu_003_c0",
-          "edu_003_c1",
-          "edu_003_c4",
-          "edu_004_c15",
-          "edu_003_c2"
+          "edu_003_c1"
         ],
         "retrieved": 50
       },
@@ -174,7 +234,8 @@
         "language": "en",
         "type": "answerable",
         "grounded": true,
-        "answer": "The PM YASASVI pre-matric scholarship gives a consolidated academic allowance of Rs. 4000 per annum. [edu_004_c0]",
+        "answer": "The PM YASASVI Pre-Matric Scholarship provides a consolidated academic allowance of Rs. 4000 per annum [edu_004_c0].",
+        "extractive": false,
         "citations_valid": true,
         "citations": [
           "edu_004_c0"
@@ -186,11 +247,11 @@
         "language": "en",
         "type": "answerable",
         "grounded": true,
-        "answer": "The lump sum family benefit under the National Family Benefit Scheme (NFBS) is Rs. 10000 in case of death of the primary breadwinner due to natural or accidental causes. [soc_004_c0] [soc_001_c6]",
+        "answer": "The lump sum under the National Family Benefit Scheme is Rs. 10000/- in case of death of the primary breadwinner due to natural or accidental causes [soc_004_c0].",
+        "extractive": false,
         "citations_valid": true,
         "citations": [
-          "soc_004_c0",
-          "soc_001_c6"
+          "soc_004_c0"
         ],
         "retrieved": 50
       },
@@ -199,24 +260,24 @@
         "language": "en",
         "type": "answerable",
         "grounded": true,
-        "answer": "The age of the applicant (male or female) should be 60 years or above. [soc_001_c0]",
+        "answer": "The age of the applicant (male or female) should be 60 years or above [soc_001_c0].",
+        "extractive": false,
         "citations_valid": true,
         "citations": [
           "soc_001_c0"
         ],
-        "retrieved": 44
+        "retrieved": 50
       },
       {
         "id": "q08",
         "language": "en",
         "type": "answerable",
         "grounded": true,
-        "answer": "Relevant official excerpts:\n\nPunjab Financial Assistance to Widows and Destitute Women Department: Department of Social Security and Women & Child Development, Punjab Monthly financial assistance for widows and destitute women below 58 years and unmarried women above 30 years in Punjab. Benefits: Rs",
+        "answer": "Total annual income should not be more than Rs. 60,000/- including business or rental or interest income [soc_006_c0].",
+        "extractive": false,
         "citations_valid": true,
         "citations": [
-          "soc_006_c0",
-          "soc_006_c1",
-          "soc_006_c2"
+          "soc_006_c0"
         ],
         "retrieved": 50
       },
@@ -224,13 +285,12 @@
         "id": "q09",
         "language": "hi",
         "type": "answerable",
-        "grounded": false,
-        "answer": "मैं उपलब्ध आधिकारिक स्रोतों से इसकी पुष्टि नहीं कर सकता।",
+        "grounded": true,
+        "answer": "पीएम-यूएसपी छात्रवृत्ति के लिए पारिवारिक आय सीमा रु. 4.5 लाख प्रति वर्ष है। [edu_001_c0]",
+        "extractive": false,
         "citations_valid": true,
         "citations": [
-          "edu_001_c0",
-          "edu_001_c1",
-          "edu_002_c4"
+          "edu_001_c0"
         ],
         "retrieved": 0
       },
@@ -239,10 +299,11 @@
         "language": "hi",
         "type": "answerable",
         "grounded": true,
-        "answer": "पंजाब वृद्धावस्था पेंशन हर महीने 1500 रुपये है। [soc_005_c2]",
+        "answer": "पंजाब वृद्धावस्था पेंशन हर महीने 1500 रुपया है [soc_005_c0].",
+        "extractive": false,
         "citations_valid": true,
         "citations": [
-          "soc_005_c2"
+          "soc_005_c0"
         ],
         "retrieved": 0
       },
@@ -250,12 +311,11 @@
         "id": "q11",
         "language": "hi",
         "type": "answerable",
-        "grounded": false,
-        "answer": "मैं उपलब्ध आधिकारिक स्रोतों से इसकी पुष्टि नहीं कर सकता।",
+        "grounded": true,
+        "answer": "विधवा पेंशन के लिए न्यूनतम आयु 40 वर्ष है। [soc_001_c5]",
+        "extractive": false,
         "citations_valid": true,
         "citations": [
-          "soc_001_c1",
-          "soc_002_c0",
           "soc_001_c5"
         ],
         "retrieved": 0
@@ -264,13 +324,12 @@
         "id": "q12",
         "language": "hi",
         "type": "answerable",
-        "grounded": false,
-        "answer": "मैं उपलब्ध आधिकारिक स्रोतों से इसकी पुष्टि नहीं कर सकता।",
+        "grounded": true,
+        "answer": "राष्ट्रीय परिवार लाभ योजना में रु. 10000/- की राशि मिलती है। [soc_001_c6]",
+        "extractive": false,
         "citations_valid": true,
         "citations": [
-          "soc_001_c6",
-          "soc_001_c1",
-          "soc_001_c2"
+          "soc_001_c6"
         ],
         "retrieved": 0
       },
@@ -280,9 +339,10 @@
         "type": "out_of_scope",
         "grounded": false,
         "answer": "I cannot verify this from the available official sources.",
+        "extractive": false,
         "citations_valid": true,
         "citations": [],
-        "retrieved": 0
+        "retrieved": 4
       },
       {
         "id": "q14",
@@ -290,9 +350,10 @@
         "type": "out_of_scope",
         "grounded": false,
         "answer": "I cannot verify this from the available official sources.",
+        "extractive": false,
         "citations_valid": true,
         "citations": [],
-        "retrieved": 0
+        "retrieved": 2
       },
       {
         "id": "q15",
@@ -300,9 +361,10 @@
         "type": "out_of_scope",
         "grounded": false,
         "answer": "I cannot verify this from the available official sources.",
+        "extractive": false,
         "citations_valid": true,
         "citations": [],
-        "retrieved": 25
+        "retrieved": 41
       },
       {
         "id": "q16",
@@ -310,9 +372,10 @@
         "type": "out_of_scope",
         "grounded": false,
         "answer": "I cannot verify this from the available official sources.",
+        "extractive": false,
         "citations_valid": true,
         "citations": [],
-        "retrieved": 3
+        "retrieved": 8
       },
       {
         "id": "q17",
@@ -320,6 +383,7 @@
         "type": "out_of_scope",
         "grounded": false,
         "answer": "मैं उपलब्ध आधिकारिक स्रोतों से इसकी पुष्टि नहीं कर सकता।",
+        "extractive": false,
         "citations_valid": true,
         "citations": [],
         "retrieved": 0
@@ -330,11 +394,12 @@
         "type": "not_in_sources",
         "grounded": false,
         "answer": "I cannot verify this from the available official sources.",
+        "extractive": false,
         "citations_valid": true,
         "citations": [
+          "edu_001_c4",
           "edu_001_c1",
-          "edu_001_c0",
-          "edu_001_c4"
+          "edu_001_c0"
         ],
         "retrieved": 50
       },
@@ -344,6 +409,7 @@
         "type": "not_in_sources",
         "grounded": false,
         "answer": "I cannot verify this from the available official sources.",
+        "extractive": false,
         "citations_valid": true,
         "citations": [],
         "retrieved": 50
@@ -354,11 +420,145 @@
         "type": "not_in_sources",
         "grounded": false,
         "answer": "I cannot verify this from the available official sources.",
+        "extractive": false,
         "citations_valid": true,
         "citations": [
           "edu_001_c1",
           "edu_001_c0",
-          "edu_001_c3"
+          "edu_001_c4"
+        ],
+        "retrieved": 50
+      },
+      {
+        "id": "q21",
+        "language": "en",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "The Punjab pension for persons with disabilities is Rs. 1500 per month [soc_007_c0].",
+        "extractive": false,
+        "citations_valid": true,
+        "citations": [
+          "soc_007_c0"
+        ],
+        "retrieved": 50
+      },
+      {
+        "id": "q22",
+        "language": "en",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "The income limit for the Post Matric Scholarship for Scheduled Caste students is Rs. 2,50,000/- (Rupees Two lakh Fifty thousand only) during the last Financial Year. [edu_008_c0] [edu_008_c4]",
+        "extractive": false,
+        "citations_valid": true,
+        "citations": [
+          "edu_008_c0",
+          "edu_008_c4"
+        ],
+        "retrieved": 50
+      },
+      {
+        "id": "q23",
+        "language": "en",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "The PMMVY provides Rs. 5000 in two instalments for the first child [soc_009_c0].",
+        "extractive": false,
+        "citations_valid": true,
+        "citations": [
+          "soc_009_c0"
+        ],
+        "retrieved": 50
+      },
+      {
+        "id": "q24",
+        "language": "en",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "Senior citizens aged 70 and above are eligible for Ayushman Bharat PM-JAY regardless of income [soc_010_c0].",
+        "extractive": false,
+        "citations_valid": true,
+        "citations": [
+          "soc_010_c0"
+        ],
+        "retrieved": 50
+      },
+      {
+        "id": "q25",
+        "language": "hi",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "पंजाब में आश्रित बच्चों की सहायता के लिए आयु सीमा 21 वर्ष से कम होना आवश्यक है। [soc_008_c0]",
+        "extractive": false,
+        "citations_valid": true,
+        "citations": [
+          "soc_008_c0"
+        ],
+        "retrieved": 0
+      },
+      {
+        "id": "q26",
+        "language": "hi",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "पहले बच्चे के लिए राशि रु. 5000 है [soc_009_c0].",
+        "extractive": false,
+        "citations_valid": true,
+        "citations": [
+          "soc_009_c0"
+        ],
+        "retrieved": 0
+      },
+      {
+        "id": "q27",
+        "language": "hi",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "प्री-मैट्रिक छात्रवृत्ति के लिए आय सीमा छात्र के परिवार की सभी आय के लिए 2.5 लाख रुपये प्रति वर्ष है। [edu_007_c0]",
+        "extractive": false,
+        "citations_valid": true,
+        "citations": [
+          "edu_007_c0"
+        ],
+        "retrieved": 0
+      },
+      {
+        "id": "q28",
+        "language": "hi",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "आयुष्मान भारत में वरिष्ठ नागरिकों को प्रति वर्ष रु. 5 लाख का स्वास्थ्य बीमा मिलता है [soc_010_c0]।",
+        "extractive": false,
+        "citations_valid": true,
+        "citations": [
+          "soc_010_c0"
+        ],
+        "retrieved": 0
+      },
+      {
+        "id": "q29",
+        "language": "hi",
+        "type": "out_of_scope",
+        "grounded": true,
+        "answer": "प्रधानमंत्री नरेंद्र मोदी हैं। [soc_010_c3]",
+        "extractive": false,
+        "citations_valid": true,
+        "citations": [
+          "soc_010_c3"
+        ],
+        "retrieved": 0
+      },
+      {
+        "id": "q30",
+        "language": "en",
+        "type": "not_in_sources",
+        "grounded": false,
+        "answer": "I cannot verify this from the available official sources.",
+        "extractive": false,
+        "citations_valid": true,
+        "citations": [
+          "soc_009_c65",
+          "soc_009_c29",
+          "soc_009_c68"
         ],
         "retrieved": 50
       }

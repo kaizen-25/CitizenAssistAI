@@ -1,6 +1,6 @@
 # CitizenAssist evaluation report
 
-Date: 2026-10-31. Verified schemes: 12 {'education': 6, 'social_welfare': 6}. LLM provider setting: ollama.
+Date: 2026-10-31. Verified schemes: 18 {'education': 8, 'social_welfare': 10}. LLM provider setting: ollama.
 
 ## Limits of this evaluation
 - Scheme records were structured and verified by Claude, not by a human.
@@ -9,37 +9,38 @@ Date: 2026-10-31. Verified schemes: 12 {'education': 6, 'social_welfare': 6}. LL
 - Answer correctness was not scored, because `qa_scores.json` needs a human reviewer.
 
 ## Eligibility status
-- Labels: 91
+- Labels: 117
 - 3-class accuracy: 100.0%
 - Precision for potentially eligible: 100.0%
 - Recall for potentially eligible: 100.0%
 
 | Expected \ Actual | potentially_eligible | cannot_determine | not_eligible |
 | --- | --- | --- | --- |
-| potentially_eligible | 34 | 0 | 0 |
-| cannot_determine | 0 | 10 | 0 |
-| not_eligible | 0 | 0 | 47 |
+| potentially_eligible | 44 | 0 | 0 |
+| cannot_determine | 0 | 11 | 0 |
+| not_eligible | 0 | 0 | 62 |
 
 Mismatches: 0
 
 ## Document unlock
-- Profiles checked: 6
+- Profiles checked: 8
 - Top-1 document match: 100.0%
 
 ## Adaptive questioning
-- Mean questions asked: 7.06 (most: 8)
-- Static form size: 10 fields
-- Profiles whose final status differed from the full profile: 3 of 18
-- Individual scheme status differences: 6
+- Mean questions asked: 7.61 (most: 8)
+- Static form size: 11 fields
+- Profiles whose final status differed from the full profile: 8 of 28
+- Individual scheme status differences: 16
 
 ## Free-text intake
 - Pass rate: 100.0% across 2 runs
 
 ## Grounded Q&A
-- Questions: 20 (en, hi)
-- Answerable questions answered: 66.7%
-- Correct refusal rate: 100.0%
+- Questions: 30 (en, hi)
+- Answerable questions answered by the model: 100.0%
+- Hindi answerable questions answered by the model: 100.0%
+- Excerpt fallbacks, not counted as answers: 0
+- Correct refusal rate: 90.0%
 - Citation validity: 100.0%
 
 ## Coverage gaps
-- No profile covers the required case: a missing optional-only doc

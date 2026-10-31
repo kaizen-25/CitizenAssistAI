@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT / "backend"))
 from app.config import get_settings, load_schemes, verified_by_category  # noqa: E402
 from app.engine.eligibility import evaluate_all  # noqa: E402
 from app.engine.questions import select_next_question  # noqa: E402
+from app.i18n import text  # noqa: E402
 from app.llm.chat import answer_question, known_urls  # noqa: E402
 from app.llm.extract_profile import extract_profile  # noqa: E402
 from app.retrieval.bm25 import search  # noqa: E402
@@ -123,6 +124,7 @@ def qa_metrics(questions: list) -> dict:
         runs.append({
             "id": question["id"], "language": question["language"], "type": question["type"],
             "grounded": response.grounded, "answer": response.answer[:300],
+            "extractive": response.answer.startswith(text(question["language"], "extractive_prefix")),
             "citations_valid": all(c.source_url in urls for c in response.citations),
             "citations": [c.chunk_id for c in response.citations],
             "retrieved": len(chunk_ids),
@@ -130,9 +132,12 @@ def qa_metrics(questions: list) -> dict:
     answerable = [r for r in runs if r["type"] == "answerable"]
     unanswerable = [r for r in runs if r["type"] != "answerable"]
     cited = [r for r in runs if r["grounded"]]
+    hindi = [r for r in answerable if r["language"] == "hi"]
     return {
         "questions": len(runs),
-        "answerable_answered_rate": sum(r["grounded"] for r in answerable) / len(answerable) if answerable else None,
+        "answerable_answered_rate": sum(r["grounded"] and not r["extractive"] for r in answerable) / len(answerable) if answerable else None,
+        "hindi_answered_rate": sum(r["grounded"] and not r["extractive"] for r in hindi) / len(hindi) if hindi else None,
+        "extractive_fallbacks": sum(r["extractive"] for r in runs),
         "correct_refusal_rate": sum(not r["grounded"] for r in unanswerable) / len(unanswerable) if unanswerable else None,
         "citation_validity_rate": sum(r["citations_valid"] for r in cited) / len(cited) if cited else None,
         "languages": sorted({r["language"] for r in runs}),
@@ -178,7 +183,9 @@ def write_report(metrics: dict) -> None:
         f"- Pass rate: {percent(intake['pass_rate'])} across {len(intake['runs'])} runs",
         "", "## Grounded Q&A",
         f"- Questions: {qa['questions']} ({', '.join(qa['languages'])})",
-        f"- Answerable questions answered: {percent(qa['answerable_answered_rate'])}",
+        f"- Answerable questions answered by the model: {percent(qa['answerable_answered_rate'])}",
+        f"- Hindi answerable questions answered by the model: {percent(qa['hindi_answered_rate'])}",
+        f"- Excerpt fallbacks, not counted as answers: {qa['extractive_fallbacks']}",
         f"- Correct refusal rate: {percent(qa['correct_refusal_rate'])}",
         f"- Citation validity: {percent(qa['citation_validity_rate'])}",
         "", "## Coverage gaps",

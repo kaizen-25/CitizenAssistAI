@@ -46,7 +46,7 @@ def get_settings() -> Settings:
         llm_provider=env.get("LLM_PROVIDER", "none"),
         gemini_api_key=env.get("GEMINI_API_KEY", ""),
         gemini_model=env.get("GEMINI_MODEL", ""),
-        ollama_model=env.get("OLLAMA_MODEL", "qwen3:4b"),
+        ollama_model=env.get("OLLAMA_MODEL", "qwen3:8b"),
         demo_mode=_flag(env.get("DEMO_MODE", "false")),
         show_unverified=_flag(env.get("SHOW_UNVERIFIED", "false")),
     )

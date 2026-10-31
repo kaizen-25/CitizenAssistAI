@@ -1,1 +1,130 @@
-[]
+[
+  {
+    "id": "p01", "case": "all criteria pass",
+    "profile": {"state": "Punjab", "age": 19, "gender": "female", "annual_family_income": 180000, "social_category": "OBC", "currently_enrolled": true, "course_level": "undergraduate", "holds_bpl_card": true, "has_disability": false, "marital_status": "unmarried"},
+    "documents": {"income_certificate": "have", "caste_certificate": "have"},
+    "expected": {"edu_001": "potentially_eligible", "edu_002": "potentially_eligible", "edu_003": "not_eligible", "edu_004": "not_eligible", "edu_005": "potentially_eligible", "edu_006": "not_eligible", "soc_001": "not_eligible", "soc_002": "not_eligible", "soc_003": "not_eligible", "soc_004": "potentially_eligible", "soc_005": "not_eligible", "soc_006": "not_eligible"},
+    "expected_top_document": null
+  },
+  {
+    "id": "p02", "case": "a single hard fail",
+    "profile": {"state": "Punjab", "age": 19, "gender": "female", "annual_family_income": 300000, "social_category": "OBC", "currently_enrolled": true, "course_level": "undergraduate", "holds_bpl_card": true, "has_disability": false, "marital_status": "unmarried"},
+    "documents": {"income_certificate": "have", "caste_certificate": "have"},
+    "expected": {"edu_001": "potentially_eligible", "edu_002": "not_eligible", "edu_005": "not_eligible", "soc_004": "potentially_eligible"},
+    "expected_top_document": null
+  },
+  {
+    "id": "p03", "case": "a single unknown",
+    "profile": {"state": "Punjab", "age": 19, "gender": "female", "annual_family_income": 180000, "currently_enrolled": true, "course_level": "undergraduate", "holds_bpl_card": true, "has_disability": false, "marital_status": "unmarried"},
+    "documents": {"income_certificate": "have", "caste_certificate": "have"},
+    "expected": {"edu_001": "potentially_eligible", "edu_002": "cannot_determine", "edu_003": "cannot_determine", "edu_004": "not_eligible", "edu_005": "cannot_determine", "edu_006": "not_eligible"},
+    "expected_top_document": null
+  },
+  {
+    "id": "p04", "case": "a missing mandatory doc",
+    "profile": {"state": "Punjab", "age": 19, "gender": "female", "annual_family_income": 180000, "social_category": "OBC", "currently_enrolled": true, "course_level": "undergraduate", "holds_bpl_card": true, "has_disability": false, "marital_status": "unmarried"},
+    "documents": {"income_certificate": "missing", "caste_certificate": "have"},
+    "expected": {"edu_001": "potentially_eligible", "edu_002": "potentially_eligible", "edu_005": "potentially_eligible"},
+    "expected_top_document": "income_certificate"
+  },
+  {
+    "id": "p06", "case": "two docs shared across schemes",
+    "profile": {"state": "Punjab", "age": 19, "gender": "female", "annual_family_income": 180000, "social_category": "OBC", "currently_enrolled": true, "course_level": "undergraduate", "holds_bpl_card": true, "has_disability": false, "marital_status": "unmarried"},
+    "documents": {"income_certificate": "missing", "caste_certificate": "missing"},
+    "expected": {"edu_001": "potentially_eligible", "edu_002": "potentially_eligible", "edu_005": "potentially_eligible"},
+    "expected_top_document": "income_certificate"
+  },
+  {
+    "id": "p07", "case": "no matches at all",
+    "profile": {"state": "Other", "age": 40, "gender": "male", "annual_family_income": 900000, "social_category": "General", "currently_enrolled": false, "holds_bpl_card": false, "has_disability": false, "marital_status": "married"},
+    "documents": {},
+    "expected": {"edu_001": "not_eligible", "edu_002": "not_eligible", "edu_003": "not_eligible", "edu_004": "not_eligible", "edu_005": "not_eligible", "edu_006": "not_eligible", "soc_001": "not_eligible", "soc_002": "not_eligible", "soc_003": "not_eligible", "soc_004": "not_eligible", "soc_005": "not_eligible", "soc_006": "not_eligible"},
+    "expected_top_document": null
+  },
+  {
+    "id": "p08", "case": "a declined sensitive field",
+    "profile": {"state": "Punjab", "age": 19, "gender": "__declined__", "annual_family_income": 50000, "social_category": "OBC", "currently_enrolled": true, "course_level": "undergraduate", "holds_bpl_card": true, "has_disability": false, "marital_status": "unmarried"},
+    "documents": {"income_certificate": "have", "caste_certificate": "have"},
+    "expected": {"edu_001": "potentially_eligible", "soc_005": "cannot_determine", "soc_006": "not_eligible"},
+    "expected_top_document": null
+  },
+  {
+    "id": "p09", "case": "an ambiguous income input",
+    "profile": {"state": "Punjab", "age": 19, "gender": "female", "social_category": "OBC", "currently_enrolled": true, "course_level": "undergraduate", "holds_bpl_card": true, "has_disability": false, "marital_status": "unmarried"},
+    "documents": {"income_certificate": "have", "caste_certificate": "have"},
+    "intake": {"language": "en", "text": "our income is 2-3 lakh", "expected_fields": {}, "expect_clarification": true},
+    "expected": {"edu_001": "cannot_determine", "edu_002": "cannot_determine", "edu_005": "cannot_determine", "soc_004": "potentially_eligible"},
+    "expected_top_document": null
+  },
+  {
+    "id": "p10", "case": "a Hindi free-text intake",
+    "profile": {"state": "Punjab", "age": 19, "gender": "female", "annual_family_income": 200000, "social_category": "OBC", "currently_enrolled": true, "course_level": "undergraduate", "holds_bpl_card": false, "has_disability": false, "marital_status": "unmarried"},
+    "documents": {"income_certificate": "missing", "caste_certificate": "have"},
+    "intake": {"language": "hi", "text": "मैं 19 साल की हूँ और परिवार की आय दो लाख है", "expected_fields": {"age": 19, "annual_family_income": 200000}, "expect_clarification": false},
+    "expected": {"edu_001": "potentially_eligible", "edu_002": "potentially_eligible", "edu_005": "potentially_eligible", "soc_004": "not_eligible"},
+    "expected_top_document": "income_certificate"
+  },
+  {
+    "id": "p12", "case": "senior widow in Punjab",
+    "profile": {"state": "Punjab", "age": 60, "gender": "female", "annual_family_income": 50000, "social_category": "General", "currently_enrolled": false, "holds_bpl_card": true, "has_disability": false, "marital_status": "widowed"},
+    "documents": {},
+    "expected": {"edu_001": "not_eligible", "soc_001": "potentially_eligible", "soc_002": "potentially_eligible", "soc_003": "not_eligible", "soc_004": "potentially_eligible", "soc_005": "potentially_eligible", "soc_006": "not_eligible"},
+    "expected_top_document": null
+  },
+  {
+    "id": "p13", "case": "man between the Punjab age limits",
+    "profile": {"state": "Punjab", "age": 62, "gender": "male", "annual_family_income": 50000, "social_category": "General", "currently_enrolled": false, "holds_bpl_card": true, "has_disability": false, "marital_status": "married"},
+    "documents": {},
+    "expected": {"soc_001": "potentially_eligible", "soc_002": "not_eligible", "soc_004": "potentially_eligible", "soc_005": "not_eligible", "soc_006": "not_eligible"},
+    "expected_top_document": null
+  },
+  {
+    "id": "p14", "case": "ST student with two missing documents that tie",
+    "profile": {"state": "Punjab", "age": 17, "gender": "male", "annual_family_income": 200000, "social_category": "ST", "currently_enrolled": true, "course_level": "post_matric", "holds_bpl_card": false, "has_disability": false, "marital_status": "unmarried"},
+    "documents": {"aadhaar_card": "have", "marksheet_previous": "have", "caste_certificate": "missing", "income_certificate": "missing", "passport_photo": "have"},
+    "expected": {"edu_001": "not_eligible", "edu_003": "potentially_eligible", "edu_005": "not_eligible", "soc_004": "not_eligible"},
+    "expected_top_document": ["caste_certificate", "income_certificate"]
+  },
+  {
+    "id": "p15", "case": "class 9 student",
+    "profile": {"state": "Punjab", "age": 15, "gender": "female", "annual_family_income": 120000, "social_category": "EBC", "currently_enrolled": true, "course_level": "pre_matric", "holds_bpl_card": false, "has_disability": false, "marital_status": "unmarried"},
+    "documents": {"income_certificate": "missing", "caste_certificate": "have", "bank_passbook": "missing"},
+    "expected": {"edu_001": "not_eligible", "edu_002": "not_eligible", "edu_004": "potentially_eligible", "edu_005": "not_eligible", "edu_006": "potentially_eligible"},
+    "expected_top_document": "income_certificate"
+  },
+  {
+    "id": "p16", "case": "adult with a disability",
+    "profile": {"state": "Punjab", "age": 30, "gender": "male", "annual_family_income": 40000, "social_category": "General", "currently_enrolled": false, "holds_bpl_card": true, "has_disability": true, "marital_status": "married"},
+    "documents": {},
+    "expected": {"soc_001": "not_eligible", "soc_003": "potentially_eligible", "soc_004": "potentially_eligible", "soc_005": "not_eligible"},
+    "expected_top_document": null
+  },
+  {
+    "id": "p17", "case": "widow under 58 missing her declaration",
+    "profile": {"state": "Punjab", "age": 45, "gender": "female", "annual_family_income": 50000, "social_category": "General", "currently_enrolled": false, "holds_bpl_card": true, "has_disability": false, "marital_status": "widowed"},
+    "documents": {"self_declaration": "missing"},
+    "expected": {"soc_001": "not_eligible", "soc_002": "potentially_eligible", "soc_004": "potentially_eligible", "soc_005": "not_eligible", "soc_006": "potentially_eligible"},
+    "expected_top_document": "self_declaration"
+  },
+  {
+    "id": "p18", "case": "unmarried woman over 30",
+    "profile": {"state": "Punjab", "age": 35, "gender": "female", "annual_family_income": 40000, "social_category": "General", "currently_enrolled": false, "holds_bpl_card": false, "has_disability": false, "marital_status": "unmarried"},
+    "documents": {"self_declaration": "have"},
+    "expected": {"soc_002": "not_eligible", "soc_004": "not_eligible", "soc_006": "potentially_eligible"},
+    "expected_top_document": null
+  },
+  {
+    "id": "p19", "case": "declined income",
+    "profile": {"state": "Punjab", "age": 19, "gender": "female", "annual_family_income": "__declined__", "social_category": "OBC", "currently_enrolled": true, "course_level": "undergraduate", "holds_bpl_card": true, "has_disability": false, "marital_status": "unmarried"},
+    "documents": {"income_certificate": "have", "caste_certificate": "have"},
+    "expected": {"edu_001": "cannot_determine", "edu_002": "cannot_determine", "edu_005": "cannot_determine", "soc_005": "not_eligible"},
+    "expected_top_document": null
+  },
+  {
+    "id": "p20", "case": "income exactly on the limit",
+    "profile": {"state": "Punjab", "age": 19, "gender": "female", "annual_family_income": 250000, "social_category": "OBC", "currently_enrolled": true, "course_level": "post_matric", "holds_bpl_card": false, "has_disability": false, "marital_status": "unmarried"},
+    "documents": {"income_certificate": "have", "caste_certificate": "have", "bank_passbook": "have"},
+    "expected": {"edu_001": "not_eligible", "edu_005": "potentially_eligible", "edu_006": "not_eligible"},
+    "expected_top_document": null
+  }
+]

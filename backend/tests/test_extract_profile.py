@@ -164,3 +164,37 @@ def test_already_answered_fields_are_not_overwritten(monkeypatch):
     fake_llm(monkeypatch, {"fields": [field("age", "30", "30")], "ambiguous_fields": []})
 
     assert extract_profile("30", {"age": 19}, "en")[0] == []
+
+
+@pytest.mark.parametrize(
+    "text, age",
+    [("I am 19", 19), ("I'm 19, in college", 19), ("age 45", 45), ("19 years old", 19), ("मैं 19 साल की हूँ", 19), ("मेरी उम्र १९ साल है", 19), ("ਮੈਂ 19 ਸਾਲ ਦੀ ਹਾਂ", 19)],
+)
+def test_age_is_parsed_without_an_llm(monkeypatch, text, age):
+    fake_llm(monkeypatch, None)
+
+    assert [(f.field_id, f.value) for f in extract_profile(text, {}, "en")[0]] == [("age", age)]
+
+
+def test_income_figure_is_not_mistaken_for_an_age(monkeypatch):
+    fake_llm(monkeypatch, None)
+
+    assert [f.field_id for f in extract_profile("I am 2 lakh in debt, family income 2 lakh", {}, "en")[0]] == ["annual_family_income"]
+
+
+def test_silence_is_not_a_no(monkeypatch):
+    fake_llm(monkeypatch, {"fields": [field("holds_bpl_card", "false", "my mother works")], "ambiguous_fields": []})
+
+    assert extract_profile("my mother works", {}, "en")[0] == []
+
+
+def test_a_stated_no_is_kept(monkeypatch):
+    fake_llm(monkeypatch, {"fields": [field("holds_bpl_card", "false", "we do not have a BPL card")], "ambiguous_fields": []})
+
+    assert [f.value for f in extract_profile("we do not have a BPL card", {}, "en")[0]] == [False]
+
+
+def test_implied_boolean_is_dropped(monkeypatch):
+    fake_llm(monkeypatch, {"fields": [field("currently_enrolled", "true", "my college", explicit=False)], "ambiguous_fields": []})
+
+    assert extract_profile("near my college", {}, "en")[0] == []

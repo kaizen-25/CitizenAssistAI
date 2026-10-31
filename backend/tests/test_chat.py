@@ -11,8 +11,8 @@ sys.path.insert(0, str(REPO_ROOT / "scripts"))
 import build_chunks  # noqa: E402
 
 CHUNKS = [
-    {"chunk_id": "edu_001_c0", "scheme_id": "edu_001", "source_url": "https://a.invalid", "source_title": "A", "text": "Family income up to Rs. 4.5 lakh is eligible. Age limit 25 years.", "score": 5.0},
-    {"chunk_id": "edu_002_c0", "scheme_id": "edu_002", "source_url": "https://b.invalid", "source_title": "B", "text": "Scholarship of Rs. 12,000 per annum.", "score": 3.0},
+    {"chunk_id": "edu_001_c0", "scheme_id": "edu_001", "source_url": "https://a.invalid", "source_title": "A", "text": "Family income up to Rs. 4.5 lakh is eligible. Age limit 25 years. Pension is Rs. 1500 per month.", "score": 20.0},
+    {"chunk_id": "edu_002_c0", "scheme_id": "edu_002", "source_url": "https://b.invalid", "source_title": "B", "text": "Scholarship of Rs. 12,000 per annum.", "score": 15.0},
 ]
 URLS = {"https://a.invalid"}
 
@@ -35,6 +35,16 @@ def test_answer_without_citation_is_rejected():
 
 def test_unseen_number_is_rejected():
     assert not grounded("The limit is 9.5 lakh [edu_001_c0].")
+
+
+def test_a_number_is_not_equal_to_itself_without_its_zeros():
+    assert grounded("The pension is Rs. 1500 [edu_001_c0].")
+    assert not grounded("The pension is Rs. 15 [edu_001_c0].")
+    assert not grounded("The pension is Rs. 150 [edu_001_c0].")
+
+
+def test_trailing_decimal_zeros_are_the_same_number():
+    assert grounded("The limit is 4.50 lakh [edu_001_c0].")
 
 
 def test_number_from_an_uncited_chunk_is_rejected():
@@ -85,6 +95,33 @@ def test_grounded_answer_cites_only_what_it_used(wired, monkeypatch):
     assert [c.chunk_id for c in response.citations] == ["edu_001_c0"]
 
 
+def test_uncited_answer_gets_its_listed_citations(wired, monkeypatch):
+    llm(monkeypatch, {"answer": "Up to 4.5 lakh.", "citation_ids": ["edu_001_c0"]})
+
+    response = answer_question("income limit?", "en")
+
+    assert response.grounded is True
+    assert [c.chunk_id for c in response.citations] == ["edu_001_c0"]
+
+
+def test_listed_citation_that_was_not_retrieved_is_rejected(wired, monkeypatch):
+    llm(monkeypatch, {"answer": "Up to 4.5 lakh.", "citation_ids": ["edu_999_c0"]})
+
+    assert answer_question("income limit?", "en").grounded is False
+
+
+def test_answer_that_repeats_the_question_is_refused(wired, monkeypatch):
+    llm(monkeypatch, {"english": "income limit"}, {"answer": "आय सीमा क्या है? [edu_001_c0]", "citation_ids": ["edu_001_c0"]})
+
+    assert answer_question("आय सीमा क्या है?", "hi").grounded is False
+
+
+def test_answer_that_narrates_its_reasoning_is_refused(wired, monkeypatch):
+    llm(monkeypatch, {"answer": "The question asks about income. Let me analyze. 4.5 lakh [edu_001_c0]."})
+
+    assert answer_question("income limit?", "en").grounded is False
+
+
 def test_failed_validation_refuses_with_top_sources(wired, monkeypatch):
     llm(monkeypatch, {"answer": "Up to 9 lakh [edu_001_c0]."})
 
@@ -126,6 +163,22 @@ def test_no_llm_falls_back_to_official_excerpts(wired, monkeypatch):
     assert response.answer.startswith("Relevant official excerpts:")
     assert "4.5 lakh" in response.answer
     assert len(response.citations) == 2
+
+
+@pytest.mark.parametrize("question", ["What is the last date to apply?", "PM-USP deadline?", "आवेदन की अंतिम तिथि क्या है?"])
+def test_deadline_questions_are_refused_before_any_llm_call(wired, monkeypatch, question):
+    llm(monkeypatch)
+
+    response = answer_question(question, "en")
+
+    assert response.grounded is False
+    assert response.answer == "I cannot verify this from the available official sources."
+
+
+def test_translated_deadline_question_is_refused(wired, monkeypatch):
+    llm(monkeypatch, {"english": "What is the last date?"})
+
+    assert answer_question("कब तक?", "hi").grounded is False
 
 
 def test_hindi_question_is_translated_before_retrieval(monkeypatch):

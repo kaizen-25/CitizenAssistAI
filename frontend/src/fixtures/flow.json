@@ -118,7 +118,7 @@
         }
       ],
       "schemes_affected": 1,
-      "reason": "Needed to check 1 schemes"
+      "reason": "Needed to check 1 scheme"
     },
     "progress": {
       "answered": 3,
@@ -158,7 +158,7 @@
       "answer_type": "boolean",
       "options": [],
       "schemes_affected": 1,
-      "reason": "Needed to check 1 schemes"
+      "reason": "Needed to check 1 scheme"
     },
     "progress": {
       "answered": 4,
@@ -221,7 +221,7 @@
         }
       ],
       "schemes_affected": 1,
-      "reason": "Needed to check 1 schemes"
+      "reason": "Needed to check 1 scheme"
     },
     "progress": {
       "answered": 5,
@@ -273,7 +273,7 @@
       "answer_type": "boolean",
       "options": [],
       "schemes_affected": 1,
-      "reason": "Needed to check 1 schemes"
+      "reason": "Needed to check 1 scheme"
     },
     "progress": {
       "answered": 6,
@@ -348,7 +348,7 @@
         }
       ],
       "schemes_affected": 1,
-      "reason": "Needed to check 1 schemes"
+      "reason": "Needed to check 1 scheme"
     },
     "progress": {
       "answered": 7,

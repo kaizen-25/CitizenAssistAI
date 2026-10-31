@@ -36,10 +36,17 @@ RANGE = re.compile(
 AMOUNT_WITH_UNIT = re.compile(rf"(?:{CURRENCY}\s*)?({NUMBER})\s*({UNIT})", re.IGNORECASE)
 AMOUNT_WITH_CURRENCY = re.compile(rf"{CURRENCY}\s*(\d[\d,]*(?:\.\d+)?)", re.IGNORECASE)
 AMOUNT_AFTER_INCOME = re.compile(rf"{INCOME_WORD}\D{{0,20}}?(\d[\d,]{{3,}}(?:\.\d+)?)", re.IGNORECASE)
+AGE = re.compile(
+    r"(?:\b(?:i am|i'm|im|aged?|age is)\s+(?:around\s+)?(\d{1,3})\b(?!\s*(?:lakh|lac|k\b|thousand)))"
+    r"|(?:\b(\d{1,3})\s*(?:years?|yrs?|साल|वर्ष|ਸਾਲ))",
+    re.IGNORECASE,
+)
+NEGATION = re.compile(r"\b(?:no|not|don't|dont|never|without|none)\b|नहीं|ना\b|ਨਹੀਂ", re.IGNORECASE)
 AGE_RANGE = re.compile(r"\b(\d{1,3})\s*(?:or|to|-|–|या|ਜਾਂ)\s*(\d{1,3})\s*(?:years?|yrs?|साल|ਸਾਲ)?", re.IGNORECASE)
 
 SYSTEM_PROMPT = """You extract facts a citizen stated about themselves into JSON. Never guess or infer.
 - Use only the listed fields. A value on an enum field must be one of its options.
+- Leave out every field the message does not mention. Silence about something is not a "no".
 - evidence must be the exact words from the user's message.
 - explicit is true only when the user stated the fact directly, not when it is implied.
 - value_json holds JSON: 19, true or "Punjab".
@@ -122,13 +129,15 @@ def _validated(raw_fields: list, text: str, fields: dict[str, ProfileField]) -> 
         evidence = (raw.get("evidence") or "").strip()
         if field is None or not evidence or evidence.casefold() not in text.casefold():
             continue
-        if field.sensitive and not raw.get("explicit"):
+        if (field.sensitive or field.type == "boolean") and not raw.get("explicit"):
             continue
         try:
             value = json.loads(raw.get("value_json") or "null")
         except ValueError:
             continue
         if value is None or isinstance(value, (list, dict)) or not value_is_valid(value, field):
+            continue
+        if value is False and not NEGATION.search(evidence):
             continue
         kept.append(ExtractedField(field_id=field.field_id, value=value, evidence=evidence, explicit=bool(raw.get("explicit"))))
     return kept
@@ -155,7 +164,12 @@ def extract_profile(text: str, profile: dict, lang: str) -> tuple[list[Extracted
     if age_range and clarification is None and not income.evidence and age_range[1] != age_range[2]:
         clarification = _clarification("age", fields, lang)
 
-    skip = set(profile) | {INCOME_FIELD} | ({"age"} if clarification else set())
+    if clarification is None and "age" not in profile and (age := AGE.search(text.translate(DIGITS))):
+        value = int(age[1] or age[2])
+        if value_is_valid(value, fields["age"]):
+            extracted.append(ExtractedField(field_id="age", value=value, evidence=age[0], explicit=True))
+
+    skip = set(profile) | {INCOME_FIELD, "age"}
     user = f"Fields:\n{_prompt_fields(fields, skip)}\n\nMessage:\n{text}"
     response = complete_json(SYSTEM_PROMPT, user, EXTRACTION_SCHEMA)
     if response:

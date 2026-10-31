@@ -43,7 +43,7 @@ export function AskPanel() {
 
       {response && (
         <div role="status" className="flex flex-col gap-2">
-          <p className="whitespace-pre-line">{response.answer}</p>
+          <p className="whitespace-pre-line">{response.answer.replace(/\s*\[[\w.-]+\]/g, "")}</p>
           {(response.citations ?? []).length > 0 && (
             <ul className="m-0 flex list-none flex-col gap-1 p-0 text-sm">
               {[...new Map((response.citations ?? []).map((c) => [c.source_url, c])).values()].map((citation) => (

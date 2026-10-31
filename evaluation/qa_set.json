@@ -1,1 +1,22 @@
-[]
+[
+  {"id": "q01", "language": "en", "type": "answerable", "question": "What is the family income limit for the PM-USP scholarship?"},
+  {"id": "q02", "language": "en", "type": "answerable", "question": "How much is the Punjab old age pension per month?"},
+  {"id": "q03", "language": "en", "type": "answerable", "question": "At what age can a woman get the Punjab old age pension?"},
+  {"id": "q04", "language": "en", "type": "answerable", "question": "What is the income limit for the Post Matric Scholarship for Scheduled Tribe students?"},
+  {"id": "q05", "language": "en", "type": "answerable", "question": "How much allowance does the PM YASASVI pre-matric scholarship give per year?"},
+  {"id": "q06", "language": "en", "type": "answerable", "question": "How much is the lump sum under the National Family Benefit Scheme?"},
+  {"id": "q07", "language": "en", "type": "answerable", "question": "What is the age needed for the Indira Gandhi National Old Age Pension?"},
+  {"id": "q08", "language": "en", "type": "answerable", "question": "What is the income limit for the Punjab financial assistance to widows?"},
+  {"id": "q09", "language": "hi", "type": "answerable", "question": "पीएम-यूएसपी छात्रवृत्ति के लिए पारिवारिक आय सीमा क्या है?"},
+  {"id": "q10", "language": "hi", "type": "answerable", "question": "पंजाब वृद्धावस्था पेंशन हर महीने कितनी है?"},
+  {"id": "q11", "language": "hi", "type": "answerable", "question": "विधवा पेंशन के लिए न्यूनतम आयु क्या है?"},
+  {"id": "q12", "language": "hi", "type": "answerable", "question": "राष्ट्रीय परिवार लाभ योजना में कितनी राशि मिलती है?"},
+  {"id": "q13", "language": "en", "type": "out_of_scope", "question": "Who won the cricket world cup?"},
+  {"id": "q14", "language": "en", "type": "out_of_scope", "question": "What is the capital of France?"},
+  {"id": "q15", "language": "en", "type": "out_of_scope", "question": "How do I apply for a passport?"},
+  {"id": "q16", "language": "en", "type": "out_of_scope", "question": "Which is the best phone under 20000 rupees?"},
+  {"id": "q17", "language": "hi", "type": "out_of_scope", "question": "आज मौसम कैसा रहेगा?"},
+  {"id": "q18", "language": "en", "type": "not_in_sources", "question": "What is the last date to apply for the PM-USP scholarship this year?"},
+  {"id": "q19", "language": "en", "type": "not_in_sources", "question": "What is the phone number of the Ludhiana scholarship officer?"},
+  {"id": "q20", "language": "en", "type": "not_in_sources", "question": "How many students received the PM-USP scholarship in Punjab last year?"}
+]

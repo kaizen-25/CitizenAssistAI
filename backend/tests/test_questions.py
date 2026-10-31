@@ -40,10 +40,8 @@ def test_picks_the_max_score_field(schemes):
 
 
 def test_reason_is_singular_for_one_scheme(schemes):
-    profile = dict(FULL_PROFILE)
-    del profile["has_disability"]
+    profile = {k: v for k, v in FULL_PROFILE.items() if k != "has_disability"}
 
-    assert select_next_question(profile, schemes, set(profile) - {"f"}, "en") is None or True
     question = select_next_question(profile, schemes, set(), "en")
 
     assert question.reason == "Needed to check 1 scheme"

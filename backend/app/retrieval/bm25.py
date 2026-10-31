@@ -8,11 +8,18 @@ from rank_bm25 import BM25Okapi
 from app.config import DATA_DIR
 
 CHUNKS_PATH = DATA_DIR / "chunks.jsonl"
-MIN_SCORE = 1.0
+MIN_SCORE = 7.0
+
+
+STOPWORDS = frozenset(
+    """a about after all also am an and any are as at be been best but by can could did do does for from get got had
+    has have how i if in into is it its me my no not of on or our should so than that the their them then there these
+    they this to under up us was we were what when where which who whom why will with would you your""".split()
+)
 
 
 def tokenize(text: str) -> list[str]:
-    return re.findall(r"\w+", text.casefold())
+    return [token for token in re.findall(r"\w+", text.casefold()) if token not in STOPWORDS]
 
 
 @lru_cache

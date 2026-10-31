@@ -1,0 +1,367 @@
+{
+  "date": "2026-10-31",
+  "verified_schemes": 12,
+  "by_category": {
+    "education": 6,
+    "social_welfare": 6
+  },
+  "llm_provider": "ollama",
+  "profile_count": 18,
+  "uncovered_cases": [
+    "a missing optional-only doc"
+  ],
+  "status": {
+    "labels": 91,
+    "accuracy": 1.0,
+    "precision_potentially_eligible": 1.0,
+    "recall_potentially_eligible": 1.0,
+    "confusion": {
+      "potentially_eligible": {
+        "potentially_eligible": 34,
+        "cannot_determine": 0,
+        "not_eligible": 0
+      },
+      "cannot_determine": {
+        "potentially_eligible": 0,
+        "cannot_determine": 10,
+        "not_eligible": 0
+      },
+      "not_eligible": {
+        "potentially_eligible": 0,
+        "cannot_determine": 0,
+        "not_eligible": 47
+      }
+    },
+    "mismatches": []
+  },
+  "unlock": {
+    "checked": 6,
+    "top1_rate": 1.0,
+    "misses": []
+  },
+  "adaptive": {
+    "mean_questions": 7.055555555555555,
+    "max_questions": 8,
+    "static_form_size": 10,
+    "profiles_with_a_status_difference": 3,
+    "status_differences": [
+      {
+        "profile": "p08",
+        "scheme": "soc_003",
+        "adaptive": "cannot_determine",
+        "full": "not_eligible"
+      },
+      {
+        "profile": "p08",
+        "scheme": "soc_006",
+        "adaptive": "cannot_determine",
+        "full": "not_eligible"
+      },
+      {
+        "profile": "p09",
+        "scheme": "soc_003",
+        "adaptive": "cannot_determine",
+        "full": "not_eligible"
+      },
+      {
+        "profile": "p09",
+        "scheme": "soc_006",
+        "adaptive": "cannot_determine",
+        "full": "not_eligible"
+      },
+      {
+        "profile": "p19",
+        "scheme": "soc_003",
+        "adaptive": "cannot_determine",
+        "full": "not_eligible"
+      },
+      {
+        "profile": "p19",
+        "scheme": "soc_006",
+        "adaptive": "cannot_determine",
+        "full": "not_eligible"
+      }
+    ]
+  },
+  "intake": {
+    "runs": [
+      {
+        "profile": "p09",
+        "language": "en",
+        "passed": true,
+        "fields": {},
+        "clarification": true
+      },
+      {
+        "profile": "p10",
+        "language": "hi",
+        "passed": true,
+        "fields": {
+          "annual_family_income": 200000,
+          "age": 19
+        },
+        "clarification": false
+      }
+    ],
+    "pass_rate": 1.0
+  },
+  "qa": {
+    "questions": 20,
+    "answerable_answered_rate": 0.6666666666666666,
+    "correct_refusal_rate": 1.0,
+    "citation_validity_rate": 1.0,
+    "languages": [
+      "en",
+      "hi"
+    ],
+    "runs": [
+      {
+        "id": "q01",
+        "language": "en",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "Students with gross parental/family income upto Rs. 4.5 lakh per annum are eligible for scholarship under the scheme. [edu_001_c0]",
+        "citations_valid": true,
+        "citations": [
+          "edu_001_c0"
+        ],
+        "retrieved": 50
+      },
+      {
+        "id": "q02",
+        "language": "en",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "The Punjab old age pension is Rs. 1500 per month. [soc_005_c0]",
+        "citations_valid": true,
+        "citations": [
+          "soc_005_c0"
+        ],
+        "retrieved": 50
+      },
+      {
+        "id": "q03",
+        "language": "en",
+        "type": "answerable",
+        "grounded": false,
+        "answer": "I cannot verify this from the available official sources.",
+        "citations_valid": true,
+        "citations": [
+          "soc_005_c0",
+          "soc_001_c4",
+          "soc_001_c5"
+        ],
+        "retrieved": 22
+      },
+      {
+        "id": "q04",
+        "language": "en",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "The family income of student from all sources should not exceed Rs.2.50 lakh per annum. [edu_003_c0] [edu_003_c1] [edu_003_c2] [edu_003_c4] [edu_004_c15]",
+        "citations_valid": true,
+        "citations": [
+          "edu_003_c0",
+          "edu_003_c1",
+          "edu_003_c4",
+          "edu_004_c15",
+          "edu_003_c2"
+        ],
+        "retrieved": 50
+      },
+      {
+        "id": "q05",
+        "language": "en",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "The PM YASASVI pre-matric scholarship gives a consolidated academic allowance of Rs. 4000 per annum. [edu_004_c0]",
+        "citations_valid": true,
+        "citations": [
+          "edu_004_c0"
+        ],
+        "retrieved": 50
+      },
+      {
+        "id": "q06",
+        "language": "en",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "The lump sum family benefit under the National Family Benefit Scheme (NFBS) is Rs. 10000 in case of death of the primary breadwinner due to natural or accidental causes. [soc_004_c0] [soc_001_c6]",
+        "citations_valid": true,
+        "citations": [
+          "soc_004_c0",
+          "soc_001_c6"
+        ],
+        "retrieved": 50
+      },
+      {
+        "id": "q07",
+        "language": "en",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "The age of the applicant (male or female) should be 60 years or above. [soc_001_c0]",
+        "citations_valid": true,
+        "citations": [
+          "soc_001_c0"
+        ],
+        "retrieved": 44
+      },
+      {
+        "id": "q08",
+        "language": "en",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "Relevant official excerpts:\n\nPunjab Financial Assistance to Widows and Destitute Women Department: Department of Social Security and Women & Child Development, Punjab Monthly financial assistance for widows and destitute women below 58 years and unmarried women above 30 years in Punjab. Benefits: Rs",
+        "citations_valid": true,
+        "citations": [
+          "soc_006_c0",
+          "soc_006_c1",
+          "soc_006_c2"
+        ],
+        "retrieved": 50
+      },
+      {
+        "id": "q09",
+        "language": "hi",
+        "type": "answerable",
+        "grounded": false,
+        "answer": "मैं उपलब्ध आधिकारिक स्रोतों से इसकी पुष्टि नहीं कर सकता।",
+        "citations_valid": true,
+        "citations": [
+          "edu_001_c0",
+          "edu_001_c1",
+          "edu_002_c4"
+        ],
+        "retrieved": 0
+      },
+      {
+        "id": "q10",
+        "language": "hi",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "पंजाब वृद्धावस्था पेंशन हर महीने 1500 रुपये है। [soc_005_c2]",
+        "citations_valid": true,
+        "citations": [
+          "soc_005_c2"
+        ],
+        "retrieved": 0
+      },
+      {
+        "id": "q11",
+        "language": "hi",
+        "type": "answerable",
+        "grounded": false,
+        "answer": "मैं उपलब्ध आधिकारिक स्रोतों से इसकी पुष्टि नहीं कर सकता।",
+        "citations_valid": true,
+        "citations": [
+          "soc_001_c1",
+          "soc_002_c0",
+          "soc_001_c5"
+        ],
+        "retrieved": 0
+      },
+      {
+        "id": "q12",
+        "language": "hi",
+        "type": "answerable",
+        "grounded": false,
+        "answer": "मैं उपलब्ध आधिकारिक स्रोतों से इसकी पुष्टि नहीं कर सकता।",
+        "citations_valid": true,
+        "citations": [
+          "soc_001_c6",
+          "soc_001_c1",
+          "soc_001_c2"
+        ],
+        "retrieved": 0
+      },
+      {
+        "id": "q13",
+        "language": "en",
+        "type": "out_of_scope",
+        "grounded": false,
+        "answer": "I cannot verify this from the available official sources.",
+        "citations_valid": true,
+        "citations": [],
+        "retrieved": 0
+      },
+      {
+        "id": "q14",
+        "language": "en",
+        "type": "out_of_scope",
+        "grounded": false,
+        "answer": "I cannot verify this from the available official sources.",
+        "citations_valid": true,
+        "citations": [],
+        "retrieved": 0
+      },
+      {
+        "id": "q15",
+        "language": "en",
+        "type": "out_of_scope",
+        "grounded": false,
+        "answer": "I cannot verify this from the available official sources.",
+        "citations_valid": true,
+        "citations": [],
+        "retrieved": 25
+      },
+      {
+        "id": "q16",
+        "language": "en",
+        "type": "out_of_scope",
+        "grounded": false,
+        "answer": "I cannot verify this from the available official sources.",
+        "citations_valid": true,
+        "citations": [],
+        "retrieved": 3
+      },
+      {
+        "id": "q17",
+        "language": "hi",
+        "type": "out_of_scope",
+        "grounded": false,
+        "answer": "मैं उपलब्ध आधिकारिक स्रोतों से इसकी पुष्टि नहीं कर सकता।",
+        "citations_valid": true,
+        "citations": [],
+        "retrieved": 0
+      },
+      {
+        "id": "q18",
+        "language": "en",
+        "type": "not_in_sources",
+        "grounded": false,
+        "answer": "I cannot verify this from the available official sources.",
+        "citations_valid": true,
+        "citations": [
+          "edu_001_c1",
+          "edu_001_c0",
+          "edu_001_c4"
+        ],
+        "retrieved": 50
+      },
+      {
+        "id": "q19",
+        "language": "en",
+        "type": "not_in_sources",
+        "grounded": false,
+        "answer": "I cannot verify this from the available official sources.",
+        "citations_valid": true,
+        "citations": [],
+        "retrieved": 50
+      },
+      {
+        "id": "q20",
+        "language": "en",
+        "type": "not_in_sources",
+        "grounded": false,
+        "answer": "I cannot verify this from the available official sources.",
+        "citations_valid": true,
+        "citations": [
+          "edu_001_c1",
+          "edu_001_c0",
+          "edu_001_c3"
+        ],
+        "retrieved": 50
+      }
+    ]
+  }
+}

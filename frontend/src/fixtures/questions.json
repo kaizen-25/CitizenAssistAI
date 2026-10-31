@@ -14,7 +14,7 @@
       }
     ],
     "schemes_affected": 1,
-    "reason": "Needed to check 1 schemes"
+    "reason": "Needed to check 1 scheme"
   },
   "age": {
     "field_id": "age",
@@ -80,7 +80,7 @@
       }
     ],
     "schemes_affected": 1,
-    "reason": "Needed to check 1 schemes"
+    "reason": "Needed to check 1 scheme"
   },
   "currently_enrolled": {
     "field_id": "currently_enrolled",
@@ -88,7 +88,7 @@
     "answer_type": "boolean",
     "options": [],
     "schemes_affected": 1,
-    "reason": "Needed to check 1 schemes"
+    "reason": "Needed to check 1 scheme"
   },
   "course_level": {
     "field_id": "course_level",
@@ -113,7 +113,7 @@
       }
     ],
     "schemes_affected": 1,
-    "reason": "Needed to check 1 schemes"
+    "reason": "Needed to check 1 scheme"
   },
   "holds_bpl_card": {
     "field_id": "holds_bpl_card",
@@ -121,7 +121,7 @@
     "answer_type": "boolean",
     "options": [],
     "schemes_affected": 1,
-    "reason": "Needed to check 1 schemes"
+    "reason": "Needed to check 1 scheme"
   },
   "gender": {
     "field_id": "gender",
@@ -146,7 +146,7 @@
       }
     ],
     "schemes_affected": 1,
-    "reason": "Needed to check 1 schemes"
+    "reason": "Needed to check 1 scheme"
   },
   "social_category": {
     "field_id": "social_category",
@@ -166,6 +166,14 @@
         "label": "OBC"
       },
       {
+        "value": "EBC",
+        "label": "Economically Backward Class (EBC)"
+      },
+      {
+        "value": "DNT",
+        "label": "De-notified Tribe (DNT)"
+      },
+      {
         "value": "General",
         "label": "General"
       },
@@ -175,6 +183,6 @@
       }
     ],
     "schemes_affected": 1,
-    "reason": "Needed to check 1 schemes"
+    "reason": "Needed to check 1 scheme"
   }
 }

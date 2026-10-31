@@ -132,6 +132,22 @@
         "source_excerpt": "The Scheme will cover OBC/EBC/DNT students for pursuing studies beyond class XIIth."
       },
       {
+        "rule_id": "edu_002_r6",
+        "field": "course_level",
+        "operator": "in",
+        "value": [
+          "undergraduate",
+          "postgraduate"
+        ],
+        "applies_if": {
+          "field": "currently_enrolled",
+          "operator": "eq",
+          "value": true
+        },
+        "kind": "hard",
+        "source_excerpt": "The Scheme will cover OBC/EBC/DNT students for pursuing studies beyond class XIIth."
+      },
+      {
         "rule_id": "edu_002_r4",
         "kind": "manual_check",
         "source_excerpt": "having secured admission in a full -time prescribed course in any of the notified institutions according to the general selection criteria prescribed by the concerned instit ution"

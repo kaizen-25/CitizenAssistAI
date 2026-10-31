@@ -1,0 +1,189 @@
+[
+  {
+    "field_id": "state",
+    "type": "enum",
+    "options": [
+      {"value": "Punjab", "label": {"en": "Punjab", "hi": "", "pa": ""}},
+      {"value": "Other", "label": {"en": "Another state or UT", "hi": "", "pa": ""}}
+    ],
+    "unit": null, "min": null, "max": null,
+    "sensitive": false,
+    "allow_prefer_not_to_say": false,
+    "ask_priority": 1,
+    "label": {"en": "State", "hi": "", "pa": ""},
+    "question": {"en": "Which state do you live in?", "hi": "", "pa": ""}
+  },
+  {
+    "field_id": "age",
+    "type": "integer",
+    "options": null,
+    "unit": "years",
+    "min": 0, "max": 120,
+    "sensitive": false,
+    "allow_prefer_not_to_say": false,
+    "ask_priority": 2,
+    "label": {"en": "Age", "hi": "", "pa": ""},
+    "question": {"en": "How old are you?", "hi": "", "pa": ""}
+  },
+  {
+    "field_id": "annual_family_income",
+    "type": "number",
+    "options": null,
+    "unit": "INR_per_year",
+    "min": 0, "max": 100000000,
+    "sensitive": false,
+    "allow_prefer_not_to_say": true,
+    "ask_priority": 3,
+    "label": {"en": "Annual family income", "hi": "", "pa": ""},
+    "question": {"en": "What is your family's total yearly income, approximately?", "hi": "", "pa": ""}
+  },
+  {
+    "field_id": "occupation",
+    "type": "enum",
+    "options": [
+      {"value": "student", "label": {"en": "Student", "hi": "", "pa": ""}},
+      {"value": "farmer", "label": {"en": "Farmer", "hi": "", "pa": ""}},
+      {"value": "daily_wage_worker", "label": {"en": "Daily-wage worker", "hi": "", "pa": ""}},
+      {"value": "self_employed", "label": {"en": "Self-employed", "hi": "", "pa": ""}},
+      {"value": "salaried", "label": {"en": "Salaried", "hi": "", "pa": ""}},
+      {"value": "homemaker", "label": {"en": "Homemaker", "hi": "", "pa": ""}},
+      {"value": "retired", "label": {"en": "Retired", "hi": "", "pa": ""}},
+      {"value": "unemployed", "label": {"en": "Not working", "hi": "", "pa": ""}},
+      {"value": "other", "label": {"en": "Other", "hi": "", "pa": ""}}
+    ],
+    "unit": null, "min": null, "max": null,
+    "sensitive": false,
+    "allow_prefer_not_to_say": false,
+    "ask_priority": 4,
+    "label": {"en": "Occupation", "hi": "", "pa": ""},
+    "question": {"en": "What best describes your work?", "hi": "", "pa": ""}
+  },
+  {
+    "field_id": "currently_enrolled",
+    "type": "boolean",
+    "options": null,
+    "unit": null, "min": null, "max": null,
+    "sensitive": false,
+    "allow_prefer_not_to_say": false,
+    "ask_priority": 5,
+    "label": {"en": "Currently studying", "hi": "", "pa": ""},
+    "question": {"en": "Are you currently enrolled in a school or college?", "hi": "", "pa": ""}
+  },
+  {
+    "field_id": "course_level",
+    "type": "enum",
+    "options": [
+      {"value": "pre_matric", "label": {"en": "Up to class 10", "hi": "", "pa": ""}},
+      {"value": "post_matric", "label": {"en": "Class 11, 12, ITI or diploma", "hi": "", "pa": ""}},
+      {"value": "undergraduate", "label": {"en": "Undergraduate", "hi": "", "pa": ""}},
+      {"value": "postgraduate", "label": {"en": "Postgraduate", "hi": "", "pa": ""}}
+    ],
+    "unit": null, "min": null, "max": null,
+    "sensitive": false,
+    "allow_prefer_not_to_say": false,
+    "ask_priority": 6,
+    "label": {"en": "Course level", "hi": "", "pa": ""},
+    "question": {"en": "What level is your current course?", "hi": "", "pa": ""}
+  },
+  {
+    "field_id": "education_level",
+    "type": "enum",
+    "options": [
+      {"value": "no_formal", "label": {"en": "No formal education", "hi": "", "pa": ""}},
+      {"value": "below_10", "label": {"en": "Below class 10", "hi": "", "pa": ""}},
+      {"value": "class_10", "label": {"en": "Class 10 pass", "hi": "", "pa": ""}},
+      {"value": "class_12", "label": {"en": "Class 12 pass", "hi": "", "pa": ""}},
+      {"value": "graduate", "label": {"en": "Graduate", "hi": "", "pa": ""}},
+      {"value": "postgraduate", "label": {"en": "Postgraduate", "hi": "", "pa": ""}}
+    ],
+    "unit": null, "min": null, "max": null,
+    "sensitive": false,
+    "allow_prefer_not_to_say": false,
+    "ask_priority": 7,
+    "label": {"en": "Highest education completed", "hi": "", "pa": ""},
+    "question": {"en": "What is the highest level of education you have completed?", "hi": "", "pa": ""}
+  },
+  {
+    "field_id": "residence_area",
+    "type": "enum",
+    "options": [
+      {"value": "rural", "label": {"en": "Rural", "hi": "", "pa": ""}},
+      {"value": "urban", "label": {"en": "Urban", "hi": "", "pa": ""}}
+    ],
+    "unit": null, "min": null, "max": null,
+    "sensitive": false,
+    "allow_prefer_not_to_say": false,
+    "ask_priority": 8,
+    "label": {"en": "Area of residence", "hi": "", "pa": ""},
+    "question": {"en": "Do you live in a rural or an urban area?", "hi": "", "pa": ""}
+  },
+  {
+    "field_id": "holds_bpl_card",
+    "type": "boolean",
+    "options": null,
+    "unit": null, "min": null, "max": null,
+    "sensitive": false,
+    "allow_prefer_not_to_say": false,
+    "ask_priority": 9,
+    "label": {"en": "Holds a BPL card", "hi": "", "pa": ""},
+    "question": {"en": "Does your family have a BPL card?", "hi": "", "pa": ""}
+  },
+  {
+    "field_id": "marital_status",
+    "type": "enum",
+    "options": [
+      {"value": "unmarried", "label": {"en": "Unmarried", "hi": "", "pa": ""}},
+      {"value": "married", "label": {"en": "Married", "hi": "", "pa": ""}},
+      {"value": "widowed", "label": {"en": "Widowed", "hi": "", "pa": ""}},
+      {"value": "divorced", "label": {"en": "Divorced or separated", "hi": "", "pa": ""}}
+    ],
+    "unit": null, "min": null, "max": null,
+    "sensitive": false,
+    "allow_prefer_not_to_say": false,
+    "ask_priority": 10,
+    "label": {"en": "Marital status", "hi": "", "pa": ""},
+    "question": {"en": "What is your marital status?", "hi": "", "pa": ""}
+  },
+  {
+    "field_id": "gender",
+    "type": "enum",
+    "options": [
+      {"value": "female", "label": {"en": "Female", "hi": "", "pa": ""}},
+      {"value": "male", "label": {"en": "Male", "hi": "", "pa": ""}},
+      {"value": "other", "label": {"en": "Other", "hi": "", "pa": ""}}
+    ],
+    "unit": null, "min": null, "max": null,
+    "sensitive": true,
+    "allow_prefer_not_to_say": true,
+    "ask_priority": 11,
+    "label": {"en": "Gender", "hi": "", "pa": ""},
+    "question": {"en": "What is your gender?", "hi": "", "pa": ""}
+  },
+  {
+    "field_id": "social_category",
+    "type": "enum",
+    "options": [
+      {"value": "SC", "label": {"en": "SC", "hi": "", "pa": ""}},
+      {"value": "ST", "label": {"en": "ST", "hi": "", "pa": ""}},
+      {"value": "OBC", "label": {"en": "OBC", "hi": "", "pa": ""}},
+      {"value": "General", "label": {"en": "General", "hi": "", "pa": ""}}
+    ],
+    "unit": null, "min": null, "max": null,
+    "sensitive": true,
+    "allow_prefer_not_to_say": true,
+    "ask_priority": 12,
+    "label": {"en": "Social category", "hi": "", "pa": ""},
+    "question": {"en": "Which social category do you belong to?", "hi": "", "pa": ""}
+  },
+  {
+    "field_id": "has_disability",
+    "type": "boolean",
+    "options": null,
+    "unit": null, "min": null, "max": null,
+    "sensitive": true,
+    "allow_prefer_not_to_say": true,
+    "ask_priority": 13,
+    "label": {"en": "Has a disability", "hi": "", "pa": ""},
+    "question": {"en": "Do you have a disability?", "hi": "", "pa": ""}
+  }
+]

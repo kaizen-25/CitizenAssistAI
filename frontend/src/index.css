@@ -1,0 +1,54 @@
+/* Hallmark · shape: app shell · genre: modern-minimal · theme: Wayfind (adapted to SPEC §10) · job: try · draw: manual
+ * hero: left-aligned head and one action · nav: wordmark and language cells · footer: disclaimer band · imagery: none · signature: pending Phase 3 · wayfind: platform, navy for cobalt, Noto for Chivo Mono
+ * axes: light/grotesk-sans/cool · posture: committed · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: scaffold only, pages are placeholders until Phase 3 · weakest: no signature yet, deliberately deferred */
+@import "tailwindcss";
+@import "./fonts.css";
+@import "./tokens.css";
+@import "./base.css" layer(base);
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    min-height: 48px;
+    padding: var(--space-sm) var(--space-lg);
+    border: var(--rule-bar) solid var(--color-ink);
+    background: transparent;
+    color: var(--color-ink);
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color var(--dur-micro) steps(1), color var(--dur-micro) steps(1);
+  }
+  .btn:hover { background: var(--color-paper-2); }
+  .btn:active { background: var(--color-rule); }
+  .btn:disabled { border-color: var(--color-rule); color: var(--color-muted); cursor: not-allowed; }
+
+  .btn-primary { border-color: var(--color-accent); background: var(--color-accent); color: var(--color-accent-ink); }
+  .btn-primary:hover { border-color: var(--color-accent-hover); background: var(--color-accent-hover); }
+  .btn-primary:active { border-color: var(--color-ink); background: var(--color-ink); }
+
+  .cell {
+    min-height: 44px;
+    min-width: 44px;
+    padding: var(--space-2xs) var(--space-sm);
+    border: 0;
+    background: transparent;
+    color: var(--color-ink);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color var(--dur-micro) steps(1), color var(--dur-micro) steps(1);
+  }
+  .cell:hover { background: var(--color-paper-2); }
+  .cell[aria-pressed="true"] { background: var(--color-ink); color: var(--color-paper); }
+}

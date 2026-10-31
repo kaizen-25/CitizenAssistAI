@@ -1,0 +1,8 @@
+{
+  "llm_provider": "none",
+  "llm_available": false,
+  "demo_mode": false,
+  "schemes_loaded": 6,
+  "verified_by_category": { "education": 3, "social_welfare": 3 },
+  "show_unverified": false
+}

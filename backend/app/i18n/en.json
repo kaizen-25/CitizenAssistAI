@@ -1,0 +1,29 @@
+{
+  "_reviewed": false,
+  "operators": {
+    "eq": "{label} must be {value}",
+    "neq": "{label} must not be {value}",
+    "gt": "{label} must be more than {value}",
+    "gte": "{label} must be at least {value}",
+    "lt": "{label} must be less than {value}",
+    "lte": "{label} must be at most {value}",
+    "in": "{label} must be one of: {value}",
+    "not_in": "{label} must not be any of: {value}"
+  },
+  "outcomes": {
+    "PASS": "Met",
+    "FAIL": "Not met",
+    "UNKNOWN": "Unknown",
+    "MANUAL": "Verify at application",
+    "NOT_APPLICABLE": "Does not apply"
+  },
+  "status": {
+    "potentially_eligible": "Potentially eligible",
+    "cannot_determine": "Cannot determine",
+    "not_eligible": "Not eligible"
+  },
+  "question_reason": "Needed to check {n} schemes",
+  "refusal": "I cannot verify this from the available official sources.",
+  "extractive_prefix": "Relevant official excerpts:",
+  "disclaimer": "CitizenAssist is an independent informational tool. It is not affiliated with any government body and cannot approve applications. Always confirm with the official source."
+}

@@ -1,0 +1,19 @@
+{
+  "_reviewed": false,
+  "app.name": "CitizenAssist",
+  "language.label": "Language",
+  "disclaimer": "CitizenAssist is an independent informational tool. It is not affiliated with any government body and cannot approve applications. Always confirm with the official source.",
+  "banner.unverified": "Development mode: unverified scheme records are loaded.",
+  "health.ok": "Service connected. {n} verified schemes loaded.",
+  "health.down": "Service unavailable.",
+  "landing.title": "Find the schemes you may qualify for",
+  "landing.lead": "See why, with an official source, and which document to get first.",
+  "landing.action": "Check my schemes",
+  "page.assess": "Tell us about you",
+  "page.confirm": "Check your answers",
+  "page.results": "Your results",
+  "page.documents": "Your document plan",
+  "page.scheme": "Scheme details",
+  "page.packet": "Helper packet",
+  "page.placeholder": "This page has not been built yet."
+}

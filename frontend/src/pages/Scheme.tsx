@@ -33,26 +33,28 @@ export function Scheme() {
       {error && <ErrorNote onRetry={reload} />}
       {scheme && (
         <div className="flex flex-col gap-6">
-          <header className="flex flex-col gap-2">
+          <header className="flex flex-col gap-3">
+            {result && <div><StatusChip status={result.status} /></div>}
             <h1 className="page-title">{scheme.name.en}</h1>
             <p className="text-muted">{scheme.department}</p>
-            {result && <div><StatusChip status={result.status} /></div>}
-            <p className="max-w-2xl">{scheme.summary}</p>
-            <p className="max-w-2xl"><strong>{t("scheme.benefits")}</strong> {scheme.benefits}</p>
+            <p className="max-w-2xl text-(length:--text-lead) text-ink-2">{scheme.summary}</p>
+            <p className="well max-w-2xl"><strong>{t("scheme.benefits")}</strong> {scheme.benefits}</p>
             <SchemeLinks source={scheme.source} applicationUrl={scheme.application_url ?? null} />
           </header>
 
           <section aria-labelledby="rules">
             <h2 id="rules" className="section-title">{t("scheme.rules")}</h2>
-            <div className="flex flex-col">
+            <div className="flex flex-col border-t-2 border-ink">
               {(result?.rules ?? scheme.rules.map((rule) => ({ ...rule, explanation: "", outcome: null }))).map((rule) => (
-                <article key={rule.rule_id} className="row flex flex-col gap-2">
+                <article key={rule.rule_id} className={rule.outcome ? "rule-row rule-row-status" : "rule-row"}>
                   {rule.outcome && <div><OutcomeChip outcome={rule.outcome} /></div>}
-                  {rule.explanation && rule.outcome !== "MANUAL" && <p className="font-medium">{rule.explanation}</p>}
-                  <blockquote className="excerpt">{rule.source_excerpt}</blockquote>
-                  <a href={scheme.source.url} target="_blank" rel="noreferrer" className="self-start text-sm">
-                    {t("scheme.source")}
-                  </a>
+                  <div className="flex min-w-0 flex-col gap-2">
+                    {rule.explanation && rule.outcome !== "MANUAL" && <p className="font-medium text-ink">{rule.explanation}</p>}
+                    <blockquote className="excerpt">{rule.source_excerpt}</blockquote>
+                    <a href={scheme.source.url} target="_blank" rel="noreferrer" className="self-start text-sm">
+                      {t("scheme.source")}
+                    </a>
+                  </div>
                 </article>
               ))}
             </div>

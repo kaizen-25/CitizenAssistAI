@@ -3,8 +3,9 @@ import { useT } from "../hooks/useT";
 
 const ROW = 56;
 const WIDTH = 720;
-const LEFT = 228;
-const RIGHT = 492;
+const LEFT = 200;
+const RIGHT = 340;
+const BEND = (LEFT + RIGHT) / 2;
 
 interface Props {
   report: UnlockReport;
@@ -28,12 +29,9 @@ export function UnlockGraph({ report, schemes }: Props) {
       <svg viewBox={`0 0 ${WIDTH} ${height}`} className="graph" role="img" aria-label={t("unlock.graph_label")}>
         {ranking.flatMap((entry, docIndex) =>
           entry.required_by.map((id) => (
-            <line
+            <path
               key={`${entry.document_id}-${id}`}
-              x1={LEFT}
-              y1={y(docIndex)}
-              x2={RIGHT}
-              y2={y(schemeIds.indexOf(id))}
+              d={`M ${LEFT} ${y(docIndex)} C ${BEND} ${y(docIndex)}, ${BEND} ${y(schemeIds.indexOf(id))}, ${RIGHT} ${y(schemeIds.indexOf(id))}`}
               className="graph-edge"
             />
           )),
@@ -50,7 +48,7 @@ export function UnlockGraph({ report, schemes }: Props) {
           <g key={id}>
             <rect x={RIGHT} y={y(index) - 22} width={WIDTH - RIGHT} height={44} className="graph-scheme" />
             <text x={RIGHT + 12} y={y(index) + 5} className="graph-scheme-text">
-              {shorten(name(id), 26)}
+              {shorten(name(id), 46)}
             </text>
           </g>
         ))}

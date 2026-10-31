@@ -12,36 +12,40 @@ export function Landing() {
 
   return (
     <>
-      <section className="container-page grid items-center gap-8 py-12 md:py-20 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
+      <section className="container-page grid items-center gap-10 py-12 md:py-16 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]">
         <div className="flex flex-col items-start gap-6">
-          <h1>{t("landing.title")}</h1>
-          <p className="max-w-xl text-(length:--text-lead)">{t("landing.lead")}</p>
+          <h1 className="hero-title">{t("landing.title")}</h1>
+          <p className="max-w-xl text-(length:--text-lead) text-ink-2">{t("landing.lead")}</p>
           <Link to="/assess" className="btn btn-primary">
             {t("landing.action")}
           </Link>
         </div>
 
-        <figure className="sign m-0">
-          <figcaption className="sign-caption">{t("landing.sign_caption")}</figcaption>
-          <p className="sign-step"><span aria-hidden="true">1</span>{t("landing.sign_first")}</p>
-          <p className="sign-step"><span aria-hidden="true">2</span>{t("landing.sign_next")}</p>
+        <figure className="slip m-0">
+          <figcaption className="slip-caption">{t("landing.sign_caption")}</figcaption>
+          <ol className="route">
+            <li className="plate">
+              <span className="plate-step" aria-hidden="true">1</span>
+              <p className="plate-title self-center font-(family-name:--font-display) font-semibold">{t("landing.sign_first")}</p>
+            </li>
+            <li className="plate">
+              <span className="plate-step" aria-hidden="true">2</span>
+              <p className="plate-title self-center font-(family-name:--font-display) font-semibold">{t("landing.sign_next")}</p>
+            </li>
+          </ol>
         </figure>
       </section>
 
-      <section className="bg-paper-2">
-        <div className="container-page py-10">
-          <ol className="route m-0">
-            {STEPS.map((step, index) => (
-              <li key={step.title} className="plate">
-                <span className="plate-step" aria-hidden="true">{index + 1}</span>
-                <div className="flex flex-col gap-1">
-                  <h2 className="plate-title">{t(step.title)}</h2>
-                  <p>{t(step.body)}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
+      <section className="container-page pb-16">
+        <ol className="steps">
+          {STEPS.map((step, index) => (
+            <li key={step.title} className="step">
+              <span className="step-number" aria-hidden="true">{index + 1}</span>
+              <h2 className="step-title">{t(step.title)}</h2>
+              <p className="text-ink-2">{t(step.body)}</p>
+            </li>
+          ))}
+        </ol>
       </section>
     </>
   );

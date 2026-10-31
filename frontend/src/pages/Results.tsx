@@ -56,23 +56,24 @@ export function Results() {
             ))}
           </div>
 
-          <div role="tabpanel" className="flex flex-col">
-            {rows.length === 0 && <Empty message="results.empty" />}
-            {rows.map((result) => (
-              <SchemeCard key={result.scheme_id} result={result} labels={data.labels} onChanged={reload} />
-            ))}
-          </div>
+          <div className="grid items-start gap-x-12 gap-y-8 lg:grid-cols-[minmax(0,1fr)_340px]">
+            <div role="tabpanel" className="flex min-w-0 flex-col">
+              {rows.length === 0 && <div className="mt-6"><Empty message="results.empty" /></div>}
+              {rows.map((result) => (
+                <SchemeCard key={result.scheme_id} result={result} labels={data.labels} onChanged={reload} />
+              ))}
+            </div>
 
-          <div className="mt-6 flex flex-wrap gap-2">
-            <Link to="/documents" className="btn btn-primary">
-              {t("results.to_plan")}
-            </Link>
-            <Link to="/packet" className="btn">
-              {t("page.packet")}
-            </Link>
+            <aside className="flex min-w-0 flex-col gap-3 lg:pt-6">
+              <Link to="/documents" className="btn btn-primary">
+                {t("results.to_plan")}
+              </Link>
+              <Link to="/packet" className="btn">
+                {t("page.packet")}
+              </Link>
+              <AskPanel />
+            </aside>
           </div>
-
-          <AskPanel />
         </>
       )}
     </section>

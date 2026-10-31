@@ -25,7 +25,7 @@ export function AskPanel() {
   };
 
   return (
-    <section aria-labelledby="ask" className="panel no-print mt-6 flex flex-col gap-3">
+    <section aria-labelledby="ask" className="panel no-print mt-3 flex flex-col gap-3">
       <h2 id="ask" className="row-title">{t("ask.title")}</h2>
       <form onSubmit={ask} className="flex flex-wrap gap-2">
         <input

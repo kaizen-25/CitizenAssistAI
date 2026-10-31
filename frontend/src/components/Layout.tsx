@@ -22,9 +22,9 @@ export function Layout() {
         </p>
       )}
 
-      <header className="no-print border-b-2 border-ink bg-paper-3">
+      <header className="no-print site-head">
         <div className="container-page flex flex-wrap items-center justify-between gap-3 py-3">
-          <Link to="/" className="text-xl font-extrabold no-underline">
+          <Link to="/" className="wordmark">
             {t("app.name")}
           </Link>
           <div role="group" aria-label={t("language.label")} className="cells">
@@ -41,7 +41,7 @@ export function Layout() {
         <Outlet />
       </main>
 
-      <footer className="no-print bg-ink text-paper">
+      <footer className="no-print bg-ink text-accent-ink">
         <div className="container-page flex flex-col gap-2 py-6 text-sm">
           <p className="max-w-3xl">{t("disclaimer")}</p>
           {(health || failed) && (

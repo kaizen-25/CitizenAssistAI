@@ -39,9 +39,10 @@ export function AskPanel() {
         </button>
       </form>
 
+      {busy && <p role="status" className="text-sm text-muted">{t("ask.thinking")}</p>}
       {failed && <p role="alert" className="text-sm text-ineligible">{t("ask.failed")}</p>}
 
-      {response && (
+      {response && !busy && (
         <div role="status" className="flex flex-col gap-2">
           <p className="whitespace-pre-line">{response.answer.replace(/\s*\[[\w.-]+\]/g, "")}</p>
           {(response.citations ?? []).length > 0 && (

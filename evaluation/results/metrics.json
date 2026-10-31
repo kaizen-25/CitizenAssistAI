@@ -144,6 +144,20 @@
   "intake": {
     "runs": [
       {
+        "profile": "p01",
+        "language": "en",
+        "passed": true,
+        "fields": {
+          "state": "Punjab",
+          "currently_enrolled": true,
+          "course_level": "undergraduate",
+          "holds_bpl_card": true,
+          "gender": "female",
+          "social_category": "OBC"
+        },
+        "clarification": false
+      },
+      {
         "profile": "p09",
         "language": "en",
         "passed": true,
@@ -159,16 +173,83 @@
           "age": 19
         },
         "clarification": false
+      },
+      {
+        "profile": "p12",
+        "language": "en",
+        "passed": true,
+        "fields": {
+          "state": "Punjab",
+          "holds_bpl_card": true,
+          "marital_status": "widowed"
+        },
+        "clarification": false
+      },
+      {
+        "profile": "p13",
+        "language": "en",
+        "passed": true,
+        "fields": {
+          "state": "Punjab",
+          "marital_status": "married",
+          "gender": "male"
+        },
+        "clarification": false
+      },
+      {
+        "profile": "p16",
+        "language": "hi",
+        "passed": true,
+        "fields": {
+          "state": "Punjab",
+          "has_disability": true
+        },
+        "clarification": false
+      },
+      {
+        "profile": "p17",
+        "language": "hi",
+        "passed": true,
+        "fields": {
+          "state": "Punjab",
+          "marital_status": "widowed"
+        },
+        "clarification": false
+      },
+      {
+        "profile": "p21",
+        "language": "en",
+        "passed": true,
+        "fields": {
+          "age": 18,
+          "state": "Punjab",
+          "course_level": "post_matric",
+          "social_category": "SC",
+          "currently_enrolled": true
+        },
+        "clarification": false
+      },
+      {
+        "profile": "p23",
+        "language": "en",
+        "passed": false,
+        "fields": {
+          "state": "Punjab",
+          "course_level": "pre_matric",
+          "social_category": "ST",
+          "gender": "female"
+        },
+        "clarification": false
       }
     ],
-    "pass_rate": 1.0
+    "pass_rate": 0.8888888888888888
   },
   "qa": {
-    "questions": 30,
+    "questions": 38,
     "answerable_answered_rate": 1.0,
     "hindi_answered_rate": 1.0,
     "extractive_fallbacks": 0,
-    "correct_refusal_rate": 0.9,
+    "correct_refusal_rate": 0.9166666666666666,
     "citation_validity_rate": 1.0,
     "languages": [
       "en",
@@ -180,11 +261,10 @@
         "language": "en",
         "type": "answerable",
         "grounded": true,
-        "answer": "Students with gross parental/family income upto Rs. 4.5 lakh per annum are eligible for scholarship under the scheme. [edu_001_c0] [edu_001_c1]",
+        "answer": "Students with gross parental/family income upto Rs. 4.5 lakh per annum are eligible for scholarship under the scheme [edu_001_c0].",
         "extractive": false,
         "citations_valid": true,
         "citations": [
-          "edu_001_c1",
           "edu_001_c0"
         ],
         "retrieved": 50
@@ -247,7 +327,7 @@
         "language": "en",
         "type": "answerable",
         "grounded": true,
-        "answer": "The lump sum under the National Family Benefit Scheme is Rs. 10000/- in case of death of the primary breadwinner due to natural or accidental causes [soc_004_c0].",
+        "answer": "The lump sum under the National Family Benefit Scheme is Rs. 10000/- in case of death of primary breadwinner due to natural or accidental causes [soc_004_c0].",
         "extractive": false,
         "citations_valid": true,
         "citations": [
@@ -286,7 +366,7 @@
         "language": "hi",
         "type": "answerable",
         "grounded": true,
-        "answer": "पीएम-यूएसपी छात्रवृत्ति के लिए पारिवारिक आय सीमा रु. 4.5 लाख प्रति वर्ष है। [edu_001_c0]",
+        "answer": "पीएम-यूएसपी छात्रवृत्ति के लिए पारिवारिक आय सीमा रु. 4.5 लाख प्रति वर्ष है [edu_001_c0].",
         "extractive": false,
         "citations_valid": true,
         "citations": [
@@ -299,7 +379,7 @@
         "language": "hi",
         "type": "answerable",
         "grounded": true,
-        "answer": "पंजाब वृद्धावस्था पेंशन हर महीने 1500 रुपया है [soc_005_c0].",
+        "answer": "पंजाब वृद्धावस्था पेंशन हर महीने 1500 रुपये है [soc_005_c0].",
         "extractive": false,
         "citations_valid": true,
         "citations": [
@@ -325,11 +405,12 @@
         "language": "hi",
         "type": "answerable",
         "grounded": true,
-        "answer": "राष्ट्रीय परिवार लाभ योजना में रु. 10000/- की राशि मिलती है। [soc_001_c6]",
+        "answer": "राष्ट्रीय परिवार लाभ योजना में रु. 10000/- की राशि मिलती है। [soc_001_c1] [soc_004_c0]",
         "extractive": false,
         "citations_valid": true,
         "citations": [
-          "soc_001_c6"
+          "soc_001_c1",
+          "soc_004_c0"
         ],
         "retrieved": 0
       },
@@ -423,8 +504,8 @@
         "extractive": false,
         "citations_valid": true,
         "citations": [
-          "edu_001_c1",
           "edu_001_c0",
+          "edu_001_c1",
           "edu_001_c4"
         ],
         "retrieved": 50
@@ -461,7 +542,7 @@
         "language": "en",
         "type": "answerable",
         "grounded": true,
-        "answer": "The PMMVY provides Rs. 5000 in two instalments for the first child [soc_009_c0].",
+        "answer": "The Pradhan Mantri Matru Vandana Yojana (PMMVY) provides Rs. 5000 in two instalments for the first child [soc_009_c0].",
         "extractive": false,
         "citations_valid": true,
         "citations": [
@@ -526,7 +607,7 @@
         "language": "hi",
         "type": "answerable",
         "grounded": true,
-        "answer": "आयुष्मान भारत में वरिष्ठ नागरिकों को प्रति वर्ष रु. 5 लाख का स्वास्थ्य बीमा मिलता है [soc_010_c0]।",
+        "answer": "आयुष्मान भारत में वरिष्ठ नागरिकों को प्रति वर्ष अधिकतम 5 लाख रुपये का स्वास्थ्य बीमा मिलता है [soc_010_c0]।",
         "extractive": false,
         "citations_valid": true,
         "citations": [
@@ -556,9 +637,134 @@
         "extractive": false,
         "citations_valid": true,
         "citations": [
+          "soc_009_c0",
           "soc_009_c65",
-          "soc_009_c29",
-          "soc_009_c68"
+          "soc_009_c29"
+        ],
+        "retrieved": 50
+      },
+      {
+        "id": "q31",
+        "language": "en",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "PMMVY is a maternity benefit scheme for pregnant women and lactating mothers from socially and economically disadvantaged sections, providing financial support for the first two living children, with higher benefits for the second child if it is a girl [soc_009_c0].",
+        "extractive": false,
+        "citations_valid": true,
+        "citations": [
+          "soc_009_c0"
+        ],
+        "retrieved": 30
+      },
+      {
+        "id": "q32",
+        "language": "en",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "These schemes are in our list. Your results page shows which ones may fit you:\n- Central Sector Scheme of Scholarship for College and University Students (PM-USP CSSS)\n- Central Sector Scheme of Top Class Education in College for OBC, EBC and DNT Students\n- Post Matric Scholarship for Scheduled Trib",
+        "extractive": false,
+        "citations_valid": true,
+        "citations": [
+          "edu_001_c0",
+          "edu_002_c0",
+          "edu_003_c0",
+          "edu_004_c0",
+          "edu_005_c0",
+          "edu_006_c0",
+          "edu_007_c0",
+          "edu_008_c0"
+        ],
+        "retrieved": 50
+      },
+      {
+        "id": "q33",
+        "language": "en",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "These schemes are in our list. Your results page shows which ones may fit you:\n- Central Sector Scheme of Scholarship for College and University Students (PM-USP CSSS)\n- Central Sector Scheme of Top Class Education in College for OBC, EBC and DNT Students\n- Post Matric Scholarship for Scheduled Trib",
+        "extractive": false,
+        "citations_valid": true,
+        "citations": [
+          "edu_001_c0",
+          "edu_002_c0",
+          "edu_003_c0",
+          "edu_004_c0",
+          "edu_005_c0",
+          "edu_006_c0",
+          "edu_007_c0",
+          "edu_008_c0"
+        ],
+        "retrieved": 50
+      },
+      {
+        "id": "q34",
+        "language": "en",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "The PM-USP scholarship provides financial assistance to meritorious students from poor families to meet a part of their day-to-day expenses while pursuing higher studies [edu_001_c0].",
+        "extractive": false,
+        "citations_valid": true,
+        "citations": [
+          "edu_001_c0"
+        ],
+        "retrieved": 50
+      },
+      {
+        "id": "q35",
+        "language": "hi",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "ये योजनाएँ हमारी सूची में हैं। आपके परिणाम पृष्ठ पर दिखता है कि कौन सी आपके लिए उपयुक्त हो सकती हैं:\n- Central Sector Scheme of Scholarship for College and University Students (PM-USP CSSS)\n- Central Sector Scheme of Top Class Education in College for OBC, EBC and DNT Students\n- Post Matric Scholars",
+        "extractive": false,
+        "citations_valid": true,
+        "citations": [
+          "edu_001_c0",
+          "edu_002_c0",
+          "edu_003_c0",
+          "edu_004_c0",
+          "edu_005_c0",
+          "edu_006_c0",
+          "edu_007_c0",
+          "edu_008_c0"
+        ],
+        "retrieved": 0
+      },
+      {
+        "id": "q36",
+        "language": "hi",
+        "type": "answerable",
+        "grounded": true,
+        "answer": "आयु के प्रमाण के लिए एडाराड कार्ड या वोटर कार्ड या वोटर सूची या मैट्रिकुलेशन सर्टिफिकेट या जन्म और मृत्यु रजिस्टर द्वारा जारी किए गए जन्म प्रमाण पत्र कोई एक प्रमाण दस्तावेज आवेदनकर्ता के लिए आवश्यक है। [soc_005_c2]",
+        "extractive": false,
+        "citations_valid": true,
+        "citations": [
+          "soc_005_c2"
+        ],
+        "retrieved": 0
+      },
+      {
+        "id": "q37",
+        "language": "en",
+        "type": "out_of_scope",
+        "grounded": false,
+        "answer": "I cannot verify this from the available official sources.",
+        "extractive": false,
+        "citations_valid": true,
+        "citations": [],
+        "retrieved": 3
+      },
+      {
+        "id": "q38",
+        "language": "en",
+        "type": "not_in_sources",
+        "grounded": false,
+        "answer": "I cannot verify this from the available official sources.",
+        "extractive": false,
+        "citations_valid": true,
+        "citations": [
+          "soc_009_c0",
+          "soc_007_c2",
+          "soc_005_c2"
         ],
         "retrieved": 50
       }

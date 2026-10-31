@@ -15,6 +15,7 @@ from app.llm import cache
 logger = logging.getLogger(__name__)
 
 OLLAMA_URL = "http://localhost:11434"
+OLLAMA_CONTEXT = 8192
 
 
 @lru_cache
@@ -48,7 +49,8 @@ def _call_ollama(settings: Settings, system: str, user: str, json_schema: dict, 
         "format": json_schema,  # a schema, not "json": plain JSON mode invents wrapper keys
         "stream": False,
         "think": False,
-        "options": {"temperature": 0},
+        # The default 4096 silently cuts the start of a prompt holding six excerpts.
+        "options": {"temperature": 0, "num_ctx": OLLAMA_CONTEXT},
     }
     request = urllib.request.Request(
         f"{OLLAMA_URL}/api/chat",

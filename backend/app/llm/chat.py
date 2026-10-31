@@ -2,10 +2,11 @@
 import re
 
 from app.config import load_schemes
+from app.engine.explain import localized
 from app.i18n import text
 from app.llm.provider import complete_json
-from app.retrieval.bm25 import MIN_SCORE, search
-from app.schemas import ChatResponse, Citation
+from app.retrieval.bm25 import MIN_SCORE, overview, search
+from app.schemas import ChatResponse, Citation, Scheme
 
 DIGITS = str.maketrans("०१२३४५६७८९੦੧੨੩੪੫੬੭੮੯", "01234567890123456789")
 CITATION = re.compile(r"\[([\w.-]+)\]")
@@ -17,12 +18,25 @@ DEADLINE_QUESTION = re.compile(
 REASONING = re.compile(r"\b(?:the question asks|let me|looking at the|the user (?:asks|wants))\b", re.IGNORECASE)
 NOT_IN_EXCERPTS = re.compile(r"\b(?:the|provided|given|these) excerpts?\b.*\b(?:not|no)\b|(?:उद्धरण|अंश).*नहीं", re.IGNORECASE)
 URL = re.compile(r"https?://[^\s)\]>\"']+|www\.[^\s)\]>\"']+")
+LIST_QUESTION = re.compile(
+    r"^\s*(?:what|which|list|show(?: me)?|are there(?: any)?)\s+(?:(?:are|all|the|other|any|kinds? of|types? of|government)\s+)*"
+    r"(?:schemes?|scholarships?|pensions?)\b",
+    re.IGNORECASE,
+)
+STUDY_WORDS = re.compile(r"\b(?:students?|scholarships?|study|studying|education|college|school)\b", re.IGNORECASE)
+WELFARE_WORDS = re.compile(r"\b(?:pensions?|widows?|senior|elderly|old age|disabilit\w+|disabled|women|mothers?|children)\b", re.IGNORECASE)
+ACRONYM = re.compile(r"\b[A-Z][A-Z-]{3,}\b")
+PLAIN_NAMES = ("Ayushman", "Matru Vandana")
+LANGUAGE_NAMES = {"en": "English", "hi": "Hindi"}
+DEVANAGARI = re.compile(r"[ऀ-ॿ]")
+MAX_EXCERPTS = 6
+EMAIL = re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+")
 
 ANSWER_SYSTEM = """Answer the citizen's question using ONLY the numbered excerpts.
 - Put the excerpt's id in square brackets after every claim, like [edu_001_c0], and list every id you used in citation_ids.
 - Never use outside knowledge. Never add a number, date, fee or URL that is not in a cited excerpt.
 - Answer in one or two short sentences, taken from the excerpt that addresses the question most directly.
-- Reply in the requested language."""
+- Reply only in the requested language, even though the excerpts are in English."""
 ANSWER_SCHEMA = {
     "type": "object",
     "properties": {"answer": {"type": "string"}, "citation_ids": {"type": "array", "items": {"type": "string"}}},
@@ -64,6 +78,10 @@ def answer_is_grounded(answer: str, chunks: list[dict], urls: set[str]) -> bool:
         return False
 
     body = URL.sub(" ", body)
+    cited_text = " ".join(by_id[chunk_id]["text"] for chunk_id in cited).casefold()
+    if any(email.casefold() not in cited_text for email in EMAIL.findall(body)):
+        return False
+
     allowed = set().union(*(_numbers(by_id[chunk_id]["text"]) for chunk_id in cited))
     return _numbers(body) <= allowed
 
@@ -87,6 +105,26 @@ def _extractive(chunks: list[dict], lang: str) -> ChatResponse:
     return ChatResponse(answer=f"{text(lang, 'extractive_prefix')}\n\n{excerpts}", citations=_citations(chunks[:3]), grounded=True)
 
 
+def _catalogue(query: str, lang: str) -> ChatResponse:
+    """Answer "which schemes" from schemes.json, with no LLM involved."""
+    wanted = "education" if STUDY_WORDS.search(query) else "social_welfare" if WELFARE_WORDS.search(query) else None
+    schemes = [scheme for scheme in load_schemes() if wanted in (None, scheme.category)]
+    names = "\n".join(f"- {localized(scheme.name, 'en')}" for scheme in schemes)
+    citations = [Citation(chunk_id=f"{s.scheme_id}_c0", source_url=s.source.url, source_title=s.source.title) for s in schemes]
+    return ChatResponse(answer=f"{text(lang, 'catalogue_intro')}\n{names}", citations=citations, grounded=True)
+
+
+def _named_schemes(query: str) -> list[Scheme]:
+    """Schemes the question names. A short question can name one yet score below MIN_SCORE."""
+    folded = query.casefold()
+
+    def names(scheme: Scheme) -> list[str]:
+        full = localized(scheme.name, "en")
+        return [*ACRONYM.findall(full), *(name for name in PLAIN_NAMES if name in full)]
+
+    return [scheme for scheme in load_schemes() if any(name.casefold() in folded for name in names(scheme))]
+
+
 def answer_question(question: str, lang: str) -> ChatResponse:
     if DEADLINE_QUESTION.search(question):
         return _refusal(search(question), lang)
@@ -99,15 +137,23 @@ def answer_question(question: str, lang: str) -> ChatResponse:
     if DEADLINE_QUESTION.search(query):
         return _refusal(search(query), lang)
 
+    if LIST_QUESTION.search(query):
+        return _catalogue(query, lang)
+
     chunks = search(query)
-    if not chunks or chunks[0]["score"] < MIN_SCORE:
+    named = [chunk for scheme in _named_schemes(query) if (chunk := overview(scheme.scheme_id))]
+    if not named and (not chunks or chunks[0]["score"] < MIN_SCORE):
         return ChatResponse(answer=text(lang, "refusal"), citations=[], grounded=False)
+    chunks = list({chunk["chunk_id"]: chunk for chunk in [*named, *chunks]}.values())[:MAX_EXCERPTS]
 
     excerpts = "\n\n".join(f"[{chunk['chunk_id']}] {chunk['text']}" for chunk in chunks)
-    user = f"Language: {lang}\n\nExcerpts:\n{excerpts}\n\nQuestion: {question}"
+    language = LANGUAGE_NAMES.get(lang, "English")
+    user = f"Language: {language}\n\nExcerpts:\n{excerpts}\n\nQuestion: {question}"
     response = complete_json(ANSWER_SYSTEM, user, ANSWER_SCHEMA)
     if response is None:
         return _extractive(chunks, lang)
+    if lang == "hi" and not DEVANAGARI.search(response.get("answer") or ""):
+        response = complete_json(ANSWER_SYSTEM, f"{user}\n\nWrite the answer in {language}.", ANSWER_SCHEMA) or response
 
     answer = (response.get("answer") or "").strip()
     if answer and not CITATION.search(answer):

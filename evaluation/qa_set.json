@@ -28,5 +28,13 @@
   {"id": "q27", "language": "hi", "type": "answerable", "question": "अनुसूचित जनजाति के छात्रों की प्री-मैट्रिक छात्रवृत्ति के लिए आय सीमा क्या है?"},
   {"id": "q28", "language": "hi", "type": "answerable", "question": "आयुष्मान भारत में वरिष्ठ नागरिकों को कितना स्वास्थ्य बीमा मिलता है?"},
   {"id": "q29", "language": "hi", "type": "out_of_scope", "question": "भारत का प्रधानमंत्री कौन है?"},
-  {"id": "q30", "language": "en", "type": "not_in_sources", "question": "How many women in Ludhiana received PMMVY last year?"}
+  {"id": "q30", "language": "en", "type": "not_in_sources", "question": "How many women in Ludhiana received PMMVY last year?"},
+  {"id": "q31", "language": "en", "type": "answerable", "question": "What is PMMVY?"},
+  {"id": "q32", "language": "en", "type": "answerable", "question": "What schemes are available for students?"},
+  {"id": "q33", "language": "en", "type": "answerable", "question": "Which scholarships can I apply for?"},
+  {"id": "q34", "language": "en", "type": "answerable", "question": "Tell me about the PM-USP scholarship"},
+  {"id": "q35", "language": "hi", "type": "answerable", "question": "छात्रों के लिए कौन सी योजनाएँ हैं?"},
+  {"id": "q36", "language": "hi", "type": "answerable", "question": "विधवा पेंशन के लिए क्या दस्तावेज चाहिए?"},
+  {"id": "q37", "language": "en", "type": "out_of_scope", "question": "Write me a poem about the monsoon"},
+  {"id": "q38", "language": "en", "type": "not_in_sources", "question": "What is the helpline email for PMMVY in Mohali?"}
 ]

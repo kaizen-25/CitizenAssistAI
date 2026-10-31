@@ -31,6 +31,11 @@ def _index() -> tuple[list[dict], BM25Okapi | None]:
     return chunks, BM25Okapi([tokenize(chunk["text"]) for chunk in chunks]) if chunks else None
 
 
+def overview(scheme_id: str) -> dict | None:
+    """The scheme's first chunk, which holds its name, summary and benefits."""
+    return next(({**chunk, "score": 0.0} for chunk in _index()[0] if chunk["scheme_id"] == scheme_id), None)
+
+
 def search(query: str, top_k: int = 6) -> list[dict]:
     """Best chunks first, each with its score. Chunks that match no query term are left out."""
     chunks, bm25 = _index()

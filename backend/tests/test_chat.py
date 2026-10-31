@@ -139,6 +139,80 @@ def test_answer_with_not_in_it_is_still_an_answer(wired, monkeypatch):
     assert answer_question("income limit?", "en").grounded is True
 
 
+@pytest.mark.parametrize("question", ["What schemes are available for students?", "Which scholarships can I apply for?"])
+def test_list_question_names_only_education_schemes_without_any_llm_call(monkeypatch, question):
+    monkeypatch.setattr(chat, "complete_json", lambda *_: pytest.fail("the catalogue needs no LLM"))
+
+    response = answer_question(question, "en")
+
+    assert response.grounded is True
+    assert "PM-USP" in response.answer
+    assert "Old Age" not in response.answer
+
+
+def test_hindi_list_question_is_answered_after_translation(monkeypatch):
+    monkeypatch.setattr(chat, "complete_json", lambda *_: {"english": "What schemes are there for students?"})
+
+    assert "PM-USP" in answer_question("छात्रों के लिए कौन सी योजनाएँ हैं?", "hi").answer
+
+
+@pytest.mark.parametrize("question", ["What is the income limit for the Post Matric Scholarship?", "How much is the Punjab pension?"])
+def test_detail_questions_are_not_list_questions(question):
+    assert chat.LIST_QUESTION.search(question) is None
+
+
+def test_question_naming_a_scheme_reaches_the_llm_despite_a_low_score(monkeypatch):
+    seen = {}
+    monkeypatch.setattr(chat, "search", lambda *_: [])
+
+    def reply(system, user, schema):
+        seen["user"] = user
+        return {"answer": "A maternity benefit [soc_009_c0].", "citation_ids": ["soc_009_c0"]}
+
+    monkeypatch.setattr(chat, "complete_json", reply)
+
+    assert answer_question("What is PMMVY?", "en").grounded is True
+    assert "[soc_009_c0]" in seen["user"]
+
+
+def test_low_score_question_naming_no_scheme_is_still_refused(monkeypatch):
+    monkeypatch.setattr(chat, "search", lambda *_: [{"chunk_id": "x", "score": 1.0}])
+    monkeypatch.setattr(chat, "complete_json", lambda *_: pytest.fail("off-topic questions never reach the LLM"))
+
+    assert answer_question("Who won the cricket world cup?", "en").grounded is False
+
+
+def test_email_that_is_not_in_the_cited_excerpt_is_rejected():
+    chunks = [{"chunk_id": "a", "text": "Write to help@gov.in for details."}]
+
+    assert answer_is_grounded("Write to help@gov.in [a].", chunks, set()) is True
+    assert answer_is_grounded("Write to other@gov.in [a].", chunks, set()) is False
+
+
+def test_english_reply_to_a_hindi_question_is_asked_for_again_in_hindi(wired, monkeypatch):
+    replies = iter([
+        {"english": "income limit"},
+        {"answer": "The limit is 4.5 lakh [edu_001_c0].", "citation_ids": ["edu_001_c0"]},
+        {"answer": "सीमा 4.5 लाख है [edu_001_c0]।", "citation_ids": ["edu_001_c0"]},
+    ])
+    monkeypatch.setattr(chat, "complete_json", lambda *_: next(replies))
+
+    assert answer_question("आय सीमा?", "hi").answer.startswith("सीमा")
+
+
+def test_the_prompt_names_the_language_in_full(wired, monkeypatch):
+    seen = {}
+
+    def reply(system, user, schema):
+        seen.setdefault("user", user) if "Excerpts" in user else None
+        return {"english": "income limit", "answer": "४.५ लाख [edu_001_c0]", "citation_ids": ["edu_001_c0"]}
+
+    monkeypatch.setattr(chat, "complete_json", reply)
+    answer_question("आय सीमा?", "hi")
+
+    assert "Language: Hindi" in seen["user"]
+
+
 def test_failed_validation_refuses_with_top_sources(wired, monkeypatch):
     llm(monkeypatch, {"answer": "Up to 9 lakh [edu_001_c0]."})
 

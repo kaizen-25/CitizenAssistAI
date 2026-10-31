@@ -66,6 +66,38 @@ def field(field_id, value_json, evidence, explicit=True):
     return {"field_id": field_id, "value_json": value_json, "evidence": evidence, "explicit": explicit}
 
 
+def test_the_prompt_asks_only_for_fields_a_rule_reads_and_explains_options(monkeypatch):
+    seen = []
+    monkeypatch.setattr(module, "complete_json", lambda system, user, schema: seen.append(user))
+
+    extract_profile("hello", {}, "en")
+
+    assert "education_level" not in seen[0]
+    assert "pre_matric means Up to class 10" in seen[0]
+
+
+def test_unquoted_string_values_are_kept(monkeypatch):
+    fake_llm(monkeypatch, {"fields": [field("state", "Punjab", "Punjab"), field("marital_status", "widowed", "widow")], "ambiguous_fields": []})
+
+    extracted, _ = extract_profile("I am a widow from Punjab", {}, "en")
+
+    assert {f.field_id: f.value for f in extracted} == {"state": "Punjab", "marital_status": "widowed"}
+
+
+def test_quoted_string_values_and_other_casing_match_the_option(monkeypatch):
+    fake_llm(monkeypatch, {"fields": [field("state", '"punjab"', "Punjab")], "ambiguous_fields": []})
+
+    extracted, _ = extract_profile("I live in Punjab", {}, "en")
+
+    assert extracted[0].value == "Punjab"
+
+
+def test_an_unquoted_value_outside_the_options_is_dropped(monkeypatch):
+    fake_llm(monkeypatch, {"fields": [field("state", "Atlantis", "Atlantis")], "ambiguous_fields": []})
+
+    assert extract_profile("I live in Atlantis", {}, "en")[0] == []
+
+
 def test_income_comes_from_the_parser_even_if_the_llm_disagrees(monkeypatch):
     fake_llm(monkeypatch, {"fields": [field("annual_family_income", "999999", "2 lakh")], "ambiguous_fields": []})
 

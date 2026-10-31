@@ -44,6 +44,7 @@
   "assess.lead": "We ask only what can change your results.",
   "assess.chat_label": "Tell us about yourself in your own words",
   "assess.chat_send": "Send",
+  "assess.nothing_found": "We could not pick up any details from that, so please answer this question.",
   "assess.chat_unavailable": "Free-text intake is unavailable right now, so use the questions below.",
   "assess.use_chat": "Describe it in your own words instead",
   "assess.use_form": "Use form instead",
@@ -101,5 +102,6 @@
   "packet.notes": "Helper notes",
   "ask.title": "Ask about these schemes",
   "ask.send": "Ask",
+  "ask.thinking": "Finding the answer in the official sources.",
   "ask.failed": "That question could not be answered right now. Try again."
 }

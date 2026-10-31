@@ -192,7 +192,7 @@ Implement scripts/run_evaluation.py per SPEC §11 using evaluation/profiles.json
 | 1:35–2:15 | **Unlock plan.** "Three schemes need your income certificate, so get it first; it makes you document-ready for 1. Then the caste certificate: +2, so 3 in all." This is the moment to land. |
 | 2:15–2:35 | **Grounded chat.** Ask `पीएम-यूएसपी छात्रवृत्ति के लिए पारिवारिक आय सीमा क्या है?` for a cited answer, then `What is the last date to apply for the PM-USP scholarship this year?` for a refusal. |
 | 2:35–2:45 | **Packet.** Print preview for the Sewa Kendra helper. |
-| 2:45–3:00 | **Evidence.** Real numbers from `report.md`: 18 verified schemes, 7.61 questions on average against an 11-field form, 20 of 20 answerable questions answered with no excerpt fallbacks, 9 of 10 refusals correct, English and Hindi tested. Do not lead with the 100% eligibility accuracy. Limitations line: "Claude verified the records and wrote the test labels, so these results are not independent, and the Hindi is machine-translated and unreviewed." |
+| 2:45–3:00 | **Evidence.** Real numbers from `report.md`: 18 verified schemes, 7.61 questions on average against an 11-field form, 26 of 26 answerable questions answered with no excerpt fallbacks, 11 of 12 refusals correct, 8 of 9 free-text intakes correct, English and Hindi tested. Do not lead with the 100% eligibility accuracy. Limitations line: "Claude verified the records and wrote the test labels, so these results are not independent, and the Hindi is machine-translated and unreviewed." |
 
 Before the demo, run `python scripts/warm_demo.py`, then `python scripts/warm_demo.py --replay`. The cache only matches the exact lines above, and it is not in git.
 

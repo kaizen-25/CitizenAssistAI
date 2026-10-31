@@ -86,8 +86,11 @@ export function Assess() {
       setProfile(response.profile);
       setText("");
       const notes = response.extracted.flatMap((field) => (field.note ? [field.note] : []));
-      setNotice([response.clarification, ...notes].filter(Boolean).join(" "));
+      const missed = response.extracted.length === 0 && !response.clarification;
+      setNotice([response.clarification, ...notes, missed ? t("assess.nothing_found") : ""].filter(Boolean).join(" "));
       setQuestion(response.next_question ?? null);
+      // Short replies like "yes" carry no field on their own, so follow-ups use the structured question.
+      setMode("form");
       if (!response.next_question && !response.clarification) await toDocuments(sessionId);
     } catch {
       setNotice(t("assess.chat_unavailable"));

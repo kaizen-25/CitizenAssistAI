@@ -33,14 +33,14 @@ Mismatches: 0
 - Individual scheme status differences: 16
 
 ## Free-text intake
-- Pass rate: 100.0% across 2 runs
+- Pass rate: 88.9% across 9 runs
 
 ## Grounded Q&A
-- Questions: 30 (en, hi)
-- Answerable questions answered by the model: 100.0%
-- Hindi answerable questions answered by the model: 100.0%
+- Questions: 38 (en, hi)
+- Answerable questions answered: 100.0%
+- Hindi answerable questions answered: 100.0%
 - Excerpt fallbacks, not counted as answers: 0
-- Correct refusal rate: 90.0%
+- Correct refusal rate: 91.7%
 - Citation validity: 100.0%
 
 ## Coverage gaps

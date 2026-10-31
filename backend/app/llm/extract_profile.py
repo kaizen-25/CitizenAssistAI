@@ -3,7 +3,7 @@ import json
 import re
 from dataclasses import dataclass
 
-from app.config import load_fields
+from app.config import load_fields, load_schemes
 from app.engine.explain import localized
 from app.i18n import text as i18n_text
 from app.llm.provider import complete_json
@@ -50,6 +50,7 @@ SYSTEM_PROMPT = """You extract facts a citizen stated about themselves into JSON
 - evidence must be the exact words from the user's message.
 - explicit is true only when the user stated the fact directly, not when it is implied.
 - value_json holds JSON: 19, true or "Punjab".
+- Saying you study in a class or course states that currently_enrolled is true.
 - If the message is ambiguous about a field, such as a range, list it in ambiguous_fields and leave it out of fields.
 - The message may be in English, Hindi or Punjabi."""
 
@@ -112,14 +113,34 @@ def parse_income(raw: str) -> IncomeParse:
     return IncomeParse(value=amount * 12 if monthly else amount, evidence=match[0], monthly=monthly)
 
 
+def _rule_fields() -> set[str]:
+    """Fields a verified rule reads. Asking for others only invites wrong values on the confirm screen."""
+    rules = [rule for scheme in load_schemes() for rule in scheme.rules]
+    return {rule.field for rule in rules if rule.field} | {rule.applies_if.field for rule in rules if rule.applies_if}
+
+
 def _prompt_fields(fields: dict[str, ProfileField], skip: set[str]) -> str:
     lines = []
+    used = _rule_fields()
     for field in fields.values():
-        if field.field_id in skip:
+        if field.field_id in skip or field.field_id not in used:
             continue
-        options = f", options {[o.value for o in field.options]}" if field.options else ""
+        options = ""
+        if field.options:
+            options = ", options: " + "; ".join(f"{o.value} means {localized(o.label, 'en')}" for o in field.options)
         lines.append(f"- {field.field_id} ({field.type}{options})")
     return "\n".join(lines)
+
+
+def _decode(raw: str, field: ProfileField):
+    """Models often leave strings unquoted in value_json: Punjab, not "Punjab"."""
+    try:
+        value = json.loads(raw)
+    except ValueError:
+        value = raw.strip()
+    if field.options and isinstance(value, str):
+        return next((option.value for option in field.options if option.value.casefold() == value.casefold()), value)
+    return value
 
 
 def _validated(raw_fields: list, text: str, fields: dict[str, ProfileField]) -> list[ExtractedField]:
@@ -131,10 +152,7 @@ def _validated(raw_fields: list, text: str, fields: dict[str, ProfileField]) -> 
             continue
         if (field.sensitive or field.type == "boolean") and not raw.get("explicit"):
             continue
-        try:
-            value = json.loads(raw.get("value_json") or "null")
-        except ValueError:
-            continue
+        value = _decode(raw.get("value_json") or "null", field)
         if value is None or isinstance(value, (list, dict)) or not value_is_valid(value, field):
             continue
         if value is False and not NEGATION.search(evidence):

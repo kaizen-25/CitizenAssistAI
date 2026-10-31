@@ -26,6 +26,7 @@
   "prefer_not_to_say": "Prefer not to say",
   "yes": "Yes",
   "no": "No",
+  "catalogue_intro": "These schemes are in our list. Your results page shows which ones may fit you:",
   "refusal": "I cannot verify this from the available official sources.",
   "extractive_prefix": "Relevant official excerpts:",
   "disclaimer": "CitizenAssist is an independent informational tool. It is not affiliated with any government body and cannot approve applications. Always confirm with the official source.",

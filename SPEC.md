@@ -476,4 +476,6 @@ Only claim the languages that `qa_set.json` and `profiles.json` actually tested.
 | 12 | 8-question cap | Kept. The evaluation reports how many profiles differ from full-profile statuses instead of asserting zero. |
 | 13 | Form intake | "Use form instead" uses the same adaptive questions with structured inputs. |
 | 14 | Offline schemes | `application_url` may be empty only when `application_mode` is exactly `["offline"]`. The UI then shows the source link. |
+| 16 | Chat scope | "Which schemes" questions are answered from `schemes.json` with no LLM. A question naming a scheme reaches the LLM with that scheme's overview even below `MIN_SCORE`. Every other low-scoring question is refused. |
+| 17 | Extraction | The LLM is asked only for fields a verified rule reads. Follow-up questions use structured inputs after the first free-text message. |
 | 15 | Pregnancy field | `pregnant_or_lactating` is added as a sensitive field with "prefer not to say", because PMMVY applies only to pregnant and lactating mothers. Without it the scheme would show for every woman. |

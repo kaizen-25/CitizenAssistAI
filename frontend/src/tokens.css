@@ -24,7 +24,7 @@
   --color-ineligible: oklch(46% 0.17 27);
   --color-ineligible-tint: oklch(94% 0.03 27);
 
-  --font-display: "Noto Sans", "Noto Sans Devanagari", "Noto Sans Gurmukhi", system-ui, sans-serif;
+  --font-display: "Noto Sans", "Noto Sans Devanagari", system-ui, sans-serif;
   --font-body: var(--font-display);
 }
 

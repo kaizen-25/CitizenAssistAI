@@ -99,6 +99,16 @@ def test_missing_application_url_fails(scheme):
     assert failed_checks(scheme) == {"application_url"}
 
 
+def test_offline_only_scheme_needs_no_application_url(scheme):
+    scheme.update(application_url=None, application_mode=["offline"])
+    assert failed_checks(scheme) == set()
+
+
+def test_mixed_mode_scheme_still_needs_application_url(scheme):
+    scheme.update(application_url=None, application_mode=["online", "offline"])
+    assert failed_checks(scheme) == {"application_url"}
+
+
 def test_empty_excerpt_on_hard_rule_fails(scheme):
     scheme["rules"][0]["source_excerpt"] = "   "
     assert failed_checks(scheme) == {"source_excerpts"}
@@ -148,7 +158,7 @@ def run_cli(*args):
 def test_cli_passes_on_repo_data():
     result = run_cli()
     assert result.returncode == 0, result.stdout
-    assert "Verified records: 0" in result.stdout
+    assert "Verified records:" in result.stdout
 
 
 def test_cli_exits_nonzero_for_bad_draft_and_counts_categories(scheme, tmp_path):

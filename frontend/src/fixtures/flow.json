@@ -1,0 +1,415 @@
+[
+  {
+    "profile": {
+      "state": {
+        "value": "Punjab",
+        "source": "answered",
+        "label": "State",
+        "display": "Punjab"
+      }
+    },
+    "next_question": {
+      "field_id": "age",
+      "question_text": "How old are you?",
+      "answer_type": "integer",
+      "options": [],
+      "schemes_affected": 2,
+      "reason": "Needed to check 2 schemes"
+    },
+    "progress": {
+      "answered": 1,
+      "max_questions": 8
+    }
+  },
+  {
+    "profile": {
+      "state": {
+        "value": "Punjab",
+        "source": "answered",
+        "label": "State",
+        "display": "Punjab"
+      },
+      "age": {
+        "value": 19,
+        "source": "answered",
+        "label": "Age",
+        "display": "19"
+      }
+    },
+    "next_question": {
+      "field_id": "annual_family_income",
+      "question_text": "What is your family's total yearly income, approximately?",
+      "answer_type": "number",
+      "options": [
+        {
+          "value": "__declined__",
+          "label": "Prefer not to say"
+        }
+      ],
+      "schemes_affected": 2,
+      "reason": "Needed to check 2 schemes"
+    },
+    "progress": {
+      "answered": 2,
+      "max_questions": 8
+    }
+  },
+  {
+    "profile": {
+      "state": {
+        "value": "Punjab",
+        "source": "answered",
+        "label": "State",
+        "display": "Punjab"
+      },
+      "age": {
+        "value": 19,
+        "source": "answered",
+        "label": "Age",
+        "display": "19"
+      },
+      "annual_family_income": {
+        "value": 200000,
+        "source": "answered",
+        "label": "Annual family income",
+        "display": "₹2,00,000"
+      }
+    },
+    "next_question": {
+      "field_id": "occupation",
+      "question_text": "What best describes your work?",
+      "answer_type": "enum",
+      "options": [
+        {
+          "value": "student",
+          "label": "Student"
+        },
+        {
+          "value": "farmer",
+          "label": "Farmer"
+        },
+        {
+          "value": "daily_wage_worker",
+          "label": "Daily-wage worker"
+        },
+        {
+          "value": "self_employed",
+          "label": "Self-employed"
+        },
+        {
+          "value": "salaried",
+          "label": "Salaried"
+        },
+        {
+          "value": "homemaker",
+          "label": "Homemaker"
+        },
+        {
+          "value": "retired",
+          "label": "Retired"
+        },
+        {
+          "value": "unemployed",
+          "label": "Not working"
+        },
+        {
+          "value": "other",
+          "label": "Other"
+        }
+      ],
+      "schemes_affected": 1,
+      "reason": "Needed to check 1 schemes"
+    },
+    "progress": {
+      "answered": 3,
+      "max_questions": 8
+    }
+  },
+  {
+    "profile": {
+      "state": {
+        "value": "Punjab",
+        "source": "answered",
+        "label": "State",
+        "display": "Punjab"
+      },
+      "age": {
+        "value": 19,
+        "source": "answered",
+        "label": "Age",
+        "display": "19"
+      },
+      "annual_family_income": {
+        "value": 200000,
+        "source": "answered",
+        "label": "Annual family income",
+        "display": "₹2,00,000"
+      },
+      "occupation": {
+        "value": "student",
+        "source": "answered",
+        "label": "Occupation",
+        "display": "Student"
+      }
+    },
+    "next_question": {
+      "field_id": "currently_enrolled",
+      "question_text": "Are you currently enrolled in a school or college?",
+      "answer_type": "boolean",
+      "options": [],
+      "schemes_affected": 1,
+      "reason": "Needed to check 1 schemes"
+    },
+    "progress": {
+      "answered": 4,
+      "max_questions": 8
+    }
+  },
+  {
+    "profile": {
+      "state": {
+        "value": "Punjab",
+        "source": "answered",
+        "label": "State",
+        "display": "Punjab"
+      },
+      "age": {
+        "value": 19,
+        "source": "answered",
+        "label": "Age",
+        "display": "19"
+      },
+      "annual_family_income": {
+        "value": 200000,
+        "source": "answered",
+        "label": "Annual family income",
+        "display": "₹2,00,000"
+      },
+      "occupation": {
+        "value": "student",
+        "source": "answered",
+        "label": "Occupation",
+        "display": "Student"
+      },
+      "currently_enrolled": {
+        "value": true,
+        "source": "answered",
+        "label": "Currently studying",
+        "display": "Yes"
+      }
+    },
+    "next_question": {
+      "field_id": "course_level",
+      "question_text": "What level is your current course?",
+      "answer_type": "enum",
+      "options": [
+        {
+          "value": "pre_matric",
+          "label": "Up to class 10"
+        },
+        {
+          "value": "post_matric",
+          "label": "Class 11, 12, ITI or diploma"
+        },
+        {
+          "value": "undergraduate",
+          "label": "Undergraduate"
+        },
+        {
+          "value": "postgraduate",
+          "label": "Postgraduate"
+        }
+      ],
+      "schemes_affected": 1,
+      "reason": "Needed to check 1 schemes"
+    },
+    "progress": {
+      "answered": 5,
+      "max_questions": 8
+    }
+  },
+  {
+    "profile": {
+      "state": {
+        "value": "Punjab",
+        "source": "answered",
+        "label": "State",
+        "display": "Punjab"
+      },
+      "age": {
+        "value": 19,
+        "source": "answered",
+        "label": "Age",
+        "display": "19"
+      },
+      "annual_family_income": {
+        "value": 200000,
+        "source": "answered",
+        "label": "Annual family income",
+        "display": "₹2,00,000"
+      },
+      "occupation": {
+        "value": "student",
+        "source": "answered",
+        "label": "Occupation",
+        "display": "Student"
+      },
+      "currently_enrolled": {
+        "value": true,
+        "source": "answered",
+        "label": "Currently studying",
+        "display": "Yes"
+      },
+      "course_level": {
+        "value": "undergraduate",
+        "source": "answered",
+        "label": "Course level",
+        "display": "Undergraduate"
+      }
+    },
+    "next_question": {
+      "field_id": "holds_bpl_card",
+      "question_text": "Does your family have a BPL card?",
+      "answer_type": "boolean",
+      "options": [],
+      "schemes_affected": 1,
+      "reason": "Needed to check 1 schemes"
+    },
+    "progress": {
+      "answered": 6,
+      "max_questions": 8
+    }
+  },
+  {
+    "profile": {
+      "state": {
+        "value": "Punjab",
+        "source": "answered",
+        "label": "State",
+        "display": "Punjab"
+      },
+      "age": {
+        "value": 19,
+        "source": "answered",
+        "label": "Age",
+        "display": "19"
+      },
+      "annual_family_income": {
+        "value": 200000,
+        "source": "answered",
+        "label": "Annual family income",
+        "display": "₹2,00,000"
+      },
+      "occupation": {
+        "value": "student",
+        "source": "answered",
+        "label": "Occupation",
+        "display": "Student"
+      },
+      "currently_enrolled": {
+        "value": true,
+        "source": "answered",
+        "label": "Currently studying",
+        "display": "Yes"
+      },
+      "course_level": {
+        "value": "undergraduate",
+        "source": "answered",
+        "label": "Course level",
+        "display": "Undergraduate"
+      },
+      "holds_bpl_card": {
+        "value": true,
+        "source": "answered",
+        "label": "Holds a BPL card",
+        "display": "Yes"
+      }
+    },
+    "next_question": {
+      "field_id": "gender",
+      "question_text": "What is your gender?",
+      "answer_type": "enum",
+      "options": [
+        {
+          "value": "female",
+          "label": "Female"
+        },
+        {
+          "value": "male",
+          "label": "Male"
+        },
+        {
+          "value": "other",
+          "label": "Other"
+        },
+        {
+          "value": "__declined__",
+          "label": "Prefer not to say"
+        }
+      ],
+      "schemes_affected": 1,
+      "reason": "Needed to check 1 schemes"
+    },
+    "progress": {
+      "answered": 7,
+      "max_questions": 8
+    }
+  },
+  {
+    "profile": {
+      "state": {
+        "value": "Punjab",
+        "source": "answered",
+        "label": "State",
+        "display": "Punjab"
+      },
+      "age": {
+        "value": 19,
+        "source": "answered",
+        "label": "Age",
+        "display": "19"
+      },
+      "annual_family_income": {
+        "value": 200000,
+        "source": "answered",
+        "label": "Annual family income",
+        "display": "₹2,00,000"
+      },
+      "occupation": {
+        "value": "student",
+        "source": "answered",
+        "label": "Occupation",
+        "display": "Student"
+      },
+      "currently_enrolled": {
+        "value": true,
+        "source": "answered",
+        "label": "Currently studying",
+        "display": "Yes"
+      },
+      "course_level": {
+        "value": "undergraduate",
+        "source": "answered",
+        "label": "Course level",
+        "display": "Undergraduate"
+      },
+      "holds_bpl_card": {
+        "value": true,
+        "source": "answered",
+        "label": "Holds a BPL card",
+        "display": "Yes"
+      },
+      "gender": {
+        "value": "female",
+        "source": "answered",
+        "label": "Gender",
+        "display": "Female"
+      }
+    },
+    "next_question": null,
+    "progress": {
+      "answered": 8,
+      "max_questions": 8
+    }
+  }
+]

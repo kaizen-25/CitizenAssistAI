@@ -23,7 +23,12 @@
     "not_eligible": "Not eligible"
   },
   "question_reason": "Needed to check {n} schemes",
+  "prefer_not_to_say": "Prefer not to say",
+  "yes": "Yes",
+  "no": "No",
   "refusal": "I cannot verify this from the available official sources.",
   "extractive_prefix": "Relevant official excerpts:",
-  "disclaimer": "CitizenAssist is an independent informational tool. It is not affiliated with any government body and cannot approve applications. Always confirm with the official source."
+  "disclaimer": "CitizenAssist is an independent informational tool. It is not affiliated with any government body and cannot approve applications. Always confirm with the official source.",
+  "clarify_field": "Could you give one exact value for {label}?",
+  "income_monthly_note": "You gave a monthly amount, so we multiplied it by 12."
 }

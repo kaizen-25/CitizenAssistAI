@@ -14,7 +14,7 @@ button, input, select, textarea { font: inherit; }
 img, video { max-width: 100%; height: auto; display: block; }
 svg { display: block; }
 
-/* Negative tracking breaks the headline bar of Devanagari and Gurmukhi, and tight leading clips their matras. */
-:lang(hi) :is(h1, h2, h3), :lang(pa) :is(h1, h2, h3) { letter-spacing: 0; line-height: 1.3; }
+/* Negative tracking breaks the Devanagari headline bar, and tight leading clips its matras. */
+:lang(hi) :is(h1, h2, h3) { letter-spacing: 0; line-height: 1.3; }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }

@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field, RootModel, model_validator
 DECLINED = "__declined__"
 MAX_QUESTIONS = 8
 
-Language = Literal["en", "hi", "pa"]
+Language = Literal["en", "hi"]
 Operator = Literal["eq", "neq", "gt", "gte", "lt", "lte", "in", "not_in"]
 FieldType = Literal["number", "integer", "enum", "boolean"]
 RuleKind = Literal["hard", "manual_check"]
@@ -150,6 +150,8 @@ class ResultSource(BaseModel):
 
 class SchemeResult(BaseModel):
     scheme_id: str
+    name: str
+    department: str
     status: SchemeStatus
     rules: list[RuleResult]
     unknown_fields: list[str] = []
@@ -224,6 +226,8 @@ class HealthResponse(BaseModel):
 class ProfileEntry(BaseModel):
     value: ScalarValue
     source: AnswerSource
+    label: str = ""
+    display: str = ""
 
 
 Profile = dict[str, ProfileEntry]
@@ -264,6 +268,7 @@ class ExtractedField(BaseModel):
     evidence: str
     explicit: bool
     source: Literal["extracted"] = "extracted"
+    note: str | None = None
 
 
 class MessageResponse(BaseModel):
@@ -281,6 +286,17 @@ class OkResponse(BaseModel):
     ok: bool
 
 
+class ChecklistItem(BaseModel):
+    document_id: str
+    label: str
+    issued_by_hint: str | None = None
+    answer: DocumentAnswer | None = None
+
+
+class ChecklistResponse(BaseModel):
+    documents: list[ChecklistItem]
+
+
 class ConfirmRequest(BaseModel):
     profile_overrides: dict[str, ScalarValue] | None = None
 
@@ -295,15 +311,23 @@ class ResultGroups(BaseModel):
     not_eligible: list[SchemeResult] = []
 
 
+class Labels(BaseModel):
+    fields: dict[str, str] = {}
+    documents: dict[str, str] = {}
+
+
 class ResultsResponse(BaseModel):
     confirmed: bool
+    profile: Profile
     groups: ResultGroups
+    labels: Labels
 
 
 class PacketResponse(BaseModel):
     profile: Profile
     groups: ResultGroups
     unlock: UnlockReport
+    labels: Labels
     disclaimer: str
 
 

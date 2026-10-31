@@ -1,0 +1,52 @@
+{
+  "ready_now": [],
+  "ranking": [
+    {
+      "document_id": "income_certificate",
+      "label": "Income Certificate",
+      "rank": 1,
+      "required_by": [
+        "syn_a",
+        "syn_b",
+        "syn_e"
+      ],
+      "sole_blocker_for": [
+        "syn_a",
+        "syn_b",
+        "syn_e"
+      ]
+    }
+  ],
+  "plan": [
+    {
+      "step": 1,
+      "document_id": "income_certificate",
+      "newly_ready": [
+        "syn_a",
+        "syn_b",
+        "syn_e"
+      ],
+      "cumulative_ready": 3
+    }
+  ],
+  "pending_info": [
+    {
+      "scheme_id": "syn_d",
+      "unknown_fields": [
+        "social_category"
+      ],
+      "missing_documents": [
+        "caste_certificate"
+      ]
+    },
+    {
+      "scheme_id": "syn_f",
+      "unknown_fields": [
+        "has_disability"
+      ],
+      "missing_documents": [
+        "disability_certificate"
+      ]
+    }
+  ]
+}

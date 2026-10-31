@@ -1,6 +1,6 @@
 # CitizenAssist AI
 
-A multilingual navigator that tells a citizen which government schemes they may qualify for, why, what is still unknown, and which missing document to get first. Eligibility is decided by a deterministic engine, never by an LLM.
+An English and Hindi navigator that tells a citizen which government schemes they may qualify for, why, what is still unknown, and which missing document to get first. Eligibility is decided by a deterministic engine, never by an LLM.
 
 Read `CLAUDE.md` for the working rules, `SPEC.md` for the contract and `DESIGN.md` for the visual system.
 

@@ -1,0 +1,408 @@
+{
+  "confirmed": true,
+  "profile": {
+    "state": {
+      "value": "Punjab",
+      "source": "answered",
+      "label": "State",
+      "display": "Punjab"
+    },
+    "age": {
+      "value": 19,
+      "source": "answered",
+      "label": "Age",
+      "display": "19"
+    },
+    "annual_family_income": {
+      "value": 200000,
+      "source": "answered",
+      "label": "Annual family income",
+      "display": "₹2,00,000"
+    },
+    "occupation": {
+      "value": "student",
+      "source": "answered",
+      "label": "Occupation",
+      "display": "Student"
+    },
+    "currently_enrolled": {
+      "value": true,
+      "source": "answered",
+      "label": "Currently studying",
+      "display": "Yes"
+    },
+    "course_level": {
+      "value": "undergraduate",
+      "source": "answered",
+      "label": "Course level",
+      "display": "Undergraduate"
+    },
+    "holds_bpl_card": {
+      "value": true,
+      "source": "answered",
+      "label": "Holds a BPL card",
+      "display": "Yes"
+    },
+    "gender": {
+      "value": "female",
+      "source": "answered",
+      "label": "Gender",
+      "display": "Female"
+    }
+  },
+  "groups": {
+    "potentially_eligible": [
+      {
+        "scheme_id": "syn_a",
+        "name": "SYNTHETIC Scholarship A",
+        "department": "SYNTHETIC Department",
+        "status": "potentially_eligible",
+        "rules": [
+          {
+            "rule_id": "syn_a_r1",
+            "outcome": "PASS",
+            "explanation": "Annual family income must be at most ₹2,50,000",
+            "source_excerpt": "SYNTHETIC income at most 2.5 lakh",
+            "field": "annual_family_income",
+            "operator": "lte",
+            "value": 250000,
+            "unknown_field": null
+          },
+          {
+            "rule_id": "syn_a_r2",
+            "outcome": "PASS",
+            "explanation": "Course level must be one of: Class 11, 12, ITI or diploma, Undergraduate, Postgraduate",
+            "source_excerpt": "SYNTHETIC enrolled students must be post-matric",
+            "field": "course_level",
+            "operator": "in",
+            "value": [
+              "post_matric",
+              "undergraduate",
+              "postgraduate"
+            ],
+            "unknown_field": null
+          },
+          {
+            "rule_id": "syn_a_r3",
+            "outcome": "MANUAL",
+            "explanation": "SYNTHETIC attendance of at least 75 percent",
+            "source_excerpt": "SYNTHETIC attendance of at least 75 percent",
+            "field": null,
+            "operator": null,
+            "value": null,
+            "unknown_field": null
+          }
+        ],
+        "unknown_fields": [],
+        "manual_checks": [
+          "SYNTHETIC attendance of at least 75 percent"
+        ],
+        "documents": {
+          "held": [],
+          "missing": [
+            "income_certificate"
+          ],
+          "unsure": [],
+          "possibly_required": [
+            "caste_certificate"
+          ],
+          "optional_missing": [
+            "passport_photo"
+          ]
+        },
+        "document_ready": false,
+        "unmapped_conditions": [
+          "SYNTHETIC condition that could not be encoded"
+        ],
+        "source": {
+          "url": "https://example.invalid/source/syn_a",
+          "title": "SYNTHETIC source A",
+          "retrieved_on": "2026-11-01"
+        },
+        "application_url": "https://example.invalid/syn_a"
+      },
+      {
+        "scheme_id": "syn_b",
+        "name": "SYNTHETIC Youth Grant B",
+        "department": "SYNTHETIC Department",
+        "status": "potentially_eligible",
+        "rules": [
+          {
+            "rule_id": "syn_b_r1",
+            "outcome": "PASS",
+            "explanation": "Age must be at least 18",
+            "source_excerpt": "SYNTHETIC aged 18 or over",
+            "field": "age",
+            "operator": "gte",
+            "value": 18,
+            "unknown_field": null
+          },
+          {
+            "rule_id": "syn_b_r2",
+            "outcome": "PASS",
+            "explanation": "Age must be less than 30",
+            "source_excerpt": "SYNTHETIC aged under 30",
+            "field": "age",
+            "operator": "lt",
+            "value": 30,
+            "unknown_field": null
+          },
+          {
+            "rule_id": "syn_b_r3",
+            "outcome": "PASS",
+            "explanation": "Occupation must not be Salaried",
+            "source_excerpt": "SYNTHETIC not in salaried work",
+            "field": "occupation",
+            "operator": "neq",
+            "value": "salaried",
+            "unknown_field": null
+          }
+        ],
+        "unknown_fields": [],
+        "manual_checks": [],
+        "documents": {
+          "held": [
+            "bank_passbook"
+          ],
+          "missing": [
+            "income_certificate"
+          ],
+          "unsure": [],
+          "possibly_required": [],
+          "optional_missing": []
+        },
+        "document_ready": false,
+        "unmapped_conditions": [],
+        "source": {
+          "url": "https://example.invalid/source/syn_b",
+          "title": "SYNTHETIC source B",
+          "retrieved_on": "2026-11-01"
+        },
+        "application_url": "https://example.invalid/syn_b"
+      },
+      {
+        "scheme_id": "syn_e",
+        "name": "SYNTHETIC Girls Education E",
+        "department": "SYNTHETIC Department",
+        "status": "potentially_eligible",
+        "rules": [
+          {
+            "rule_id": "syn_e_r1",
+            "outcome": "PASS",
+            "explanation": "Gender must be Female",
+            "source_excerpt": "SYNTHETIC girls only",
+            "field": "gender",
+            "operator": "eq",
+            "value": "female",
+            "unknown_field": null
+          },
+          {
+            "rule_id": "syn_e_r2",
+            "outcome": "PASS",
+            "explanation": "Annual family income must be less than ₹6,00,000",
+            "source_excerpt": "SYNTHETIC income under 6 lakh",
+            "field": "annual_family_income",
+            "operator": "lt",
+            "value": 600000,
+            "unknown_field": null
+          }
+        ],
+        "unknown_fields": [],
+        "manual_checks": [],
+        "documents": {
+          "held": [],
+          "missing": [
+            "income_certificate"
+          ],
+          "unsure": [],
+          "possibly_required": [],
+          "optional_missing": []
+        },
+        "document_ready": false,
+        "unmapped_conditions": [],
+        "source": {
+          "url": "https://example.invalid/source/syn_e",
+          "title": "SYNTHETIC source E",
+          "retrieved_on": "2026-11-01"
+        },
+        "application_url": "https://example.invalid/syn_e"
+      }
+    ],
+    "cannot_determine": [
+      {
+        "scheme_id": "syn_d",
+        "name": "SYNTHETIC Family Support D",
+        "department": "SYNTHETIC Department",
+        "status": "cannot_determine",
+        "rules": [
+          {
+            "rule_id": "syn_d_r1",
+            "outcome": "PASS",
+            "explanation": "Holds a BPL card must be Yes",
+            "source_excerpt": "SYNTHETIC holds a BPL card",
+            "field": "holds_bpl_card",
+            "operator": "eq",
+            "value": true,
+            "unknown_field": null
+          },
+          {
+            "rule_id": "syn_d_r2",
+            "outcome": "UNKNOWN",
+            "explanation": "Social category must not be any of: General",
+            "source_excerpt": "SYNTHETIC reserved categories only",
+            "field": "social_category",
+            "operator": "not_in",
+            "value": [
+              "General"
+            ],
+            "unknown_field": "social_category"
+          }
+        ],
+        "unknown_fields": [
+          "social_category"
+        ],
+        "manual_checks": [],
+        "documents": {
+          "held": [
+            "ration_card"
+          ],
+          "missing": [],
+          "unsure": [
+            "caste_certificate"
+          ],
+          "possibly_required": [],
+          "optional_missing": []
+        },
+        "document_ready": false,
+        "unmapped_conditions": [],
+        "source": {
+          "url": "https://example.invalid/source/syn_d",
+          "title": "SYNTHETIC source D",
+          "retrieved_on": "2026-11-01"
+        },
+        "application_url": "https://example.invalid/syn_d"
+      },
+      {
+        "scheme_id": "syn_f",
+        "name": "SYNTHETIC Disability Aid F",
+        "department": "SYNTHETIC Department",
+        "status": "cannot_determine",
+        "rules": [
+          {
+            "rule_id": "syn_f_r1",
+            "outcome": "UNKNOWN",
+            "explanation": "Has a disability must be Yes",
+            "source_excerpt": "SYNTHETIC persons with a disability",
+            "field": "has_disability",
+            "operator": "eq",
+            "value": true,
+            "unknown_field": "has_disability"
+          }
+        ],
+        "unknown_fields": [
+          "has_disability"
+        ],
+        "manual_checks": [],
+        "documents": {
+          "held": [],
+          "missing": [],
+          "unsure": [
+            "disability_certificate"
+          ],
+          "possibly_required": [],
+          "optional_missing": []
+        },
+        "document_ready": false,
+        "unmapped_conditions": [],
+        "source": {
+          "url": "https://example.invalid/source/syn_f",
+          "title": "SYNTHETIC source F",
+          "retrieved_on": "2026-11-01"
+        },
+        "application_url": "https://example.invalid/syn_f"
+      }
+    ],
+    "not_eligible": [
+      {
+        "scheme_id": "syn_c",
+        "name": "SYNTHETIC Senior Pension C",
+        "department": "SYNTHETIC Department",
+        "status": "not_eligible",
+        "rules": [
+          {
+            "rule_id": "syn_c_r1",
+            "outcome": "PASS",
+            "explanation": "State must be Punjab",
+            "source_excerpt": "SYNTHETIC residents of Punjab",
+            "field": "state",
+            "operator": "eq",
+            "value": "Punjab",
+            "unknown_field": null
+          },
+          {
+            "rule_id": "syn_c_r2",
+            "outcome": "FAIL",
+            "explanation": "Age must be more than 59",
+            "source_excerpt": "SYNTHETIC aged over 59",
+            "field": "age",
+            "operator": "gt",
+            "value": 59,
+            "unknown_field": null
+          }
+        ],
+        "unknown_fields": [],
+        "manual_checks": [],
+        "documents": {
+          "held": [],
+          "missing": [
+            "income_certificate"
+          ],
+          "unsure": [
+            "residence_certificate"
+          ],
+          "possibly_required": [],
+          "optional_missing": []
+        },
+        "document_ready": false,
+        "unmapped_conditions": [],
+        "source": {
+          "url": "https://example.invalid/source/syn_c",
+          "title": "SYNTHETIC source C",
+          "retrieved_on": "2026-11-01"
+        },
+        "application_url": null
+      }
+    ]
+  },
+  "labels": {
+    "fields": {
+      "state": "State",
+      "age": "Age",
+      "annual_family_income": "Annual family income",
+      "occupation": "Occupation",
+      "currently_enrolled": "Currently studying",
+      "course_level": "Course level",
+      "education_level": "Highest education completed",
+      "residence_area": "Area of residence",
+      "holds_bpl_card": "Holds a BPL card",
+      "marital_status": "Marital status",
+      "gender": "Gender",
+      "social_category": "Social category",
+      "has_disability": "Has a disability"
+    },
+    "documents": {
+      "aadhaar_card": "Aadhaar Card",
+      "income_certificate": "Income Certificate",
+      "residence_certificate": "Residence Certificate",
+      "caste_certificate": "Caste Certificate",
+      "bank_passbook": "Bank Passbook",
+      "birth_certificate": "Birth Certificate",
+      "marksheet_previous": "Previous Class Marksheet",
+      "disability_certificate": "Disability Certificate",
+      "ration_card": "Ration Card",
+      "self_declaration": "Self Declaration",
+      "passport_photo": "Passport-size Photo",
+      "fee_receipt": "Fee Receipt"
+    }
+  }
+}

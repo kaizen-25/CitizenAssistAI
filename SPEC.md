@@ -339,7 +339,9 @@ Only claim the languages that `qa_set.json` and `profiles.json` actually tested.
 | POST | `/session` | `{language}` → `{session_id, first_question}` |
 | POST | `/session/{id}/answer` | `{field_id, value}` → `{profile, next_question \| null, progress}` |
 | POST | `/session/{id}/message` | `{text}` → `{extracted: [...], clarification \| null, profile, next_question}` |
+| GET | `/session/{id}/documents` | → document checklist for the schemes still in play |
 | POST | `/session/{id}/documents` | `{document_id: "have" \| "missing" \| "unsure"}` → `{ok}` |
+| GET | `/session/{id}/question/{field_id}` | → `Question` for that field, used by "Answer now" |
 | POST | `/session/{id}/confirm` | `{profile_overrides?}` → `{confirmed: true}` |
 | GET | `/session/{id}/results` | → `{confirmed, groups: {potentially_eligible, cannot_determine, not_eligible}}` |
 | GET | `/session/{id}/unlock` | → `UnlockReport` |
@@ -454,3 +456,23 @@ Only claim the languages that `qa_set.json` and `profiles.json` actually tested.
 - [ ] Every URL shown comes from `schemes.json`.
 - [ ] `report.md` is generated from real runs.
 - [ ] Languages claimed in the pitch equal the languages tested.
+
+---
+
+## 14. Decisions (2026-10-31, these override earlier sections)
+| # | Topic | Decision |
+|---|---|---|
+| 1 | Pre-event work | Allowed. Build on the existing commits. |
+| 2 | Sources | Claude fetches official sources into `sources/` and logs each in `manifest.json`. |
+| 3 | Verification | Claude verifies each record against its source, with `verified_by: "claude"`. Never call the data human-verified. |
+| 4 | Evaluation labels | Claude labels `profiles.json` and `qa_set.json` from the rules before the engine runs on them. The report and pitch must say the labels are AI-made and not independent. |
+| 5 | Languages | English and Hindi only; Punjabi is cut. Hindi is machine-translated, stays `_reviewed: false`, and the app and pitch say so. |
+| 6 | LLM | Gemini, then Ollama `qwen3:4b`, then none. |
+| 7 | `manual_check` rules | `field`, `operator` and `value` are optional. `source_excerpt` is required and is the text shown. |
+| 8 | State schemes | Each one carries an explicit hard rule on `state` with a source excerpt. The engine does not read `scheme.state`. |
+| 9 | Unanswered documents | Classified as `unsure`. |
+| 10 | Language in the engine | Engine functions keep their signatures and stay pure. The API layer adds explanations and document labels afterwards. |
+| 11 | Question scoring | A rule scores only its reported unknown field, so when `applies_if` is unknown the rule field earns nothing. |
+| 12 | 8-question cap | Kept. The evaluation reports how many profiles differ from full-profile statuses instead of asserting zero. |
+| 13 | Form intake | "Use form instead" uses the same adaptive questions with structured inputs. |
+| 14 | Offline schemes | `application_url` may be empty only when `application_mode` is exactly `["offline"]`. The UI then shows the source link. |

@@ -3,187 +3,569 @@
     "field_id": "state",
     "type": "enum",
     "options": [
-      {"value": "Punjab", "label": {"en": "Punjab", "hi": "", "pa": ""}},
-      {"value": "Other", "label": {"en": "Another state or UT", "hi": "", "pa": ""}}
+      {
+        "value": "Punjab",
+        "label": {
+          "en": "Punjab",
+          "hi": "पंजाब",
+          "pa": ""
+        }
+      },
+      {
+        "value": "Other",
+        "label": {
+          "en": "Another state or UT",
+          "hi": "कोई अन्य राज्य या केंद्र शासित प्रदेश",
+          "pa": ""
+        }
+      }
     ],
-    "unit": null, "min": null, "max": null,
+    "unit": null,
+    "min": null,
+    "max": null,
     "sensitive": false,
     "allow_prefer_not_to_say": false,
     "ask_priority": 1,
-    "label": {"en": "State", "hi": "", "pa": ""},
-    "question": {"en": "Which state do you live in?", "hi": "", "pa": ""}
+    "label": {
+      "en": "State",
+      "hi": "राज्य",
+      "pa": ""
+    },
+    "question": {
+      "en": "Which state do you live in?",
+      "hi": "आप किस राज्य में रहते हैं?",
+      "pa": ""
+    }
   },
   {
     "field_id": "age",
     "type": "integer",
     "options": null,
     "unit": "years",
-    "min": 0, "max": 120,
+    "min": 0,
+    "max": 120,
     "sensitive": false,
     "allow_prefer_not_to_say": false,
     "ask_priority": 2,
-    "label": {"en": "Age", "hi": "", "pa": ""},
-    "question": {"en": "How old are you?", "hi": "", "pa": ""}
+    "label": {
+      "en": "Age",
+      "hi": "आयु",
+      "pa": ""
+    },
+    "question": {
+      "en": "How old are you?",
+      "hi": "आपकी उम्र कितनी है?",
+      "pa": ""
+    }
   },
   {
     "field_id": "annual_family_income",
     "type": "number",
     "options": null,
     "unit": "INR_per_year",
-    "min": 0, "max": 100000000,
+    "min": 0,
+    "max": 100000000,
     "sensitive": false,
     "allow_prefer_not_to_say": true,
     "ask_priority": 3,
-    "label": {"en": "Annual family income", "hi": "", "pa": ""},
-    "question": {"en": "What is your family's total yearly income, approximately?", "hi": "", "pa": ""}
+    "label": {
+      "en": "Annual family income",
+      "hi": "वार्षिक पारिवारिक आय",
+      "pa": ""
+    },
+    "question": {
+      "en": "What is your family's total yearly income, approximately?",
+      "hi": "आपके परिवार की कुल वार्षिक आय लगभग कितनी है?",
+      "pa": ""
+    }
   },
   {
     "field_id": "occupation",
     "type": "enum",
     "options": [
-      {"value": "student", "label": {"en": "Student", "hi": "", "pa": ""}},
-      {"value": "farmer", "label": {"en": "Farmer", "hi": "", "pa": ""}},
-      {"value": "daily_wage_worker", "label": {"en": "Daily-wage worker", "hi": "", "pa": ""}},
-      {"value": "self_employed", "label": {"en": "Self-employed", "hi": "", "pa": ""}},
-      {"value": "salaried", "label": {"en": "Salaried", "hi": "", "pa": ""}},
-      {"value": "homemaker", "label": {"en": "Homemaker", "hi": "", "pa": ""}},
-      {"value": "retired", "label": {"en": "Retired", "hi": "", "pa": ""}},
-      {"value": "unemployed", "label": {"en": "Not working", "hi": "", "pa": ""}},
-      {"value": "other", "label": {"en": "Other", "hi": "", "pa": ""}}
+      {
+        "value": "student",
+        "label": {
+          "en": "Student",
+          "hi": "विद्यार्थी",
+          "pa": ""
+        }
+      },
+      {
+        "value": "farmer",
+        "label": {
+          "en": "Farmer",
+          "hi": "किसान",
+          "pa": ""
+        }
+      },
+      {
+        "value": "daily_wage_worker",
+        "label": {
+          "en": "Daily-wage worker",
+          "hi": "दिहाड़ी मज़दूर",
+          "pa": ""
+        }
+      },
+      {
+        "value": "self_employed",
+        "label": {
+          "en": "Self-employed",
+          "hi": "स्वरोज़गार",
+          "pa": ""
+        }
+      },
+      {
+        "value": "salaried",
+        "label": {
+          "en": "Salaried",
+          "hi": "वेतनभोगी",
+          "pa": ""
+        }
+      },
+      {
+        "value": "homemaker",
+        "label": {
+          "en": "Homemaker",
+          "hi": "गृहिणी",
+          "pa": ""
+        }
+      },
+      {
+        "value": "retired",
+        "label": {
+          "en": "Retired",
+          "hi": "सेवानिवृत्त",
+          "pa": ""
+        }
+      },
+      {
+        "value": "unemployed",
+        "label": {
+          "en": "Not working",
+          "hi": "काम नहीं कर रहे",
+          "pa": ""
+        }
+      },
+      {
+        "value": "other",
+        "label": {
+          "en": "Other",
+          "hi": "अन्य",
+          "pa": ""
+        }
+      }
     ],
-    "unit": null, "min": null, "max": null,
+    "unit": null,
+    "min": null,
+    "max": null,
     "sensitive": false,
     "allow_prefer_not_to_say": false,
     "ask_priority": 4,
-    "label": {"en": "Occupation", "hi": "", "pa": ""},
-    "question": {"en": "What best describes your work?", "hi": "", "pa": ""}
+    "label": {
+      "en": "Occupation",
+      "hi": "व्यवसाय",
+      "pa": ""
+    },
+    "question": {
+      "en": "What best describes your work?",
+      "hi": "आपके काम का सबसे अच्छा वर्णन क्या है?",
+      "pa": ""
+    }
   },
   {
     "field_id": "currently_enrolled",
     "type": "boolean",
     "options": null,
-    "unit": null, "min": null, "max": null,
+    "unit": null,
+    "min": null,
+    "max": null,
     "sensitive": false,
     "allow_prefer_not_to_say": false,
     "ask_priority": 5,
-    "label": {"en": "Currently studying", "hi": "", "pa": ""},
-    "question": {"en": "Are you currently enrolled in a school or college?", "hi": "", "pa": ""}
+    "label": {
+      "en": "Currently studying",
+      "hi": "अभी पढ़ाई कर रहे हैं",
+      "pa": ""
+    },
+    "question": {
+      "en": "Are you currently enrolled in a school or college?",
+      "hi": "क्या आप अभी किसी स्कूल या कॉलेज में नामांकित हैं?",
+      "pa": ""
+    }
   },
   {
     "field_id": "course_level",
     "type": "enum",
     "options": [
-      {"value": "pre_matric", "label": {"en": "Up to class 10", "hi": "", "pa": ""}},
-      {"value": "post_matric", "label": {"en": "Class 11, 12, ITI or diploma", "hi": "", "pa": ""}},
-      {"value": "undergraduate", "label": {"en": "Undergraduate", "hi": "", "pa": ""}},
-      {"value": "postgraduate", "label": {"en": "Postgraduate", "hi": "", "pa": ""}}
+      {
+        "value": "pre_matric",
+        "label": {
+          "en": "Up to class 10",
+          "hi": "कक्षा 10 तक",
+          "pa": ""
+        }
+      },
+      {
+        "value": "post_matric",
+        "label": {
+          "en": "Class 11, 12, ITI or diploma",
+          "hi": "कक्षा 11, 12, आईटीआई या डिप्लोमा",
+          "pa": ""
+        }
+      },
+      {
+        "value": "undergraduate",
+        "label": {
+          "en": "Undergraduate",
+          "hi": "स्नातक",
+          "pa": ""
+        }
+      },
+      {
+        "value": "postgraduate",
+        "label": {
+          "en": "Postgraduate",
+          "hi": "स्नातकोत्तर",
+          "pa": ""
+        }
+      }
     ],
-    "unit": null, "min": null, "max": null,
+    "unit": null,
+    "min": null,
+    "max": null,
     "sensitive": false,
     "allow_prefer_not_to_say": false,
     "ask_priority": 6,
-    "label": {"en": "Course level", "hi": "", "pa": ""},
-    "question": {"en": "What level is your current course?", "hi": "", "pa": ""}
+    "label": {
+      "en": "Course level",
+      "hi": "पाठ्यक्रम का स्तर",
+      "pa": ""
+    },
+    "question": {
+      "en": "What level is your current course?",
+      "hi": "आपका वर्तमान पाठ्यक्रम किस स्तर का है?",
+      "pa": ""
+    }
   },
   {
     "field_id": "education_level",
     "type": "enum",
     "options": [
-      {"value": "no_formal", "label": {"en": "No formal education", "hi": "", "pa": ""}},
-      {"value": "below_10", "label": {"en": "Below class 10", "hi": "", "pa": ""}},
-      {"value": "class_10", "label": {"en": "Class 10 pass", "hi": "", "pa": ""}},
-      {"value": "class_12", "label": {"en": "Class 12 pass", "hi": "", "pa": ""}},
-      {"value": "graduate", "label": {"en": "Graduate", "hi": "", "pa": ""}},
-      {"value": "postgraduate", "label": {"en": "Postgraduate", "hi": "", "pa": ""}}
+      {
+        "value": "no_formal",
+        "label": {
+          "en": "No formal education",
+          "hi": "कोई औपचारिक शिक्षा नहीं",
+          "pa": ""
+        }
+      },
+      {
+        "value": "below_10",
+        "label": {
+          "en": "Below class 10",
+          "hi": "कक्षा 10 से कम",
+          "pa": ""
+        }
+      },
+      {
+        "value": "class_10",
+        "label": {
+          "en": "Class 10 pass",
+          "hi": "कक्षा 10 उत्तीर्ण",
+          "pa": ""
+        }
+      },
+      {
+        "value": "class_12",
+        "label": {
+          "en": "Class 12 pass",
+          "hi": "कक्षा 12 उत्तीर्ण",
+          "pa": ""
+        }
+      },
+      {
+        "value": "graduate",
+        "label": {
+          "en": "Graduate",
+          "hi": "स्नातक",
+          "pa": ""
+        }
+      },
+      {
+        "value": "postgraduate",
+        "label": {
+          "en": "Postgraduate",
+          "hi": "स्नातकोत्तर",
+          "pa": ""
+        }
+      }
     ],
-    "unit": null, "min": null, "max": null,
+    "unit": null,
+    "min": null,
+    "max": null,
     "sensitive": false,
     "allow_prefer_not_to_say": false,
     "ask_priority": 7,
-    "label": {"en": "Highest education completed", "hi": "", "pa": ""},
-    "question": {"en": "What is the highest level of education you have completed?", "hi": "", "pa": ""}
+    "label": {
+      "en": "Highest education completed",
+      "hi": "सर्वोच्च पूरी की गई शिक्षा",
+      "pa": ""
+    },
+    "question": {
+      "en": "What is the highest level of education you have completed?",
+      "hi": "आपने सबसे ऊँची कौन सी शिक्षा पूरी की है?",
+      "pa": ""
+    }
   },
   {
     "field_id": "residence_area",
     "type": "enum",
     "options": [
-      {"value": "rural", "label": {"en": "Rural", "hi": "", "pa": ""}},
-      {"value": "urban", "label": {"en": "Urban", "hi": "", "pa": ""}}
+      {
+        "value": "rural",
+        "label": {
+          "en": "Rural",
+          "hi": "ग्रामीण",
+          "pa": ""
+        }
+      },
+      {
+        "value": "urban",
+        "label": {
+          "en": "Urban",
+          "hi": "शहरी",
+          "pa": ""
+        }
+      }
     ],
-    "unit": null, "min": null, "max": null,
+    "unit": null,
+    "min": null,
+    "max": null,
     "sensitive": false,
     "allow_prefer_not_to_say": false,
     "ask_priority": 8,
-    "label": {"en": "Area of residence", "hi": "", "pa": ""},
-    "question": {"en": "Do you live in a rural or an urban area?", "hi": "", "pa": ""}
+    "label": {
+      "en": "Area of residence",
+      "hi": "निवास क्षेत्र",
+      "pa": ""
+    },
+    "question": {
+      "en": "Do you live in a rural or an urban area?",
+      "hi": "आप ग्रामीण क्षेत्र में रहते हैं या शहरी?",
+      "pa": ""
+    }
   },
   {
     "field_id": "holds_bpl_card",
     "type": "boolean",
     "options": null,
-    "unit": null, "min": null, "max": null,
+    "unit": null,
+    "min": null,
+    "max": null,
     "sensitive": false,
     "allow_prefer_not_to_say": false,
     "ask_priority": 9,
-    "label": {"en": "Holds a BPL card", "hi": "", "pa": ""},
-    "question": {"en": "Does your family have a BPL card?", "hi": "", "pa": ""}
+    "label": {
+      "en": "Holds a BPL card",
+      "hi": "बीपीएल कार्ड है",
+      "pa": ""
+    },
+    "question": {
+      "en": "Does your family have a BPL card?",
+      "hi": "क्या आपके परिवार के पास बीपीएल कार्ड है?",
+      "pa": ""
+    }
   },
   {
     "field_id": "marital_status",
     "type": "enum",
     "options": [
-      {"value": "unmarried", "label": {"en": "Unmarried", "hi": "", "pa": ""}},
-      {"value": "married", "label": {"en": "Married", "hi": "", "pa": ""}},
-      {"value": "widowed", "label": {"en": "Widowed", "hi": "", "pa": ""}},
-      {"value": "divorced", "label": {"en": "Divorced or separated", "hi": "", "pa": ""}}
+      {
+        "value": "unmarried",
+        "label": {
+          "en": "Unmarried",
+          "hi": "अविवाहित",
+          "pa": ""
+        }
+      },
+      {
+        "value": "married",
+        "label": {
+          "en": "Married",
+          "hi": "विवाहित",
+          "pa": ""
+        }
+      },
+      {
+        "value": "widowed",
+        "label": {
+          "en": "Widowed",
+          "hi": "विधवा या विधुर",
+          "pa": ""
+        }
+      },
+      {
+        "value": "divorced",
+        "label": {
+          "en": "Divorced or separated",
+          "hi": "तलाकशुदा या अलग",
+          "pa": ""
+        }
+      }
     ],
-    "unit": null, "min": null, "max": null,
+    "unit": null,
+    "min": null,
+    "max": null,
     "sensitive": false,
     "allow_prefer_not_to_say": false,
     "ask_priority": 10,
-    "label": {"en": "Marital status", "hi": "", "pa": ""},
-    "question": {"en": "What is your marital status?", "hi": "", "pa": ""}
+    "label": {
+      "en": "Marital status",
+      "hi": "वैवाहिक स्थिति",
+      "pa": ""
+    },
+    "question": {
+      "en": "What is your marital status?",
+      "hi": "आपकी वैवाहिक स्थिति क्या है?",
+      "pa": ""
+    }
   },
   {
     "field_id": "gender",
     "type": "enum",
     "options": [
-      {"value": "female", "label": {"en": "Female", "hi": "", "pa": ""}},
-      {"value": "male", "label": {"en": "Male", "hi": "", "pa": ""}},
-      {"value": "other", "label": {"en": "Other", "hi": "", "pa": ""}}
+      {
+        "value": "female",
+        "label": {
+          "en": "Female",
+          "hi": "महिला",
+          "pa": ""
+        }
+      },
+      {
+        "value": "male",
+        "label": {
+          "en": "Male",
+          "hi": "पुरुष",
+          "pa": ""
+        }
+      },
+      {
+        "value": "other",
+        "label": {
+          "en": "Other",
+          "hi": "अन्य",
+          "pa": ""
+        }
+      }
     ],
-    "unit": null, "min": null, "max": null,
+    "unit": null,
+    "min": null,
+    "max": null,
     "sensitive": true,
     "allow_prefer_not_to_say": true,
     "ask_priority": 11,
-    "label": {"en": "Gender", "hi": "", "pa": ""},
-    "question": {"en": "What is your gender?", "hi": "", "pa": ""}
+    "label": {
+      "en": "Gender",
+      "hi": "लिंग",
+      "pa": ""
+    },
+    "question": {
+      "en": "What is your gender?",
+      "hi": "आपका लिंग क्या है?",
+      "pa": ""
+    }
   },
   {
     "field_id": "social_category",
     "type": "enum",
     "options": [
-      {"value": "SC", "label": {"en": "SC", "hi": "", "pa": ""}},
-      {"value": "ST", "label": {"en": "ST", "hi": "", "pa": ""}},
-      {"value": "OBC", "label": {"en": "OBC", "hi": "", "pa": ""}},
-      {"value": "General", "label": {"en": "General", "hi": "", "pa": ""}}
+      {
+        "value": "SC",
+        "label": {
+          "en": "SC",
+          "hi": "अनुसूचित जाति (SC)",
+          "pa": ""
+        }
+      },
+      {
+        "value": "ST",
+        "label": {
+          "en": "ST",
+          "hi": "अनुसूचित जनजाति (ST)",
+          "pa": ""
+        }
+      },
+      {
+        "value": "OBC",
+        "label": {
+          "en": "OBC",
+          "hi": "अन्य पिछड़ा वर्ग (OBC)",
+          "pa": ""
+        }
+      },
+      {
+        "value": "EBC",
+        "label": {
+          "en": "Economically Backward Class (EBC)",
+          "hi": "आर्थिक रूप से पिछड़ा वर्ग (EBC)",
+          "pa": ""
+        }
+      },
+      {
+        "value": "DNT",
+        "label": {
+          "en": "De-notified Tribe (DNT)",
+          "hi": "विमुक्त जनजाति (DNT)",
+          "pa": ""
+        }
+      },
+      {
+        "value": "General",
+        "label": {
+          "en": "General",
+          "hi": "सामान्य",
+          "pa": ""
+        }
+      }
     ],
-    "unit": null, "min": null, "max": null,
+    "unit": null,
+    "min": null,
+    "max": null,
     "sensitive": true,
     "allow_prefer_not_to_say": true,
     "ask_priority": 12,
-    "label": {"en": "Social category", "hi": "", "pa": ""},
-    "question": {"en": "Which social category do you belong to?", "hi": "", "pa": ""}
+    "label": {
+      "en": "Social category",
+      "hi": "सामाजिक वर्ग",
+      "pa": ""
+    },
+    "question": {
+      "en": "Which social category do you belong to?",
+      "hi": "आप किस सामाजिक वर्ग से हैं?",
+      "pa": ""
+    }
   },
   {
     "field_id": "has_disability",
     "type": "boolean",
     "options": null,
-    "unit": null, "min": null, "max": null,
+    "unit": null,
+    "min": null,
+    "max": null,
     "sensitive": true,
     "allow_prefer_not_to_say": true,
     "ask_priority": 13,
-    "label": {"en": "Has a disability", "hi": "", "pa": ""},
-    "question": {"en": "Do you have a disability?", "hi": "", "pa": ""}
+    "label": {
+      "en": "Has a disability",
+      "hi": "दिव्यांगता है",
+      "pa": ""
+    },
+    "question": {
+      "en": "Do you have a disability?",
+      "hi": "क्या आप दिव्यांग हैं?",
+      "pa": ""
+    }
   }
 ]

@@ -1,0 +1,392 @@
+{
+  "syn_a": {
+    "scheme_id": "syn_a",
+    "name": {
+      "en": "SYNTHETIC Scholarship A"
+    },
+    "level": "central",
+    "state": null,
+    "category": "education",
+    "department": "SYNTHETIC Department",
+    "summary": "SYNTHETIC record for engine tests.",
+    "benefits": "SYNTHETIC",
+    "rules": [
+      {
+        "rule_id": "syn_a_r1",
+        "field": "annual_family_income",
+        "operator": "lte",
+        "value": 250000,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "SYNTHETIC income at most 2.5 lakh"
+      },
+      {
+        "rule_id": "syn_a_r2",
+        "field": "course_level",
+        "operator": "in",
+        "value": [
+          "post_matric",
+          "undergraduate",
+          "postgraduate"
+        ],
+        "applies_if": {
+          "field": "currently_enrolled",
+          "operator": "eq",
+          "value": true
+        },
+        "kind": "hard",
+        "source_excerpt": "SYNTHETIC enrolled students must be post-matric"
+      },
+      {
+        "rule_id": "syn_a_r3",
+        "field": null,
+        "operator": null,
+        "value": null,
+        "applies_if": null,
+        "kind": "manual_check",
+        "source_excerpt": "SYNTHETIC attendance of at least 75 percent"
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "income_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "caste_certificate",
+        "requirement": "mandatory",
+        "applies_if": {
+          "field": "social_category",
+          "operator": "in",
+          "value": [
+            "SC",
+            "ST",
+            "OBC"
+          ]
+        }
+      },
+      {
+        "document_id": "passport_photo",
+        "requirement": "optional",
+        "applies_if": null
+      }
+    ],
+    "unmapped_conditions": [
+      "SYNTHETIC condition that could not be encoded"
+    ],
+    "application_url": "https://example.invalid/syn_a",
+    "application_mode": [
+      "online"
+    ],
+    "source": {
+      "url": "https://example.invalid/source/syn_a",
+      "title": "SYNTHETIC source A",
+      "published": null,
+      "retrieved_on": "2026-11-01",
+      "file": null
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "test",
+      "verified_on": "2026-11-01"
+    }
+  },
+  "syn_b": {
+    "scheme_id": "syn_b",
+    "name": {
+      "en": "SYNTHETIC Youth Grant B"
+    },
+    "level": "central",
+    "state": null,
+    "category": "education",
+    "department": "SYNTHETIC Department",
+    "summary": "SYNTHETIC record for engine tests.",
+    "benefits": "SYNTHETIC",
+    "rules": [
+      {
+        "rule_id": "syn_b_r1",
+        "field": "age",
+        "operator": "gte",
+        "value": 18,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "SYNTHETIC aged 18 or over"
+      },
+      {
+        "rule_id": "syn_b_r2",
+        "field": "age",
+        "operator": "lt",
+        "value": 30,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "SYNTHETIC aged under 30"
+      },
+      {
+        "rule_id": "syn_b_r3",
+        "field": "occupation",
+        "operator": "neq",
+        "value": "salaried",
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "SYNTHETIC not in salaried work"
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "income_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "bank_passbook",
+        "requirement": "mandatory",
+        "applies_if": null
+      }
+    ],
+    "unmapped_conditions": [],
+    "application_url": "https://example.invalid/syn_b",
+    "application_mode": [
+      "online"
+    ],
+    "source": {
+      "url": "https://example.invalid/source/syn_b",
+      "title": "SYNTHETIC source B",
+      "published": null,
+      "retrieved_on": "2026-11-01",
+      "file": null
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "test",
+      "verified_on": "2026-11-01"
+    }
+  },
+  "syn_c": {
+    "scheme_id": "syn_c",
+    "name": {
+      "en": "SYNTHETIC Senior Pension C"
+    },
+    "level": "state",
+    "state": "Punjab",
+    "category": "social_welfare",
+    "department": "SYNTHETIC Department",
+    "summary": "SYNTHETIC record for engine tests.",
+    "benefits": "SYNTHETIC",
+    "rules": [
+      {
+        "rule_id": "syn_c_r1",
+        "field": "state",
+        "operator": "eq",
+        "value": "Punjab",
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "SYNTHETIC residents of Punjab"
+      },
+      {
+        "rule_id": "syn_c_r2",
+        "field": "age",
+        "operator": "gt",
+        "value": 59,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "SYNTHETIC aged over 59"
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "income_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "residence_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      }
+    ],
+    "unmapped_conditions": [],
+    "application_url": null,
+    "application_mode": [
+      "offline"
+    ],
+    "source": {
+      "url": "https://example.invalid/source/syn_c",
+      "title": "SYNTHETIC source C",
+      "published": null,
+      "retrieved_on": "2026-11-01",
+      "file": null
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "test",
+      "verified_on": "2026-11-01"
+    }
+  },
+  "syn_d": {
+    "scheme_id": "syn_d",
+    "name": {
+      "en": "SYNTHETIC Family Support D"
+    },
+    "level": "central",
+    "state": null,
+    "category": "social_welfare",
+    "department": "SYNTHETIC Department",
+    "summary": "SYNTHETIC record for engine tests.",
+    "benefits": "SYNTHETIC",
+    "rules": [
+      {
+        "rule_id": "syn_d_r1",
+        "field": "holds_bpl_card",
+        "operator": "eq",
+        "value": true,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "SYNTHETIC holds a BPL card"
+      },
+      {
+        "rule_id": "syn_d_r2",
+        "field": "social_category",
+        "operator": "not_in",
+        "value": [
+          "General"
+        ],
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "SYNTHETIC reserved categories only"
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "caste_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "ration_card",
+        "requirement": "mandatory",
+        "applies_if": null
+      }
+    ],
+    "unmapped_conditions": [],
+    "application_url": "https://example.invalid/syn_d",
+    "application_mode": [
+      "online"
+    ],
+    "source": {
+      "url": "https://example.invalid/source/syn_d",
+      "title": "SYNTHETIC source D",
+      "published": null,
+      "retrieved_on": "2026-11-01",
+      "file": null
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "test",
+      "verified_on": "2026-11-01"
+    }
+  },
+  "syn_e": {
+    "scheme_id": "syn_e",
+    "name": {
+      "en": "SYNTHETIC Girls Education E"
+    },
+    "level": "central",
+    "state": null,
+    "category": "education",
+    "department": "SYNTHETIC Department",
+    "summary": "SYNTHETIC record for engine tests.",
+    "benefits": "SYNTHETIC",
+    "rules": [
+      {
+        "rule_id": "syn_e_r1",
+        "field": "gender",
+        "operator": "eq",
+        "value": "female",
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "SYNTHETIC girls only"
+      },
+      {
+        "rule_id": "syn_e_r2",
+        "field": "annual_family_income",
+        "operator": "lt",
+        "value": 600000,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "SYNTHETIC income under 6 lakh"
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "income_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      }
+    ],
+    "unmapped_conditions": [],
+    "application_url": "https://example.invalid/syn_e",
+    "application_mode": [
+      "online"
+    ],
+    "source": {
+      "url": "https://example.invalid/source/syn_e",
+      "title": "SYNTHETIC source E",
+      "published": null,
+      "retrieved_on": "2026-11-01",
+      "file": null
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "test",
+      "verified_on": "2026-11-01"
+    }
+  },
+  "syn_f": {
+    "scheme_id": "syn_f",
+    "name": {
+      "en": "SYNTHETIC Disability Aid F"
+    },
+    "level": "central",
+    "state": null,
+    "category": "social_welfare",
+    "department": "SYNTHETIC Department",
+    "summary": "SYNTHETIC record for engine tests.",
+    "benefits": "SYNTHETIC",
+    "rules": [
+      {
+        "rule_id": "syn_f_r1",
+        "field": "has_disability",
+        "operator": "eq",
+        "value": true,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "SYNTHETIC persons with a disability"
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "disability_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      }
+    ],
+    "unmapped_conditions": [],
+    "application_url": "https://example.invalid/syn_f",
+    "application_mode": [
+      "online"
+    ],
+    "source": {
+      "url": "https://example.invalid/source/syn_f",
+      "title": "SYNTHETIC source F",
+      "published": null,
+      "retrieved_on": "2026-11-01",
+      "file": null
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "test",
+      "verified_on": "2026-11-01"
+    }
+  }
+}

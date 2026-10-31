@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import health
+from app.api import health, schemes, session
 
 app = FastAPI(title="CitizenAssist AI")
 
@@ -12,4 +12,5 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(health.router, prefix="/api")
+for module in (health, session, schemes):
+    app.include_router(module.router, prefix="/api")

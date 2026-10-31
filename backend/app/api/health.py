@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 
 from app.config import get_settings, load_schemes, verified_by_category
+from app.llm.provider import is_available
 from app.schemas import HealthResponse
 
 router = APIRouter()
@@ -12,7 +13,7 @@ def health() -> HealthResponse:
     schemes = load_schemes()
     return HealthResponse(
         llm_provider=settings.llm_provider,
-        llm_available=False,  # no provider is implemented until Phase 2
+        llm_available=is_available(),
         demo_mode=settings.demo_mode,
         schemes_loaded=len(schemes),
         verified_by_category=verified_by_category(schemes),

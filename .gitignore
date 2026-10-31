@@ -8,3 +8,4 @@ dist/
 backend/.llm_cache/
 .hallmark/
 .playwright-mcp/
+backend/app/data/drafts/

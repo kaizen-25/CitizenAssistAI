@@ -10,7 +10,7 @@ SPEC §10 outranks this file, and this file outranks the Hallmark theme it adapt
 - Axes: light/grotesk-sans/cool, posture: committed
 
 ## Adaptations from Wayfind
-- Noto Sans, Noto Sans Devanagari and Noto Sans Gurmukhi replace Chivo Mono, which has no Hindi or Punjabi glyphs.
+- Noto Sans and Noto Sans Devanagari replace Chivo Mono, which has no Hindi glyphs.
 - Navy replaces cobalt as the accent.
 - Green, amber and red exist only as scheme status, always with an icon and a text label.
 - Fonts are self-hosted in `frontend/public/fonts/` so they load with Wi-Fi off.

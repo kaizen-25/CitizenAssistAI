@@ -1,11 +1,11 @@
 # CitizenAssist AI — rules for Claude Code
 
-Read `SPEC.md` before doing anything. SPEC.md is the contract between the frontend, backend and data.
+Read `SPEC.md` before doing anything, including the decisions in §14, which override earlier sections. SPEC.md is the contract between the frontend, backend and data.
 If you think the spec is wrong or contradictory, say so and stop. Do not silently deviate.
 
 ## What this is
 A 24-hour hackathon MVP (GRAVITON 2026, problem statement #11).
-It is a multilingual navigator that tells a citizen:
+It is an English and Hindi navigator that tells a citizen:
 - which government schemes they *may* qualify for,
 - why, with an official source for every rule,
 - what is still unknown,
@@ -18,7 +18,7 @@ It is not a chatbot, and it never approves an application.
    - An LLM never decides eligibility.
    - An LLM never produces a URL, a threshold, a fee or a deadline.
 2. Never invent scheme data.
-   - Scheme facts come only from `backend/app/data/schemes.json`, and humans verify that file.
+   - Scheme facts come only from `backend/app/data/schemes.json`. Claude fetches the official sources and verifies each record against them, with `verified_by: "claude"`. Never describe this data as human-verified.
    - If asked to create scheme records, structure ONLY the official text you were given.
    - Set `verification.status = "unverified"`.
    - Put anything you could not encode into `unmapped_conditions`.

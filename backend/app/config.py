@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
 
-from app.schemas import Scheme
+from app.schemas import DocumentDef, ProfileField, Scheme
 
 BACKEND_DIR = Path(__file__).resolve().parent.parent
 REPO_ROOT = BACKEND_DIR.parent
@@ -52,10 +52,24 @@ def get_settings() -> Settings:
     )
 
 
+def _read_data(name: str):
+    return json.loads((DATA_DIR / name).read_text(encoding="utf-8"))
+
+
+@lru_cache
+def load_fields() -> dict[str, ProfileField]:
+    fields = (ProfileField.model_validate(record) for record in _read_data("profile_fields.json"))
+    return {field.field_id: field for field in fields}
+
+
+@lru_cache
+def load_documents() -> dict[str, DocumentDef]:
+    return {doc_id: DocumentDef.model_validate(record) for doc_id, record in _read_data("documents.json").items()}
+
+
 @lru_cache
 def load_schemes() -> tuple[Scheme, ...]:
-    records = json.loads((DATA_DIR / "schemes.json").read_text(encoding="utf-8"))
-    schemes = [Scheme.model_validate(record) for record in records]
+    schemes = [Scheme.model_validate(record) for record in _read_data("schemes.json")]
     if get_settings().show_unverified:
         return tuple(schemes)
     return tuple(s for s in schemes if s.verification.status == "verified")

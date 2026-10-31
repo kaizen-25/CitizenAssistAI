@@ -1,72 +1,126 @@
 {
   "aadhaar_card": {
-    "label": {"en": "Aadhaar Card", "hi": "", "pa": ""},
-    "aliases": ["aadhar card", "aadhaar"],
+    "label": {
+      "en": "Aadhaar Card",
+      "hi": "आधार कार्ड",
+      "pa": ""
+    },
+    "aliases": [
+      "aadhar card",
+      "aadhaar"
+    ],
     "group": "identity",
     "issued_by_hint": null
   },
   "income_certificate": {
-    "label": {"en": "Income Certificate", "hi": "आय प्रमाण पत्र", "pa": "ਆਮਦਨ ਸਰਟੀਫਿਕੇਟ"},
-    "aliases": ["income proof", "family income certificate"],
+    "label": {
+      "en": "Income Certificate",
+      "hi": "आय प्रमाण पत्र",
+      "pa": "ਆਮਦਨ ਸਰਟੀਫਿਕੇਟ"
+    },
+    "aliases": [
+      "income proof",
+      "family income certificate"
+    ],
     "group": "financial",
     "issued_by_hint": "Sewa Kendra / Tehsil"
   },
   "residence_certificate": {
-    "label": {"en": "Residence Certificate", "hi": "", "pa": ""},
+    "label": {
+      "en": "Residence Certificate",
+      "hi": "निवास प्रमाण पत्र",
+      "pa": ""
+    },
     "aliases": [],
     "group": "identity",
     "issued_by_hint": null
   },
   "caste_certificate": {
-    "label": {"en": "Caste Certificate", "hi": "", "pa": ""},
+    "label": {
+      "en": "Caste Certificate",
+      "hi": "जाति प्रमाण पत्र",
+      "pa": ""
+    },
     "aliases": [],
     "group": "social",
     "issued_by_hint": null
   },
   "bank_passbook": {
-    "label": {"en": "Bank Passbook", "hi": "", "pa": ""},
+    "label": {
+      "en": "Bank Passbook",
+      "hi": "बैंक पासबुक",
+      "pa": ""
+    },
     "aliases": [],
     "group": "financial",
     "issued_by_hint": null
   },
   "birth_certificate": {
-    "label": {"en": "Birth Certificate", "hi": "", "pa": ""},
+    "label": {
+      "en": "Birth Certificate",
+      "hi": "जन्म प्रमाण पत्र",
+      "pa": ""
+    },
     "aliases": [],
     "group": "identity",
     "issued_by_hint": null
   },
   "marksheet_previous": {
-    "label": {"en": "Previous Class Marksheet", "hi": "", "pa": ""},
+    "label": {
+      "en": "Previous Class Marksheet",
+      "hi": "पिछली कक्षा की मार्कशीट",
+      "pa": ""
+    },
     "aliases": [],
     "group": "education",
     "issued_by_hint": null
   },
   "disability_certificate": {
-    "label": {"en": "Disability Certificate", "hi": "", "pa": ""},
+    "label": {
+      "en": "Disability Certificate",
+      "hi": "दिव्यांगता प्रमाण पत्र",
+      "pa": ""
+    },
     "aliases": [],
     "group": "social",
     "issued_by_hint": null
   },
   "ration_card": {
-    "label": {"en": "Ration Card", "hi": "", "pa": ""},
+    "label": {
+      "en": "Ration Card",
+      "hi": "राशन कार्ड",
+      "pa": ""
+    },
     "aliases": [],
     "group": "financial",
     "issued_by_hint": null
   },
   "self_declaration": {
-    "label": {"en": "Self Declaration", "hi": "", "pa": ""},
+    "label": {
+      "en": "Self Declaration",
+      "hi": "स्व-घोषणा",
+      "pa": ""
+    },
     "aliases": [],
     "group": "other",
     "issued_by_hint": null
   },
   "passport_photo": {
-    "label": {"en": "Passport-size Photo", "hi": "", "pa": ""},
+    "label": {
+      "en": "Passport-size Photo",
+      "hi": "पासपोर्ट आकार की फ़ोटो",
+      "pa": ""
+    },
     "aliases": [],
     "group": "other",
     "issued_by_hint": null
   },
   "fee_receipt": {
-    "label": {"en": "Fee Receipt", "hi": "", "pa": ""},
+    "label": {
+      "en": "Fee Receipt",
+      "hi": "फ़ीस रसीद",
+      "pa": ""
+    },
     "aliases": [],
     "group": "education",
     "issued_by_hint": null

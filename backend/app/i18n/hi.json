@@ -1,29 +1,34 @@
 {
   "_reviewed": false,
   "operators": {
-    "eq": "",
-    "neq": "",
-    "gt": "",
-    "gte": "",
-    "lt": "",
-    "lte": "",
-    "in": "",
-    "not_in": ""
+    "eq": "{label} {value} होना चाहिए",
+    "neq": "{label} {value} नहीं होना चाहिए",
+    "gt": "{label} {value} से अधिक होना चाहिए",
+    "gte": "{label} कम से कम {value} होना चाहिए",
+    "lt": "{label} {value} से कम होना चाहिए",
+    "lte": "{label} अधिकतम {value} होना चाहिए",
+    "in": "{label} इनमें से एक होना चाहिए: {value}",
+    "not_in": "{label} इनमें से कोई नहीं होना चाहिए: {value}"
   },
   "outcomes": {
-    "PASS": "",
-    "FAIL": "",
-    "UNKNOWN": "",
-    "MANUAL": "",
-    "NOT_APPLICABLE": ""
+    "PASS": "पूरा हुआ",
+    "FAIL": "पूरा नहीं हुआ",
+    "UNKNOWN": "अज्ञात",
+    "MANUAL": "आवेदन के समय जाँचें",
+    "NOT_APPLICABLE": "लागू नहीं"
   },
   "status": {
-    "potentially_eligible": "",
-    "cannot_determine": "",
-    "not_eligible": ""
+    "potentially_eligible": "संभवतः पात्र",
+    "cannot_determine": "तय नहीं हो सका",
+    "not_eligible": "पात्र नहीं"
   },
-  "question_reason": "",
-  "refusal": "",
-  "extractive_prefix": "",
-  "disclaimer": ""
+  "question_reason": "{n} योजनाओं की जाँच के लिए ज़रूरी",
+  "prefer_not_to_say": "नहीं बताना चाहते",
+  "yes": "हाँ",
+  "no": "नहीं",
+  "refusal": "मैं उपलब्ध आधिकारिक स्रोतों से इसकी पुष्टि नहीं कर सकता।",
+  "extractive_prefix": "संबंधित आधिकारिक अंश:",
+  "disclaimer": "CitizenAssist एक स्वतंत्र सूचना साधन है। यह किसी सरकारी निकाय से संबद्ध नहीं है और आवेदन स्वीकृत नहीं कर सकता। हमेशा आधिकारिक स्रोत से पुष्टि करें।",
+  "clarify_field": "क्या आप {label} के लिए एक सटीक मान बता सकते हैं?",
+  "income_monthly_note": "आपने मासिक राशि बताई थी, इसलिए हमने उसे 12 से गुणा किया है।"
 }

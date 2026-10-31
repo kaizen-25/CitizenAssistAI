@@ -5,7 +5,6 @@ import { useT, type Language } from "../hooks/useT";
 const LANGUAGES: { code: Language; name: string }[] = [
   { code: "en", name: "English" },
   { code: "hi", name: "हिन्दी" },
-  { code: "pa", name: "ਪੰਜਾਬੀ" },
 ];
 
 export function Layout() {
@@ -14,18 +13,21 @@ export function Layout() {
 
   return (
     <div className="flex min-h-dvh flex-col">
+      {lang === "hi" && (
+        <p className="no-print bg-unknown-tint px-4 py-2 text-center text-sm">{t("banner.machine_hi")}</p>
+      )}
       {health?.show_unverified && (
         <p role="alert" className="bg-ineligible px-4 py-2 text-center font-medium text-accent-ink">
           {t("banner.unverified")}
         </p>
       )}
 
-      <header className="border-b-2 border-ink bg-paper-3">
+      <header className="no-print border-b-2 border-ink bg-paper-3">
         <div className="container-page flex flex-wrap items-center justify-between gap-3 py-3">
           <Link to="/" className="text-xl font-extrabold no-underline">
             {t("app.name")}
           </Link>
-          <div role="group" aria-label={t("language.label")} className="flex divide-x-2 divide-ink border-2 border-ink">
+          <div role="group" aria-label={t("language.label")} className="cells">
             {LANGUAGES.map(({ code, name }) => (
               <button key={code} type="button" className="cell" aria-pressed={lang === code} onClick={() => setLang(code)}>
                 {name}
@@ -39,7 +41,7 @@ export function Layout() {
         <Outlet />
       </main>
 
-      <footer className="bg-ink text-paper">
+      <footer className="no-print bg-ink text-paper">
         <div className="container-page flex flex-col gap-2 py-6 text-sm">
           <p className="max-w-3xl">{t("disclaimer")}</p>
           {(health || failed) && (

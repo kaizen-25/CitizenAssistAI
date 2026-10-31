@@ -1,19 +1,19 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import { setApiLanguage } from "../api/client";
 import en from "../i18n/en.json";
 import hi from "../i18n/hi.json";
-import pa from "../i18n/pa.json";
 
-export type Language = "en" | "hi" | "pa";
+export type Language = "en" | "hi";
 export type StringKey = Exclude<keyof typeof en, "_reviewed">;
 type Vars = Record<string, string | number>;
 
-const STRINGS: Record<Language, Record<string, string | boolean>> = { en, hi, pa };
+const STRINGS: Record<Language, Record<string, string | boolean>> = { en, hi };
 const STORAGE_KEY = "citizenassist.language";
 
 function readStoredLanguage(): Language {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
-    return stored === "hi" || stored === "pa" ? stored : "en";
+    return stored === "hi" ? stored : "en";
   } catch {
     return "en";
   }
@@ -29,6 +29,8 @@ const I18nContext = createContext<I18n | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Language>(readStoredLanguage);
+
+  setApiLanguage(lang);
 
   useEffect(() => {
     document.documentElement.lang = lang;

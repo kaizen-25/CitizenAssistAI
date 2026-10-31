@@ -25,7 +25,7 @@ CHECKS = {
     "value_types": "Every value matches its field type",
     "document_ids": "Every document_id exists in documents.json",
     "source_url": "Every scheme has a source.url",
-    "application_url": "Every scheme has an application_url",
+    "application_url": "Every non-offline scheme has an application_url",
     "source_excerpts": "Every rule has a non-empty source_excerpt",
     "unique_ids": "scheme_id and rule_id values are unique",
     "verified_by": "verified_by is set when status is verified",
@@ -111,7 +111,7 @@ def validate_scheme(scheme: dict, fields: dict, documents: dict, seen: Counter, 
 
     if not (scheme.get("source") or {}).get("url"):
         errors["source_url"].append(f"{scheme_id}: missing source.url")
-    if not scheme.get("application_url"):
+    if not scheme.get("application_url") and scheme.get("application_mode") != ["offline"]:
         errors["application_url"].append(f"{scheme_id}: missing application_url")
 
     verification = scheme.get("verification") or {}

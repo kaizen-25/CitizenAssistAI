@@ -1,1 +1,1028 @@
-[]
+[
+  {
+    "scheme_id": "edu_001",
+    "name": {
+      "en": "Central Sector Scheme of Scholarship for College and University Students (PM-USP CSSS)"
+    },
+    "level": "central",
+    "state": null,
+    "category": "education",
+    "department": "Ministry of Education, Department of Higher Education",
+    "summary": "Financial assistance to meritorious students from poor families to meet a part of their day-to-day expenses while pursuing higher studies.",
+    "benefits": "See the official guidelines for the current scholarship rates.",
+    "rules": [
+      {
+        "rule_id": "edu_001_r1",
+        "field": "annual_family_income",
+        "operator": "lte",
+        "value": 450000,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "Students with gross parental/family income upto Rs. 4.5 lakh per annum are eligible for scholarship under the scheme."
+      },
+      {
+        "rule_id": "edu_001_r2",
+        "field": "currently_enrolled",
+        "operator": "eq",
+        "value": true,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "Pursuing regular degree courses and not correspondence or distance mode or pursuing Diploma courses"
+      },
+      {
+        "rule_id": "edu_001_r3",
+        "field": "course_level",
+        "operator": "in",
+        "value": [
+          "undergraduate",
+          "postgraduate"
+        ],
+        "applies_if": {
+          "field": "currently_enrolled",
+          "operator": "eq",
+          "value": true
+        },
+        "kind": "hard",
+        "source_excerpt": "Pursuing regular degree courses and not correspondence or distance mode or pursuing Diploma courses"
+      },
+      {
+        "rule_id": "edu_001_r4",
+        "kind": "manual_check",
+        "source_excerpt": "Students who are above 80 th percentile of successful candidates in the relevant stream from the respective Board of Examination in Class XII of 10+2 pattern or equivalent"
+      },
+      {
+        "rule_id": "edu_001_r5",
+        "kind": "manual_check",
+        "source_excerpt": "Pursuing courses at colleges/institutions recognized by All India Council for Technical Education and respective Regulatory Bodies concerned"
+      },
+      {
+        "rule_id": "edu_001_r6",
+        "kind": "manual_check",
+        "source_excerpt": "Not availing benefit of any other scholarship scheme s including State run scholarship schemes/ fee waiver & reimbursement scheme"
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "income_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      }
+    ],
+    "unmapped_conditions": [
+      "For renewal of scholarship in each year of study, besides getting at least 50% marks in the Annual Examination, maintenance of adequate attendance of at least 75%, will also be the criteria."
+    ],
+    "application_url": "https://www.scholarships.gov.in",
+    "application_mode": [
+      "online"
+    ],
+    "source": {
+      "url": "https://scholarships.gov.in/public/schemeGuidelines/Guidelines_DOHE_CSSS.pdf",
+      "title": "PM-USP Central Sector Scheme guidelines, Department of Higher Education",
+      "published": null,
+      "retrieved_on": "2026-10-31",
+      "file": "sources/pm_usp_guidelines.pdf"
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "claude",
+      "verified_on": "2026-10-31"
+    }
+  },
+  {
+    "scheme_id": "edu_002",
+    "name": {
+      "en": "Central Sector Scheme of Top Class Education in College for OBC, EBC and DNT Students"
+    },
+    "level": "central",
+    "state": null,
+    "category": "education",
+    "department": "Ministry of Social Justice and Empowerment",
+    "summary": "Full financial support for OBC, EBC and DNT students pursuing studies beyond class XII in notified institutions.",
+    "benefits": "Full tuition fee and non-refundable charges (ceiling of Rs. 2.00 lakh per annum for private sector institutions), with further support set out in the guidelines.",
+    "rules": [
+      {
+        "rule_id": "edu_002_r1",
+        "field": "annual_family_income",
+        "operator": "lte",
+        "value": 250000,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "Those OBC/EBC/DNT students having total annual family income from all sources up to Rs. 2.50 lakh"
+      },
+      {
+        "rule_id": "edu_002_r2",
+        "field": "social_category",
+        "operator": "in",
+        "value": [
+          "OBC",
+          "EBC",
+          "DNT"
+        ],
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "Those OBC/EBC/DNT students having total annual family income from all sources up to Rs. 2.50 lakh"
+      },
+      {
+        "rule_id": "edu_002_r3",
+        "field": "currently_enrolled",
+        "operator": "eq",
+        "value": true,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "The Scheme will cover OBC/EBC/DNT students for pursuing studies beyond class XIIth."
+      },
+      {
+        "rule_id": "edu_002_r4",
+        "kind": "manual_check",
+        "source_excerpt": "having secured admission in a full -time prescribed course in any of the notified institutions according to the general selection criteria prescribed by the concerned instit ution"
+      },
+      {
+        "rule_id": "edu_002_r5",
+        "kind": "manual_check",
+        "source_excerpt": "The benefit of the Scheme will not be provided to more than 2 siblings in a family."
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "income_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "caste_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      }
+    ],
+    "unmapped_conditions": [
+      "Thirty percent (30%) of slots allotted to the Institution shall be reserved for eligible girl students as per their inter-se merit.",
+      "The students are required to apply for scholarship every year even in case of renewal also."
+    ],
+    "application_url": "https://www.scholarships.gov.in",
+    "application_mode": [
+      "online"
+    ],
+    "source": {
+      "url": "https://scholarships.gov.in/public/schemeGuidelines/ApprovedmodifieddraftofTopClassCollege.pdf",
+      "title": "Top Class Education in College for OBC, EBC and DNT students",
+      "published": null,
+      "retrieved_on": "2026-10-31",
+      "file": "sources/top_class_college_sc.pdf"
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "claude",
+      "verified_on": "2026-10-31"
+    }
+  },
+  {
+    "scheme_id": "edu_003",
+    "name": {
+      "en": "Post Matric Scholarship for Scheduled Tribe Students"
+    },
+    "level": "central",
+    "state": null,
+    "category": "education",
+    "department": "Ministry of Tribal Affairs",
+    "summary": "A Centrally Sponsored Scheme granting scholarship to eligible ST students for higher education from class XI to Post Graduation courses in India.",
+    "benefits": "Fee component and stipend as set out in the guidelines, credited to the student's account.",
+    "rules": [
+      {
+        "rule_id": "edu_003_r1",
+        "field": "social_category",
+        "operator": "eq",
+        "value": "ST",
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "The student should belong to Scheduled Tribe so specified in relation to the State/Union Territory to which he/she actually belongs (Domicile State)."
+      },
+      {
+        "rule_id": "edu_003_r2",
+        "field": "annual_family_income",
+        "operator": "lte",
+        "value": 250000,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "The family income of student from all sources should not exceed Rs.2.50 lakh per annum."
+      },
+      {
+        "rule_id": "edu_003_r3",
+        "field": "currently_enrolled",
+        "operator": "eq",
+        "value": true,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "pursuing higher education starting from class XI to Post Graduation courses in India"
+      },
+      {
+        "rule_id": "edu_003_r4",
+        "field": "course_level",
+        "operator": "in",
+        "value": [
+          "post_matric",
+          "undergraduate",
+          "postgraduate"
+        ],
+        "applies_if": {
+          "field": "currently_enrolled",
+          "operator": "eq",
+          "value": true
+        },
+        "kind": "hard",
+        "source_excerpt": "pursuing higher education starting from class XI to Post Graduation courses in India"
+      },
+      {
+        "rule_id": "edu_003_r5",
+        "kind": "manual_check",
+        "source_excerpt": "The student should not be getting any other scholarship."
+      },
+      {
+        "rule_id": "edu_003_r6",
+        "kind": "manual_check",
+        "source_excerpt": "The student should have a valid account in a Schedule Bank linked with Aadhar and Mobile number."
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "aadhaar_card",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "marksheet_previous",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "caste_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "income_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "disability_certificate",
+        "requirement": "mandatory",
+        "applies_if": {
+          "field": "has_disability",
+          "operator": "eq",
+          "value": true
+        }
+      },
+      {
+        "document_id": "passport_photo",
+        "requirement": "mandatory",
+        "applies_if": null
+      }
+    ],
+    "unmapped_conditions": [
+      "The states/UTs have option to opt for National Scholarship Portal for inviting such applications, if State/UT does not have own portal.",
+      "Domicile certificate"
+    ],
+    "application_url": "https://www.scholarships.gov.in",
+    "application_mode": [
+      "online"
+    ],
+    "source": {
+      "url": "https://scholarships.gov.in/public/schemeGuidelines/meghalaya/meghalayaPostMatric.pdf",
+      "title": "Post Matric Scholarship for ST students, Ministry of Tribal Affairs",
+      "published": null,
+      "retrieved_on": "2026-10-31",
+      "file": "sources/post_matric_st.pdf"
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "claude",
+      "verified_on": "2026-10-31"
+    }
+  },
+  {
+    "scheme_id": "edu_004",
+    "name": {
+      "en": "PM YASASVI Pre-Matric Scholarship for OBC, EBC and DNT Students"
+    },
+    "level": "central",
+    "state": null,
+    "category": "education",
+    "department": "Ministry of Social Justice and Empowerment",
+    "summary": "A consolidated academic allowance for OBC, EBC and DNT students studying in class IX and X in Government Schools.",
+    "benefits": "A consolidated academic allowance of Rs. 4000 per annum.",
+    "rules": [
+      {
+        "rule_id": "edu_004_r1",
+        "field": "annual_family_income",
+        "operator": "lte",
+        "value": 250000,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "Scholarship award will be sanctioned in the case of students whose parents/guardians income from all sources does not exceed Rs.2,50,000/- per annum."
+      },
+      {
+        "rule_id": "edu_004_r2",
+        "field": "social_category",
+        "operator": "in",
+        "value": [
+          "OBC",
+          "EBC",
+          "DNT"
+        ],
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "They should belong to either of OBC, EBC and DNT (who are not covered under SC, ST or OBC) categories through valid certificate."
+      },
+      {
+        "rule_id": "edu_004_r3",
+        "field": "currently_enrolled",
+        "operator": "eq",
+        "value": true,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "The students should be studying in class IX and X on a full-time basis in Government Schools only."
+      },
+      {
+        "rule_id": "edu_004_r4",
+        "field": "course_level",
+        "operator": "eq",
+        "value": "pre_matric",
+        "applies_if": {
+          "field": "currently_enrolled",
+          "operator": "eq",
+          "value": true
+        },
+        "kind": "hard",
+        "source_excerpt": "The students should be studying in class IX and X on a full-time basis in Government Schools only."
+      },
+      {
+        "rule_id": "edu_004_r5",
+        "kind": "manual_check",
+        "source_excerpt": "The students should be studying in class IX and X on a full-time basis in Government Schools only."
+      },
+      {
+        "rule_id": "edu_004_r6",
+        "kind": "manual_check",
+        "source_excerpt": "A scholarship holder under this scheme will not hold any other educational scholarship for the purpose of studying in class IX and X."
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "income_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "caste_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      }
+    ],
+    "unmapped_conditions": [
+      "The National Scholarship Portal (NSP) would be suitably modified for this purpose."
+    ],
+    "application_url": "https://www.scholarships.gov.in",
+    "application_mode": [
+      "online"
+    ],
+    "source": {
+      "url": "https://socialjustice.gov.in/public/ckeditor/upload/65661651839791.pdf",
+      "title": "PM YASASVI umbrella scheme guidelines, Ministry of Social Justice and Empowerment",
+      "published": null,
+      "retrieved_on": "2026-10-31",
+      "file": "sources/pm_yasasvi_guidelines.pdf"
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "claude",
+      "verified_on": "2026-10-31"
+    }
+  },
+  {
+    "scheme_id": "edu_005",
+    "name": {
+      "en": "PM YASASVI Post-Matric Scholarship for OBC, EBC and DNT Students"
+    },
+    "level": "central",
+    "state": null,
+    "category": "education",
+    "department": "Ministry of Social Justice and Empowerment",
+    "summary": "Financial assistance to OBC, EBC and DNT students at the post-matriculation or post-secondary stage to enable them to complete their education.",
+    "benefits": "Academic allowance and tuition fee at the rates set out in the guidelines.",
+    "rules": [
+      {
+        "rule_id": "edu_005_r1",
+        "field": "annual_family_income",
+        "operator": "lte",
+        "value": 250000,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "All the OBC/EBC/DNT students with annual income of up to Rs 2.50 lakh per annum would be eligible under the scheme."
+      },
+      {
+        "rule_id": "edu_005_r2",
+        "field": "social_category",
+        "operator": "in",
+        "value": [
+          "OBC",
+          "EBC",
+          "DNT"
+        ],
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "The scholarships will be open to Indian nationals belonging to OBCs, EBCs and DNTs, as notified by the Central Govt./State Govt./ UT Admin."
+      },
+      {
+        "rule_id": "edu_005_r3",
+        "field": "currently_enrolled",
+        "operator": "eq",
+        "value": true,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "These scholarships will be given for the study of all recognized post-matriculation or post-secondary courses"
+      },
+      {
+        "rule_id": "edu_005_r4",
+        "field": "course_level",
+        "operator": "in",
+        "value": [
+          "post_matric",
+          "undergraduate",
+          "postgraduate"
+        ],
+        "applies_if": {
+          "field": "currently_enrolled",
+          "operator": "eq",
+          "value": true
+        },
+        "kind": "hard",
+        "source_excerpt": "These scholarships will be given for the study of all recognized post-matriculation or post-secondary courses"
+      },
+      {
+        "rule_id": "edu_005_r5",
+        "kind": "manual_check",
+        "source_excerpt": "Only those candidates who belong to OBCs/EBCs/DNTs so specified in relation to the State/UT to which the applicant actually belongs"
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "income_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "caste_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      }
+    ],
+    "unmapped_conditions": [
+      "Candidates who, after passing one stage o f education, are studying in the same stage of education in different subject e.g. B.Sc. after B.A or B.Com.after B.A. or M.A. in a subject after M.A in another subject will not be eligible.",
+      "Students studying in XI Class of the Higher Secondary School courses or the XII class of the Multipurpose High School will not be eligible for it being a continuous school course.",
+      "The National Scholarship Portal (NSP) would be suitably modified for this purpose."
+    ],
+    "application_url": "https://www.scholarships.gov.in",
+    "application_mode": [
+      "online"
+    ],
+    "source": {
+      "url": "https://socialjustice.gov.in/public/ckeditor/upload/65661651839791.pdf",
+      "title": "PM YASASVI umbrella scheme guidelines, Ministry of Social Justice and Empowerment",
+      "published": null,
+      "retrieved_on": "2026-10-31",
+      "file": "sources/pm_yasasvi_guidelines.pdf"
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "claude",
+      "verified_on": "2026-10-31"
+    }
+  },
+  {
+    "scheme_id": "edu_006",
+    "name": {
+      "en": "Central Sector Scheme of Top Class Education in Schools for OBC, EBC and DNT Students"
+    },
+    "level": "central",
+    "state": null,
+    "category": "education",
+    "department": "Ministry of Social Justice and Empowerment",
+    "summary": "Premium education for meritorious OBC, EBC and DNT students by funding their education from Class 9 onwards till they complete Class 12.",
+    "benefits": "Tuition fee, hostel fee and other charges, up to Rs. 75,000 per annum for class 9 and 10 and Rs. 1,25,000 per annum for class 11 and 12.",
+    "rules": [
+      {
+        "rule_id": "edu_006_r1",
+        "field": "annual_family_income",
+        "operator": "lt",
+        "value": 250000,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "with household annual income of less than Rs. 2.5 lakhs would be eligible for the scheme."
+      },
+      {
+        "rule_id": "edu_006_r2",
+        "field": "social_category",
+        "operator": "in",
+        "value": [
+          "OBC",
+          "EBC",
+          "DNT"
+        ],
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "All the OBC, EBC and DNT students studying in the Top Class Schools identified as per the modalities of the scheme"
+      },
+      {
+        "rule_id": "edu_006_r3",
+        "field": "currently_enrolled",
+        "operator": "eq",
+        "value": true,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "All the OBC, EBC and DNT students studying in the Top Class Schools identified as per the modalities of the scheme"
+      },
+      {
+        "rule_id": "edu_006_r4",
+        "field": "course_level",
+        "operator": "in",
+        "value": [
+          "pre_matric",
+          "post_matric"
+        ],
+        "applies_if": {
+          "field": "currently_enrolled",
+          "operator": "eq",
+          "value": true
+        },
+        "kind": "hard",
+        "source_excerpt": "by funding their education from Class 9 onwards till they complete Class 12."
+      },
+      {
+        "rule_id": "edu_006_r5",
+        "kind": "manual_check",
+        "source_excerpt": "All the OBC, EBC and DNT students studying in the Top Class Schools identified as per the modalities of the scheme"
+      },
+      {
+        "rule_id": "edu_006_r6",
+        "kind": "manual_check",
+        "source_excerpt": "The students must have a Bank Account"
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "income_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "caste_certificate",
+        "requirement": "mandatory",
+        "applies_if": null
+      },
+      {
+        "document_id": "bank_passbook",
+        "requirement": "mandatory",
+        "applies_if": null
+      }
+    ],
+    "unmapped_conditions": [
+      "The National Scholarship Portal (NSP) would be suitably modified for this purpose."
+    ],
+    "application_url": "https://www.scholarships.gov.in",
+    "application_mode": [
+      "online"
+    ],
+    "source": {
+      "url": "https://socialjustice.gov.in/public/ckeditor/upload/65661651839791.pdf",
+      "title": "PM YASASVI umbrella scheme guidelines, Ministry of Social Justice and Empowerment",
+      "published": null,
+      "retrieved_on": "2026-10-31",
+      "file": "sources/pm_yasasvi_guidelines.pdf"
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "claude",
+      "verified_on": "2026-10-31"
+    }
+  },
+  {
+    "scheme_id": "soc_001",
+    "name": {
+      "en": "Indira Gandhi National Old Age Pension Scheme (IGNOAPS)"
+    },
+    "level": "central",
+    "state": null,
+    "category": "social_welfare",
+    "department": "Ministry of Rural Development",
+    "summary": "A monthly pension for persons aged 60 or above from households below the poverty line.",
+    "benefits": "Central contribution of Rs. 200 per month up to 79 years and Rs. 500 per month from 80 years. States may add to this.",
+    "rules": [
+      {
+        "rule_id": "soc_001_r1",
+        "field": "age",
+        "operator": "gte",
+        "value": 60,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "The age of the applicant (male or female) should be 60 years or above."
+      },
+      {
+        "rule_id": "soc_001_r2",
+        "field": "holds_bpl_card",
+        "operator": "eq",
+        "value": true,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "The applicant should belong to a household living below the poverty line according to the criteria prescribed by the Govt. of India"
+      }
+    ],
+    "documents": [],
+    "unmapped_conditions": [],
+    "application_url": null,
+    "application_mode": [
+      "offline"
+    ],
+    "source": {
+      "url": "https://www.dord.gov.in/static/uploads/2024/07/1ff5b85d83a44d7b22cda3b40547ed4c.pdf",
+      "title": "NSAP questions and answers, Department of Rural Development",
+      "published": null,
+      "retrieved_on": "2026-10-31",
+      "file": "sources/nsap_faq_dord.pdf"
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "claude",
+      "verified_on": "2026-10-31"
+    }
+  },
+  {
+    "scheme_id": "soc_002",
+    "name": {
+      "en": "Indira Gandhi National Widow Pension Scheme (IGNWPS)"
+    },
+    "level": "central",
+    "state": null,
+    "category": "social_welfare",
+    "department": "Ministry of Rural Development",
+    "summary": "A monthly pension for widows from households below the poverty line.",
+    "benefits": "Central contribution of Rs. 200 per month. States may contribute at least an equal amount.",
+    "rules": [
+      {
+        "rule_id": "soc_002_r1",
+        "field": "marital_status",
+        "operator": "eq",
+        "value": "widowed",
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "The applicant must be a widow in the age group of 40-59 years."
+      },
+      {
+        "rule_id": "soc_002_r2",
+        "field": "gender",
+        "operator": "eq",
+        "value": "female",
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "The applicant must be a widow in the age group of 40-59 years."
+      },
+      {
+        "rule_id": "soc_002_r3",
+        "field": "age",
+        "operator": "gte",
+        "value": 40,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "The applicant must be a widow in the age group of 40-59 years."
+      },
+      {
+        "rule_id": "soc_002_r4",
+        "field": "holds_bpl_card",
+        "operator": "eq",
+        "value": true,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "The applicant should belong to a household living below the poverty line according to the criteria prescribed by the Govt. of India"
+      }
+    ],
+    "documents": [],
+    "unmapped_conditions": [
+      "The applicant must be a widow in the age group of 40-59 years."
+    ],
+    "application_url": null,
+    "application_mode": [
+      "offline"
+    ],
+    "source": {
+      "url": "https://www.dord.gov.in/static/uploads/2024/07/1ff5b85d83a44d7b22cda3b40547ed4c.pdf",
+      "title": "NSAP questions and answers, Department of Rural Development",
+      "published": null,
+      "retrieved_on": "2026-10-31",
+      "file": "sources/nsap_faq_dord.pdf"
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "claude",
+      "verified_on": "2026-10-31"
+    }
+  },
+  {
+    "scheme_id": "soc_003",
+    "name": {
+      "en": "Indira Gandhi National Disability Pension Scheme (IGNDPS)"
+    },
+    "level": "central",
+    "state": null,
+    "category": "social_welfare",
+    "department": "Ministry of Rural Development",
+    "summary": "A monthly pension for persons with severe or multiple disabilities from households below the poverty line.",
+    "benefits": "Central contribution of Rs. 200 per month. States may add to this.",
+    "rules": [
+      {
+        "rule_id": "soc_003_r1",
+        "field": "has_disability",
+        "operator": "eq",
+        "value": true,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "The applicant should be a person with severe or multiple disabilities"
+      },
+      {
+        "rule_id": "soc_003_r2",
+        "field": "age",
+        "operator": "gte",
+        "value": 18,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "The applicant must be in the age group of 18-59 years."
+      },
+      {
+        "rule_id": "soc_003_r3",
+        "field": "holds_bpl_card",
+        "operator": "eq",
+        "value": true,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "The applicant should belong to a household living below the poverty line according to the criteria prescribed by the Govt. of India"
+      },
+      {
+        "rule_id": "soc_003_r4",
+        "kind": "manual_check",
+        "source_excerpt": "The applicant should be a person with severe or multiple disabilities"
+      }
+    ],
+    "documents": [],
+    "unmapped_conditions": [
+      "The applicant must be in the age group of 18-59 years."
+    ],
+    "application_url": null,
+    "application_mode": [
+      "offline"
+    ],
+    "source": {
+      "url": "https://www.dord.gov.in/static/uploads/2024/07/1ff5b85d83a44d7b22cda3b40547ed4c.pdf",
+      "title": "NSAP questions and answers, Department of Rural Development",
+      "published": null,
+      "retrieved_on": "2026-10-31",
+      "file": "sources/nsap_faq_dord.pdf"
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "claude",
+      "verified_on": "2026-10-31"
+    }
+  },
+  {
+    "scheme_id": "soc_004",
+    "name": {
+      "en": "National Family Benefit Scheme (NFBS)"
+    },
+    "level": "central",
+    "state": null,
+    "category": "social_welfare",
+    "department": "Ministry of Rural Development",
+    "summary": "A lump sum family benefit for households below the poverty line on the death of the primary breadwinner.",
+    "benefits": "Central assistance of Rs. 10000 in case of death of the primary breadwinner due to natural or accidental causes.",
+    "rules": [
+      {
+        "rule_id": "soc_004_r1",
+        "field": "holds_bpl_card",
+        "operator": "eq",
+        "value": true,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "The bereaved household qualifies as one below the poverty line according to the criteria prescribed by the Government of India."
+      },
+      {
+        "rule_id": "soc_004_r2",
+        "kind": "manual_check",
+        "source_excerpt": "The primary bread winner is to be the member of the household (male and female) whose earnings contribute substantially to the total household income."
+      },
+      {
+        "rule_id": "soc_004_r3",
+        "kind": "manual_check",
+        "source_excerpt": "The death of such a primary breadwinner should have occurred while he or she is more than 18 yrs. of age and less than 65 yrs. of age."
+      }
+    ],
+    "documents": [],
+    "unmapped_conditions": [],
+    "application_url": null,
+    "application_mode": [
+      "offline"
+    ],
+    "source": {
+      "url": "https://www.dord.gov.in/static/uploads/2024/07/1ff5b85d83a44d7b22cda3b40547ed4c.pdf",
+      "title": "NSAP questions and answers, Department of Rural Development",
+      "published": null,
+      "retrieved_on": "2026-10-31",
+      "file": "sources/nsap_faq_dord.pdf"
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "claude",
+      "verified_on": "2026-10-31"
+    }
+  },
+  {
+    "scheme_id": "soc_005",
+    "name": {
+      "en": "Punjab Old Age Pension"
+    },
+    "level": "state",
+    "state": "Punjab",
+    "category": "social_welfare",
+    "department": "Department of Social Security and Women & Child Development, Punjab",
+    "summary": "A monthly pension for women of 58 years and above and men of 65 years and above in Punjab.",
+    "benefits": "Rs. 1500 per month.",
+    "rules": [
+      {
+        "rule_id": "soc_005_r1",
+        "field": "state",
+        "operator": "eq",
+        "value": "Punjab",
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "Department of Social Security And Women & Child Development, Government of Punjab, India"
+      },
+      {
+        "rule_id": "soc_005_r2",
+        "field": "age",
+        "operator": "gte",
+        "value": 58,
+        "applies_if": {
+          "field": "gender",
+          "operator": "eq",
+          "value": "female"
+        },
+        "kind": "hard",
+        "source_excerpt": "pension is granted to women of 58 years of age and above and to men of 65 years of age and above."
+      },
+      {
+        "rule_id": "soc_005_r3",
+        "field": "age",
+        "operator": "gte",
+        "value": 65,
+        "applies_if": {
+          "field": "gender",
+          "operator": "eq",
+          "value": "male"
+        },
+        "kind": "hard",
+        "source_excerpt": "pension is granted to women of 58 years of age and above and to men of 65 years of age and above."
+      },
+      {
+        "rule_id": "soc_005_r4",
+        "field": "annual_family_income",
+        "operator": "lte",
+        "value": 60000,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "Total annual income should not be more than Rs. 60,000/- including business or rental or interest income."
+      },
+      {
+        "rule_id": "soc_005_r5",
+        "kind": "manual_check",
+        "source_excerpt": "pension is granted to women of 58 years of age and above and to men of 65 years of age and above."
+      }
+    ],
+    "documents": [],
+    "unmapped_conditions": [
+      "The applicant having maximum 2.5 acre Nehri/Chahi land or maximum 5 acre barani land ownership or 5 acre land in waterlogged area (including husband & wife) is also eligible for pension as per report of revenue department (Patwari).",
+      "Aadhaar Card or Voter Card or Voter List or matriculation certificate or birth certificate issued by Registrar of Birth and Death Department as the proof regarding age."
+    ],
+    "application_url": null,
+    "application_mode": [
+      "offline"
+    ],
+    "source": {
+      "url": "https://sswcd.punjab.gov.in/en/old-age-pension-0",
+      "title": "Punjab Old Age Pension (second page)",
+      "published": null,
+      "retrieved_on": "2026-10-31",
+      "file": "sources/pb_old_age_pension_0.html"
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "claude",
+      "verified_on": "2026-10-31"
+    }
+  },
+  {
+    "scheme_id": "soc_006",
+    "name": {
+      "en": "Punjab Financial Assistance to Widows and Destitute Women"
+    },
+    "level": "state",
+    "state": "Punjab",
+    "category": "social_welfare",
+    "department": "Department of Social Security and Women & Child Development, Punjab",
+    "summary": "Monthly financial assistance for widows and destitute women below 58 years and unmarried women above 30 years in Punjab.",
+    "benefits": "Rs. 1500 per month.",
+    "rules": [
+      {
+        "rule_id": "soc_006_r1",
+        "field": "state",
+        "operator": "eq",
+        "value": "Punjab",
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "Department of Social Security And Women & Child Development, Government of Punjab, India"
+      },
+      {
+        "rule_id": "soc_006_r2",
+        "field": "gender",
+        "operator": "eq",
+        "value": "female",
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "Financial assistance is granted to Widows/Destitute Women of the age below 58 years and unmarried women above the age of 30 years."
+      },
+      {
+        "rule_id": "soc_006_r3",
+        "field": "age",
+        "operator": "lt",
+        "value": 58,
+        "applies_if": {
+          "field": "marital_status",
+          "operator": "eq",
+          "value": "widowed"
+        },
+        "kind": "hard",
+        "source_excerpt": "Financial assistance is granted to Widows/Destitute Women of the age below 58 years and unmarried women above the age of 30 years."
+      },
+      {
+        "rule_id": "soc_006_r4",
+        "field": "age",
+        "operator": "gt",
+        "value": 30,
+        "applies_if": {
+          "field": "marital_status",
+          "operator": "eq",
+          "value": "unmarried"
+        },
+        "kind": "hard",
+        "source_excerpt": "Financial assistance is granted to Widows/Destitute Women of the age below 58 years and unmarried women above the age of 30 years."
+      },
+      {
+        "rule_id": "soc_006_r5",
+        "field": "annual_family_income",
+        "operator": "lte",
+        "value": 60000,
+        "applies_if": null,
+        "kind": "hard",
+        "source_excerpt": "Total annual income should not be more than Rs. 60,000/- including business or rental or interest income."
+      },
+      {
+        "rule_id": "soc_006_r6",
+        "kind": "manual_check",
+        "source_excerpt": "Financial assistance is granted to Widows/Destitute Women of the age below 58 years and unmarried women above the age of 30 years."
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "self_declaration",
+        "requirement": "mandatory",
+        "applies_if": null
+      }
+    ],
+    "unmapped_conditions": [
+      "Death certificate of Husband & self declaration.",
+      "Aadhaar card or voter card or voter list or matriculation certificate or birth certificate issued by Registrar of Birth and Death Department as the proof regarding age."
+    ],
+    "application_url": null,
+    "application_mode": [
+      "offline"
+    ],
+    "source": {
+      "url": "https://sswcd.punjab.gov.in/en/financial-assistance-to-widows-and-destitute-women-1",
+      "title": "Punjab Financial Assistance to Widows and Destitute Women",
+      "published": null,
+      "retrieved_on": "2026-10-31",
+      "file": "sources/pb_widow_assistance.html"
+    },
+    "verification": {
+      "status": "verified",
+      "verified_by": "claude",
+      "verified_on": "2026-10-31"
+    }
+  }
+]

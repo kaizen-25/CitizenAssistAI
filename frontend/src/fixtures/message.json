@@ -1,0 +1,28 @@
+{
+  "extracted": [
+    {
+      "field_id": "age",
+      "value": 19,
+      "evidence": "I am 19",
+      "explicit": true,
+      "source": "extracted"
+    }
+  ],
+  "clarification": null,
+  "profile": {
+    "state": {
+      "value": "Punjab",
+      "source": "answered",
+      "label": "State",
+      "display": "Punjab"
+    }
+  },
+  "next_question": {
+    "field_id": "age",
+    "question_text": "How old are you?",
+    "answer_type": "integer",
+    "options": [],
+    "schemes_affected": 2,
+    "reason": "Needed to check 2 schemes"
+  }
+}

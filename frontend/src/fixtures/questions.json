@@ -1,0 +1,180 @@
+{
+  "state": {
+    "field_id": "state",
+    "question_text": "Which state do you live in?",
+    "answer_type": "enum",
+    "options": [
+      {
+        "value": "Punjab",
+        "label": "Punjab"
+      },
+      {
+        "value": "Other",
+        "label": "Another state or UT"
+      }
+    ],
+    "schemes_affected": 1,
+    "reason": "Needed to check 1 schemes"
+  },
+  "age": {
+    "field_id": "age",
+    "question_text": "How old are you?",
+    "answer_type": "integer",
+    "options": [],
+    "schemes_affected": 2,
+    "reason": "Needed to check 2 schemes"
+  },
+  "annual_family_income": {
+    "field_id": "annual_family_income",
+    "question_text": "What is your family's total yearly income, approximately?",
+    "answer_type": "number",
+    "options": [
+      {
+        "value": "__declined__",
+        "label": "Prefer not to say"
+      }
+    ],
+    "schemes_affected": 2,
+    "reason": "Needed to check 2 schemes"
+  },
+  "occupation": {
+    "field_id": "occupation",
+    "question_text": "What best describes your work?",
+    "answer_type": "enum",
+    "options": [
+      {
+        "value": "student",
+        "label": "Student"
+      },
+      {
+        "value": "farmer",
+        "label": "Farmer"
+      },
+      {
+        "value": "daily_wage_worker",
+        "label": "Daily-wage worker"
+      },
+      {
+        "value": "self_employed",
+        "label": "Self-employed"
+      },
+      {
+        "value": "salaried",
+        "label": "Salaried"
+      },
+      {
+        "value": "homemaker",
+        "label": "Homemaker"
+      },
+      {
+        "value": "retired",
+        "label": "Retired"
+      },
+      {
+        "value": "unemployed",
+        "label": "Not working"
+      },
+      {
+        "value": "other",
+        "label": "Other"
+      }
+    ],
+    "schemes_affected": 1,
+    "reason": "Needed to check 1 schemes"
+  },
+  "currently_enrolled": {
+    "field_id": "currently_enrolled",
+    "question_text": "Are you currently enrolled in a school or college?",
+    "answer_type": "boolean",
+    "options": [],
+    "schemes_affected": 1,
+    "reason": "Needed to check 1 schemes"
+  },
+  "course_level": {
+    "field_id": "course_level",
+    "question_text": "What level is your current course?",
+    "answer_type": "enum",
+    "options": [
+      {
+        "value": "pre_matric",
+        "label": "Up to class 10"
+      },
+      {
+        "value": "post_matric",
+        "label": "Class 11, 12, ITI or diploma"
+      },
+      {
+        "value": "undergraduate",
+        "label": "Undergraduate"
+      },
+      {
+        "value": "postgraduate",
+        "label": "Postgraduate"
+      }
+    ],
+    "schemes_affected": 1,
+    "reason": "Needed to check 1 schemes"
+  },
+  "holds_bpl_card": {
+    "field_id": "holds_bpl_card",
+    "question_text": "Does your family have a BPL card?",
+    "answer_type": "boolean",
+    "options": [],
+    "schemes_affected": 1,
+    "reason": "Needed to check 1 schemes"
+  },
+  "gender": {
+    "field_id": "gender",
+    "question_text": "What is your gender?",
+    "answer_type": "enum",
+    "options": [
+      {
+        "value": "female",
+        "label": "Female"
+      },
+      {
+        "value": "male",
+        "label": "Male"
+      },
+      {
+        "value": "other",
+        "label": "Other"
+      },
+      {
+        "value": "__declined__",
+        "label": "Prefer not to say"
+      }
+    ],
+    "schemes_affected": 1,
+    "reason": "Needed to check 1 schemes"
+  },
+  "social_category": {
+    "field_id": "social_category",
+    "question_text": "Which social category do you belong to?",
+    "answer_type": "enum",
+    "options": [
+      {
+        "value": "SC",
+        "label": "SC"
+      },
+      {
+        "value": "ST",
+        "label": "ST"
+      },
+      {
+        "value": "OBC",
+        "label": "OBC"
+      },
+      {
+        "value": "General",
+        "label": "General"
+      },
+      {
+        "value": "__declined__",
+        "label": "Prefer not to say"
+      }
+    ],
+    "schemes_affected": 1,
+    "reason": "Needed to check 1 schemes"
+  }
+}

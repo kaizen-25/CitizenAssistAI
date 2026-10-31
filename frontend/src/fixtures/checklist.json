@@ -1,0 +1,40 @@
+{
+  "documents": [
+    {
+      "document_id": "income_certificate",
+      "label": "Income Certificate",
+      "issued_by_hint": "Sewa Kendra / Tehsil",
+      "answer": null
+    },
+    {
+      "document_id": "caste_certificate",
+      "label": "Caste Certificate",
+      "issued_by_hint": null,
+      "answer": null
+    },
+    {
+      "document_id": "passport_photo",
+      "label": "Passport-size Photo",
+      "issued_by_hint": null,
+      "answer": null
+    },
+    {
+      "document_id": "bank_passbook",
+      "label": "Bank Passbook",
+      "issued_by_hint": null,
+      "answer": null
+    },
+    {
+      "document_id": "ration_card",
+      "label": "Ration Card",
+      "issued_by_hint": null,
+      "answer": null
+    },
+    {
+      "document_id": "disability_certificate",
+      "label": "Disability Certificate",
+      "issued_by_hint": null,
+      "answer": null
+    }
+  ]
+}

@@ -11,10 +11,10 @@ Give Claude Code one phase at a time. A single 24-hour mega-prompt produces unve
 - [ ] If data prep is allowed, save official PDFs/pages for about 30 candidate schemes into `sources/` with `manifest.json`. This is the single biggest time-saver.
 - [ ] Pre-install everything on every laptop; venue Wi-Fi will be bad:
   - Node + npm cache, Python 3.11, `pip download` the wheels.
-  - `ollama pull qwen3:4b`
+  - `ollama pull qwen3:8b`
   - For the P2 embeddings path only: the embedding model weights.
-- [ ] Test the Gemini key and check its current free-tier limits.
-- [ ] Confirm which teammate can review Hindi and Punjabi strings.
+- [ ] Gemini is optional. The default is local Ollama, so the demo needs no key and no internet.
+- [ ] Confirm which teammate can review the Hindi strings. Punjabi was cut.
 
 ---
 
@@ -24,9 +24,9 @@ Give Claude Code one phase at a time. A single 24-hour mega-prompt produces unve
 | Backend dev | **Engine + API** | `engine/`, `unlock/`, `api/`, `sessions.py`, all pytest |
 | AI coder 1 (Claude Code session 1) | **Frontend** | All pages, built against fixtures first |
 | AI coder 2 (Claude Code session 2) | **Data tooling + LLM + i18n** | `structure_scheme.py`, `validate_data.py`, `build_chunks.py`, `llm/`, `retrieval/`, translations |
-| Pitch lead | **Truth + story** | Verifies every scheme against its source, hand-labels `profiles.json` and `qa_set.json`, reviews translations, writes slides and the demo script, records the backup video |
+| Pitch lead | **Truth + story** | Keeps every claim in line with `report.md` and SPEC §14, spot-checks scheme records and Hindi strings where time allows, writes slides and the demo script, records the backup video |
 
-The pitch lead is a co-owner of correctness, not idle until hour 20. Human verification is our moat.
+The pitch lead is a co-owner of correctness, not idle until hour 20. Our moat is auditability: every rule shows the official excerpt it came from, and code decides eligibility. Claude verified the records and wrote the evaluation labels, so never call them human-verified or independent.
 
 Run the two Claude Code sessions in **separate git worktrees or branches**. SPEC.md is the contract, so they won't drift. Merge at each gate.
 
@@ -43,11 +43,13 @@ Run the two Claude Code sessions in **separate git worktrees or branches**. SPEC
 | 18 | **G4 Eval** | `report.md` generated |
 | 20 | **G5 Demo-ready** | Packet prints; DEMO_MODE cached; backup video recorded |
 
-If G1 is missed, cut data to 15 schemes and drop Punjabi immediately.
+If G1 is missed, cut data to 15 schemes.
 
 ---
 
 ## D. Phase prompts (copy-paste into Claude Code)
+
+These are the original prompts, kept as written. SPEC §14 overrides them: Punjabi was cut, and Claude verified the records and wrote the evaluation labels.
 
 ### Phase 0 — Scaffold (session 1, plan mode)
 ```
@@ -184,15 +186,20 @@ Implement scripts/run_evaluation.py per SPEC §11 using evaluation/profiles.json
 ## E. 3-minute demo
 | Time | Beat |
 |---|---|
-| 0:00–0:25 | **Problem.** A real-sounding synthetic citizen, e.g. a 19-year-old in Ludhiana whose mother is a daily-wage worker. There are schemes she qualifies for, but the documents and portals are a maze. |
-| 0:25–1:00 | **Intake in Hindi** (typed; voice is a bonus). The system asks only about 3–4 questions and says *why* it asks each one. Show the read-back confirm screen. |
-| 1:00–1:35 | **Results.** Show the three groups. Open one scheme: each rule is green, red or amber with an official excerpt + link. Open one "cannot determine": answer the missing question live, and it moves. |
-| 1:35–2:15 | **Unlock plan.** "Get your income certificate first; it makes you document-ready for 3 schemes. Then the caste certificate: +2." This is the moment to land. |
-| 2:15–2:35 | **Grounded chat.** One answered question with citations, then one trick question → refusal. |
+| 0:00–0:25 | **Problem.** A clearly synthetic citizen: a 19-year-old OBC student in Ludhiana whose mother is a daily-wage worker. There are schemes she may qualify for, but the documents and portals are a maze. |
+| 0:25–1:00 | **Intake in Hindi** (typed). Type `मैं 19 साल की हूँ और परिवार की आय 1.8 लाख रुपये सालाना है` exactly. Age and income are filled in, then the system asks 6 more questions and says *why* it asks each one. Show the read-back confirm screen. |
+| 1:00–1:35 | **Results.** Show the three groups: 3 potentially eligible, 1 cannot determine, 14 not eligible. Open one scheme: each rule is green, red or amber with an official excerpt + link. Open PMMVY, the one "cannot determine", answer its pregnancy question with "no" live, and it moves to not eligible. Say that sensitive questions can be skipped. |
+| 1:35–2:15 | **Unlock plan.** "Three schemes need your income certificate, so get it first; it makes you document-ready for 1. Then the caste certificate: +2, so 3 in all." This is the moment to land. |
+| 2:15–2:35 | **Grounded chat.** Ask `पीएम-यूएसपी छात्रवृत्ति के लिए पारिवारिक आय सीमा क्या है?` for a cited answer, then `What is the last date to apply for the PM-USP scholarship this year?` for a refusal. |
 | 2:35–2:45 | **Packet.** Print preview for the Sewa Kendra helper. |
-| 2:45–3:00 | **Evidence.** Real numbers from report.md: verified schemes, status accuracy, average questions vs form size, refusal rate, languages tested. Then one limitations line. |
+| 2:45–3:00 | **Evidence.** Real numbers from `report.md`: 18 verified schemes, 7.61 questions on average against an 11-field form, 20 of 20 answerable questions answered with no excerpt fallbacks, 9 of 10 refusals correct, English and Hindi tested. Do not lead with the 100% eligibility accuracy. Limitations line: "Claude verified the records and wrote the test labels, so these results are not independent, and the Hindi is machine-translated and unreviewed." |
+
+Before the demo, run `python scripts/warm_demo.py`, then `python scripts/warm_demo.py --replay`. The cache only matches the exact lines above, and it is not in git.
 
 **Answers for judges' likely questions:**
 - *Why not just a chatbot?* Because an LLM can't be trusted to decide eligibility. Ours is auditable, rule by rule.
-- *How do you keep data fresh?* Every record carries a source, a retrieved date and a verifier. The structure tool cuts adding a scheme to minutes.
+- *Who verified the data?* Claude read each official source and verified each record, and code rejects any rule excerpt that isn't word for word in its source. No human has reviewed them, so every result links to the official source and says "may qualify".
+- *How accurate is it?* The engine matched all 117 labels, but Claude wrote the rules and the labels, so that shows consistency, not independent accuracy.
+- *How do you keep data fresh?* Every record carries its source and retrieved date, but nothing re-checks them automatically yet. Some guidelines we use only run to 2025-26, so records need rechecking.
+- *How long does adding a scheme take?* Each one needs careful reading. LLM drafts were unusable, so the records were written from the official text by hand.
 - *Scale?* The schema is state-agnostic; more states means more verified records, not new code.
